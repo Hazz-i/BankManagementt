@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankManagementt.Model.DbContext
+namespace BankManagementt.Controller
 {
-    public class Context
+    internal class TransaksiController
     {
     }
 }
