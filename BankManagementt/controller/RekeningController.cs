@@ -60,5 +60,60 @@ namespace BankManagementt.Controller
                 MessageBox.Show("Data gagal ditambahkan !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             return result;
         }
+        // mengupdate Rekening
+        public int Update(Rekening rekening, int id_nasabah)
+        {
+            int result = 0;
+
+            if (string.IsNullOrEmpty(rekening.nama_nasabah))
+            {
+                MessageBox.Show("Nama tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return 0;
+            }
+            if (string.IsNullOrEmpty(rekening.alamat))
+            {
+                MessageBox.Show("Alamat tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return 0;
+            }
+            if (string.IsNullOrEmpty(rekening.no_telepon.ToString()))
+            {
+                MessageBox.Show("Nomor Telefon tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return 0;
+            }
+
+            // membuat objek context menggunakan blok using
+            using (DbContext context = new DbContext())
+            {
+                _repository = new NasabahRepository(context);
+                result = _repository.Update(nasabah, id_nasabah);
+            }
+
+            if (result > 0)
+            {
+                MessageBox.Show("Data berhasil diupdate !", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("Data gagal diupdate !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            return result;
+        }
+
+        // menghapus Rekening
+        public int Delete(Rekening rekening)
+        {
+            int result = 0;
+
+            var konfirmasi = MessageBox.Show("Apalakah anda yakin untuk menghapus data ini ??", "Peringatan", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (konfirmasi == DialogResult.Yes)
+            {
+                using (DbContext context = new DbContext())
+                {
+                    _repository = new RekeningRepository(context);
+                    result = _repository.Delete(rekening);
+                }
+            }
+
+            return result;
+        }
     }
 }
