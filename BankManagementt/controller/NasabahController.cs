@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BankManagement.Model.Context;
 using BankManagement.Model.Entity;
-using BankManagement.Model.Repository
+using BankManagement.Model.Repository;
 
 namespace BankManagementt.Controller
 {
@@ -18,7 +18,7 @@ namespace BankManagementt.Controller
         private NasabahRepository _repository;
 
         // membuat nasbah 
-        pucblic int createNasbah(Nasabah nasabah)
+        public int createNasbah(Nasabah nasabah)
         {
             int result = 0;
 
@@ -32,7 +32,7 @@ namespace BankManagementt.Controller
                 MessageBox.Show("Alamat tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return 0;
             }
-            if (string.IsNullOrEmpty(nasabah.no_telepon))
+            if (string.IsNullOrEmpty(nasabah.no_telepon.ToString()))
             {
                 MessageBox.Show("Nomor Telefon tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return 0;
@@ -54,7 +54,7 @@ namespace BankManagementt.Controller
         }
 
         // mengupdate nasabah
-        public int Update(Nasabah nasabah)
+        public int Update(Nasabah nasabah, int nasabahId)
         {
             int result = 0;
 
@@ -68,7 +68,7 @@ namespace BankManagementt.Controller
                 MessageBox.Show("Alamat tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return 0;
             }
-            if (string.IsNullOrEmpty(nasabah.no_telepon))
+            if (string.IsNullOrEmpty(nasabah.no_telepon.ToString()))
             {
                 MessageBox.Show("Nomor Telefon tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return 0;
@@ -78,7 +78,7 @@ namespace BankManagementt.Controller
             using (DbContext context = new DbContext())
             {
                 _repository = new NasabahRepository(context);
-                result = _repository.Update(nasabah, id_nasabah);
+                result = _repository.Update(nasabah, nasabahId);
             }
 
             if (result > 0)
@@ -91,7 +91,7 @@ namespace BankManagementt.Controller
         }
 
         // menghapus data nasabah
-        public int Delete(int nasabahId)
+        public int Delete(Nasabah nasabah)
         {
             int result = 0;
 
@@ -101,8 +101,8 @@ namespace BankManagementt.Controller
             {
                 using (DbContext context = new DbContext())
                 {
-                    _repository = new Nasabah(context);
-                    result = _repository.Delete(nasabahId);
+                    _repository = new NasabahRepository(context);
+                    result = _repository.Delete(nasabah);
                 }
             }
 

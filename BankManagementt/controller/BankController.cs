@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using System.Windows.Forms;
 using BankManagement.Model.Context;
 using BankManagement.Model.Entity;
-using BankManagement.Model.Repository
+using BankManagement.Model.Repository;
 
 namespace BankManagementt.Controller
 {
@@ -15,8 +12,22 @@ namespace BankManagementt.Controller
     {
         private BankRepository _repository;
 
+        // membaca nasabah
+        public List<Bank> readBank()
+        {
+            List<Bank> list = new List<Bank>();
+
+            using (DbContext context = new DbContext())
+            {
+                _repository = new BankRepository(context);
+                list = _repository.ReadAll();
+            }
+
+            return list;
+        }
+
         // membuat nasbah 
-        pucblic int createNasbah(Bank bank)
+        public int createNasbah(Bank bank)
         {
             int result = 0;
 
@@ -25,7 +36,7 @@ namespace BankManagementt.Controller
                 MessageBox.Show("Nama tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return 0;
             }
-            if (string.IsNullOrEmpty(bank.no_telepon))
+            if (string.IsNullOrEmpty(bank.no_telepon.ToString()))
             {
                 MessageBox.Show("Nomor Telefon tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return 0;
@@ -61,7 +72,7 @@ namespace BankManagementt.Controller
                 MessageBox.Show("Nama tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return 0;
             }
-            if (string.IsNullOrEmpty(bank.no_telepon))
+            if (string.IsNullOrEmpty(bank.no_telepon.ToString()))
             {
                 MessageBox.Show("Nomor Telefon tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return 0;
@@ -89,7 +100,7 @@ namespace BankManagementt.Controller
         }
 
         // menghapus data nasabah
-        public int Delete(int idBank)
+        public int Delete(Bank bank)
         {
             int result = 0;
 
@@ -99,8 +110,8 @@ namespace BankManagementt.Controller
             {
                 using (DbContext context = new DbContext())
                 {
-                    _repository = new Bank(context);
-                    result = _repository.Delete(idBank);
+                    _repository = new BankRepository(context);
+                    result = _repository.Delete(bank);
                 }
             }
 

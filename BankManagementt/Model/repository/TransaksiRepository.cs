@@ -17,6 +17,7 @@ namespace BankManagement.Model.Repository
         {
             _conn = context.Conn;
         }
+
         //Query Read Semua Transaksi Yang Ada
         public List<Transaksi> ReadAll()
         {

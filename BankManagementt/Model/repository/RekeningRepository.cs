@@ -101,7 +101,7 @@ namespace BankManagement.Model.Repository
             string sql = @"delete from rekening where id_rekening = @id_rekening";
             using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
             {
-                cmd.Parameters.AddWithValue("@id_rekening", rekening.id_rekening);
+                cmd.Parameters.AddWithValue("@id_rekening", rekening.nomor_rekening);
                 try
                 {
                     result = cmd.ExecuteNonQuery();
