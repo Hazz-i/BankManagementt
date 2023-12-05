@@ -91,7 +91,7 @@ namespace BankManagementt.Controller
         }
         //END READ BY EMAIL
         // mengupdate nasabah
-        public int Update(Nasabah nasabah, int nasabahId)
+        public int Update(Nasabah nasabah, int id_nasabah)
         {
             int result = 0;
 
@@ -115,7 +115,7 @@ namespace BankManagementt.Controller
             using (DbContext context = new DbContext())
             {
                 _repository = new NasabahRepository(context);
-                result = _repository.Update(nasabah, nasabahId);
+                result = _repository.Update(nasabah, id_nasabah);
             }
 
             if (result > 0)
