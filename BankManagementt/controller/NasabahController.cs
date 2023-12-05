@@ -78,6 +78,18 @@ namespace BankManagementt.Controller
             return valid;
         }
         //END CONTROLLER UNTUK LOGIN
+        //READ BY EMAIL
+        public List<Nasabah> ReadUserByEmail(string email)
+        {
+            List<Nasabah> list = new List<Nasabah>();
+            using (DbContext context = new DbContext())
+            {
+                _repository = new NasabahRepository(context);
+                list = _repository.ReadUserByEmail(email);
+            }
+            return list;
+        }
+        //END READ BY EMAIL
         // mengupdate nasabah
         public int Update(Nasabah nasabah, int nasabahId)
         {

@@ -136,6 +136,38 @@ namespace BankManagement.Model.Repository
             return valid;
         }
         //END BAGIAN LOGIN VALIDASI
+        //READ BY EMAIL
+        public List<Nasabah> ReadUserByEmail(string email)
+        {
+            List<Nasabah> list = new List<Nasabah>();
+            try
+            {
+                string sql = @"select * from nasabah where email = '" + email + "'";
+                using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
+                {
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Nasabah nasabah = new Nasabah();
+                            nasabah.nama_nasabah = int.Parse(reader["ID_pengguna"].ToString());
+                            nasabah.email = reader["nama_pengguna"].ToString();
+                            nasabah.username = reader["status"].ToString();
+                            nasabah.password = reader["katasandi"].ToString();
+                            nasabah.no_telepon = reader["tanggal_buat"].ToString();
+                            nasabah.alamat = reader["tanggal_buat"].ToString();
+                            list.Add(nasabah);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print("ReadAll Email Eror: {0}", ex.Message);
+            }
+            return list;
+        }
+        //END READ BY EMAIL
         // Query Update Nasabah
         public int Update(Nasabah nasabah, int id_nasabah)
         {
