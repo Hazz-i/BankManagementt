@@ -16,7 +16,19 @@ namespace BankManagementt.Controller
     public class NasabahController
     {
         private NasabahRepository _repository;
+        //Controller untuk DAFTAR AKUN
+        //validasi user nasabah sudah ada atau belum
+        public bool DaftarValidasi(string email)
+        {
+            bool valid = false;
+            using (DbContext context = new DbContext())
+            {
+                _repository = new NasabahRepository(context);
+                valid = _repository.DaftarValidasi(email);
+            }
 
+            return valid;
+        }
         // membuat nasbah 
         public int createNasbah(Nasabah nasabah)
         {
@@ -52,7 +64,20 @@ namespace BankManagementt.Controller
                 MessageBox.Show("Data gagal ditambahkan !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             return result;
         }
+        //END CONTROLLER BUAT DAFTAR AKUN
+        //CONTROLLER UNTUK LOGIN
+        public bool LoginValidasi(string email, string password)
+        {
+            bool valid = false;
+            using (DbContext context = new DbContext())
+            {
+                _repository = new NasabahRepository(context);
+                valid = _repository.LoginValidasi(email, password);
+            }
 
+            return valid;
+        }
+        //END CONTROLLER UNTUK LOGIN
         // mengupdate nasabah
         public int Update(Nasabah nasabah, int nasabahId)
         {
