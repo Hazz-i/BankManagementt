@@ -83,6 +83,41 @@ namespace BankManagement.Model.Repository
             }
             return list;
         }
+        //Query Read Rekening By ComboBox = buat ambil rekening setiap ganti rekening
+        public List<Rekening> ReadRekeningByComboBox(int nomor_rekening)
+        {
+            List<Rekening> list = new List<Rekening>();
+            try
+            {
+                string sql = @"select rekening.nomor_rekening, rekening.id_nasabah, rekening.id_bank, rekening.saldo, rekening.status, nasabah.id_nasabah, nasabah.nama_nasabah, bank.id_bank, bank.nama_bank, bank.alamat from rekening join nasabah on rekening.id_nasabah = nasabah.id_nasabah join bank on rekening.id_bank = bank.id_bank where nomor_rekening = @nomor_rekening";
+                using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
+                {
+                    cmd.Parameters.AddWithValue("@nomor_rekening", nomor_rekening);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Rekening rekening = new Rekening();
+                            rekening.nomor_rekening = int.Parse(reader["nomor_rekening"].ToString());
+                            rekening.id_nasabah = int.Parse(reader["id_nasabah"].ToString());
+                            rekening.nama_nasabah = reader["nama_nasabah"].ToString();
+                            rekening.id_bank = int.Parse(reader["id_bank"].ToString());
+                            rekening.nama_bank = reader["nama_bank"].ToString();
+                            rekening.alamat_bank = reader["alamat"].ToString();
+                            rekening.saldo = reader["saldo"].ToString();
+                            rekening.status = reader["status"].ToString();
+                            list.Add(rekening);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print("ReadAll Eror : {0}", ex.Message);
+            }
+            return list;
+        }
+
         //Query Menambahkan Rekening
         public int Create(Rekening rekening, int id_nasabah)
         {

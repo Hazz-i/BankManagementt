@@ -26,6 +26,18 @@ namespace BankManagementt.Controller
             }
             return list;
         }
+        //Ready Rekening Combobox
+        public List<Rekening> ReadRekeningByComboBox(int nomor_rekening)
+        {
+            List<Rekening> list = new List<Rekening>();
+            using (DbContext context = new DbContext())
+            {
+                _repository = new RekeningRepository(context);
+                list = _repository.ReadRekeningByComboBox(nomor_rekening);
+            }
+            return list;
+        }
+        //create rekening
         public int createRekening(Rekening rekening, int id_nasabah)
         {
             int result = 0;
