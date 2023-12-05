@@ -17,5 +17,6 @@ namespace BankManagement.Model.Entity
         //Simpan sementara untuk Join
         public string nama_nasabah { get; set; }
         public string nama_bank { get;set; }
+        public string alamat_bank { get; set; }
     }
 }

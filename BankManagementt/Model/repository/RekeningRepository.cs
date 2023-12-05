@@ -55,7 +55,7 @@ namespace BankManagement.Model.Repository
             List<Rekening> list = new List<Rekening>();
             try
             {
-                string sql = @"select rekening.nomor_rekening, rekening.id_nasabah, rekening.id_bank, rekening.saldo, rekening.status, nasabah.id_nasabah, nasabah.nama_nasabah, bank.id_bank, bank.nama_bank from rekening join nasabah on rekening.id_nasabah = nasabah.id_nasabah join bank on rekening.id_bank = bank.id_bank where id_nasabah = @id_nasabah";
+                string sql = @"select rekening.nomor_rekening, rekening.id_nasabah, rekening.id_bank, rekening.saldo, rekening.status, nasabah.id_nasabah, nasabah.nama_nasabah, bank.id_bank, bank.nama_bank, bank.alamat from rekening join nasabah on rekening.id_nasabah = nasabah.id_nasabah join bank on rekening.id_bank = bank.id_bank where id_nasabah = @id_nasabah";
                 using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
                 {
                     cmd.Parameters.AddWithValue("@id_nasabah", id_nasabah);
@@ -69,6 +69,7 @@ namespace BankManagement.Model.Repository
                             rekening.nama_nasabah = reader["nama_nasabah"].ToString();
                             rekening.id_bank = int.Parse(reader["id_bank"].ToString());
                             rekening.nama_bank = reader["nama_bank"].ToString();
+                            rekening.alamat_bank = reader["alamat"].ToString();
                             rekening.saldo = reader["saldo"].ToString();
                             rekening.status = reader["status"].ToString();
                             list.Add(rekening);
