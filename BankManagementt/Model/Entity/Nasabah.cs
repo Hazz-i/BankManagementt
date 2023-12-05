@@ -13,6 +13,7 @@ namespace BankManagement.Model.Entity
         public string nama_nasabah { get; set; }
         public string alamat { get; set; }
         public int no_telepon { get; set; }
-        public string Email { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
     }
 }

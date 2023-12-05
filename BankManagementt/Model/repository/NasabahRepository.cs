@@ -34,9 +34,11 @@ namespace BankManagement.Model.Repository
                             Nasabah nasabah = new Nasabah();
                             nasabah.id_nasabah = int.Parse(reader["id_nasabah"].ToString());
                             nasabah.nama_nasabah = reader["nama_nasabah"].ToString();
+                            nasabah.username = reader["username"].ToString();
+                            nasabah.password = reader["password"].ToString();
+                            nasabah.email = reader["email"].ToString();
                             nasabah.alamat = reader["alamat"].ToString();
                             nasabah.no_telepon = int.Parse(reader["no_telepon"].ToString());
-                            nasabah.tgl_lahir = reader["tgl_lahir"].ToString();
                             list.Add(nasabah);
                         }
                     }
@@ -48,17 +50,49 @@ namespace BankManagement.Model.Repository
             }
             return list;
         }
-        //Query Menambahkan Nasabah
+        //BAGIAN DAFTAR AKUN
+        //Validasi akun sudah terbuat atau belum by username
+        public bool DaftarValidasi(string email)
+        {
+            bool valid = false;
+            try
+            {
+                string sql = @"select email, password from nasabah where email = @email";
+                using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
+                {
+                    cmd.Parameters.AddWithValue("@email", email);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            valid = true;
+                        }
+                        else
+                        {
+                            valid = false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print("Get Email and Pass Error: {0}", ex.Message);
+            }
+            return valid;
+        }
+        //Query Menambahkan Nasabah / Add Akun Nasabah
         public int Create(Nasabah nasabah)
         {
             int result = 0;
-            string sql = @"insert into nasabah (nama_nasabah, alamat, no_telepon, tgl_lahir) values (@nama_nasabah, @alamat, @no_telepon, @tgl_lahir)";
+            string sql = @"insert into nasabah (nama_nasabah, alamat, no_telepon, email, username, password) values (@nama_nasabah, @alamat, @no_telepon, @email, @username, @password)";
             using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
             {
                 cmd.Parameters.AddWithValue("@nama_nasabah", nasabah.nama_nasabah);
                 cmd.Parameters.AddWithValue("@alamat", nasabah.alamat);
                 cmd.Parameters.AddWithValue("@no_telepon", nasabah.no_telepon);
-                cmd.Parameters.AddWithValue("@tgl_lahir", nasabah.tgl_lahir);
+                cmd.Parameters.AddWithValue("@email", nasabah.tgl_lahir);
+                cmd.Parameters.AddWithValue("@username", nasabah.username);
+                cmd.Parameters.AddWithValue("@password", nasabah.password);
                 try
                 {
                     result = cmd.ExecuteNonQuery();
@@ -70,17 +104,83 @@ namespace BankManagement.Model.Repository
             }
             return result;
         }
+        //BAGIAN DAFTAR AKUN END
+        //BAGIAN LOGIN VALIDASI
+        public bool LoginValidasi(string email, string password)
+        {
+            bool valid = false;
+            try
+            {
+                string sql = @"select email, password from nasabah where email = @email && password = @password";
+                using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
+                {
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@password", password);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            valid = true;
+                        }
+                        else
+                        {
+                            valid = false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print("Get Email and Pass Error: {0}", ex.Message);
+            }
+            return valid;
+        }
+        //END BAGIAN LOGIN VALIDASI
+        //READ BY EMAIL
+        public List<Nasabah> ReadUserByEmail(string email)
+        {
+            List<Nasabah> list = new List<Nasabah>();
+            try
+            {
+                string sql = @"select * from nasabah where email = '" + email + "'";
+                using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
+                {
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Nasabah nasabah = new Nasabah();
+                            nasabah.nama_nasabah = int.Parse(reader["ID_pengguna"].ToString());
+                            nasabah.email = reader["nama_pengguna"].ToString();
+                            nasabah.username = reader["status"].ToString();
+                            nasabah.password = reader["katasandi"].ToString();
+                            nasabah.no_telepon = reader["tanggal_buat"].ToString();
+                            nasabah.alamat = reader["tanggal_buat"].ToString();
+                            list.Add(nasabah);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print("ReadAll Email Eror: {0}", ex.Message);
+            }
+            return list;
+        }
+        //END READ BY EMAIL
         // Query Update Nasabah
         public int Update(Nasabah nasabah, int id_nasabah)
         {
             int result = 0;
-            string sql = @"update nasabah set nama_nasabah = @nama_nasabah, alamat = @alamat, no_telepon = @no_telepon, tgl_lahir = @tgl_lahir where id_nasabah = @id_nasabah";
+            string sql = @"update nasabah set nama_nasabah = @nama_nasabah, alamat = @alamat, no_telepon = @no_telepon, email = @email, username = @username, password = @password where id_nasabah = @id_nasabah";
             using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
             {
                 cmd.Parameters.AddWithValue("@nama_nasabah", nasabah.nama_nasabah);
                 cmd.Parameters.AddWithValue("@alamat", nasabah.alamat);
                 cmd.Parameters.AddWithValue("@no_telepon", nasabah.no_telepon);
-                cmd.Parameters.AddWithValue("@tgl_lahir", nasabah.tgl_lahir);
+                cmd.Parameters.AddWithValue("@email", nasabah.tgl_lahir);
+                cmd.Parameters.AddWithValue("@username", nasabah.username);
+                cmd.Parameters.AddWithValue("@password", nasabah.password);
                 cmd.Parameters.AddWithValue("@id_nasabah", id_nasabah);
                 try
                 {
