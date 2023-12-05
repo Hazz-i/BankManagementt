@@ -65,39 +65,38 @@ namespace BankManagementt.Controller
         {
             int result = 0;
 
-            if (string.IsNullOrEmpty(rekening.nama_nasabah))
+            if (string.IsNullOrEmpty(rekening.id_bank))
             {
-                MessageBox.Show("Nama tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bank tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return 0;
             }
-            if (string.IsNullOrEmpty(rekening.alamat))
+            if (string.IsNullOrEmpty(rekening.saldo))
             {
-                MessageBox.Show("Alamat tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Saldo tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return 0;
             }
-            if (string.IsNullOrEmpty(rekening.no_telepon.ToString()))
+            if (string.IsNullOrEmpty(rekening.status))
             {
-                MessageBox.Show("Nomor Telefon tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return 0;
+                MessageBox.Show("Status tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // membuat objek context menggunakan blok using
+                using (DbContext context = new DbContext())
+                {
+                    _repository = new RekeningRepository(context);
+                    result = _repository.Update(rekening, id_nasabah);
+                }
+
+                if (result > 0)
+                {
+                    MessageBox.Show("Data berhasil diupdate !", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                    MessageBox.Show("Data gagal diupdate !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return result;
             }
 
-            // membuat objek context menggunakan blok using
-            using (DbContext context = new DbContext())
-            {
-                _repository = new NasabahRepository(context);
-                result = _repository.Update(nasabah, id_nasabah);
-            }
-
-            if (result > 0)
-            {
-                MessageBox.Show("Data berhasil diupdate !", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-                MessageBox.Show("Data gagal diupdate !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            return result;
+            // menghapus Rekening
         }
-
-        // menghapus Rekening
         public int Delete(Rekening rekening)
         {
             int result = 0;
@@ -112,7 +111,6 @@ namespace BankManagementt.Controller
                     result = _repository.Delete(rekening);
                 }
             }
-
             return result;
         }
     }
