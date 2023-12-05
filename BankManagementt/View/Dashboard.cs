@@ -17,5 +17,9 @@ namespace BankManagementt.View
             InitializeComponent();
         }
 
+        private void bunifuIconButton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

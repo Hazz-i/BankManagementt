@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BankManagementt.View
 {
-    public partial class Transction : Form
+    public partial class InputTransaksi : Form
     {
-        public Transction()
+        public InputTransaksi()
         {
             InitializeComponent();
         }

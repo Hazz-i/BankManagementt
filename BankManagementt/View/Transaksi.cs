@@ -16,5 +16,15 @@ namespace BankManagementt.View
         {
             InitializeComponent();
         }
+
+        private void bunifuIconButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuPanel3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

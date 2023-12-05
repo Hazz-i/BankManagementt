@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BankManagement.Model.Context;
 using BankManagement.Model.Entity;
-using BankManagement.Model.Repository
+using BankManagement.Model.Repository;
 
 namespace BankManagementt.Controller
 {
@@ -16,6 +16,6 @@ namespace BankManagementt.Controller
         // memanggil repository
         private TransaksiRepository _repository;
 
-        public 
+        
     }
 }
