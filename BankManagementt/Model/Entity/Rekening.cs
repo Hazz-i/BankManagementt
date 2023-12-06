@@ -11,7 +11,7 @@ namespace BankManagement.Model.Entity
         public int nomor_rekening { get; set; }
         public int id_nasabah { get; set; }
         public int id_bank { get; set; }
-        public string saldo { get; set; }
+        public int saldo { get; set; }
         public string status { get; set; }
 
         //Simpan sementara untuk Join

@@ -34,9 +34,19 @@ namespace BankManagementt.Controller
         {
             int result = 0;
 
+            if (string.IsNullOrEmpty(nasabah.username))
+            {
+                MessageBox.Show("Username tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return 0;
+            }
             if (string.IsNullOrEmpty(nasabah.nama_nasabah))
             {
                 MessageBox.Show("Nama tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return 0;
+            }
+            if (string.IsNullOrEmpty(nasabah.email))
+            {
+                MessageBox.Show("Email tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return 0;
             }
             if (string.IsNullOrEmpty(nasabah.alamat))
@@ -44,11 +54,14 @@ namespace BankManagementt.Controller
                 MessageBox.Show("Alamat tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return 0;
             }
-            if (string.IsNullOrEmpty(nasabah.no_telepon.ToString()))
+
+            if (string.IsNullOrEmpty(nasabah.password))
             {
-                MessageBox.Show("Nomor Telefon tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Password tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return 0;
             }
+
+            MessageBox.Show(nasabah.alamat + " " + nasabah.nama_nasabah + " " + nasabah.username + " " + nasabah.no_telepon.ToString() + " " + nasabah.password);
 
             using (DbContext context = new DbContext())
             {
@@ -82,6 +95,7 @@ namespace BankManagementt.Controller
         public List<Nasabah> ReadUserByEmail(string email)
         {
             List<Nasabah> list = new List<Nasabah>();
+
             using (DbContext context = new DbContext())
             {
                 _repository = new NasabahRepository(context);

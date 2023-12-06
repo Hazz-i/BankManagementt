@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using BankManagement.Model.Context;
 using BankManagement.Model.Entity;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace BankManagement.Model.Repository
@@ -90,7 +91,6 @@ namespace BankManagement.Model.Repository
                 cmd.Parameters.AddWithValue("@nama_nasabah", nasabah.nama_nasabah);
                 cmd.Parameters.AddWithValue("@alamat", nasabah.alamat);
                 cmd.Parameters.AddWithValue("@no_telepon", nasabah.no_telepon);
-                cmd.Parameters.AddWithValue("@email", nasabah.tgl_lahir);
                 cmd.Parameters.AddWithValue("@username", nasabah.username);
                 cmd.Parameters.AddWithValue("@password", nasabah.password);
                 try
@@ -150,12 +150,13 @@ namespace BankManagement.Model.Repository
                         while (reader.Read())
                         {
                             Nasabah nasabah = new Nasabah();
-                            nasabah.nama_nasabah = int.Parse(reader["ID_pengguna"].ToString());
-                            nasabah.email = reader["nama_pengguna"].ToString();
-                            nasabah.username = reader["status"].ToString();
-                            nasabah.password = reader["katasandi"].ToString();
-                            nasabah.no_telepon = reader["tanggal_buat"].ToString();
-                            nasabah.alamat = reader["tanggal_buat"].ToString();
+                            nasabah.id_nasabah= int.Parse(reader["id_nasabah"].ToString());
+                            nasabah.nama_nasabah = reader["nama_nasabah"].ToString();
+                            nasabah.email = reader["email"].ToString();
+                            nasabah.username = reader["username"].ToString();
+                            nasabah.password = reader["password"].ToString();
+                            nasabah.no_telepon = int.Parse(reader["no_telepon"].ToString());
+                            nasabah.alamat = reader["alamat"].ToString();
                             list.Add(nasabah);
                         }
                     }
@@ -178,7 +179,6 @@ namespace BankManagement.Model.Repository
                 cmd.Parameters.AddWithValue("@nama_nasabah", nasabah.nama_nasabah);
                 cmd.Parameters.AddWithValue("@alamat", nasabah.alamat);
                 cmd.Parameters.AddWithValue("@no_telepon", nasabah.no_telepon);
-                cmd.Parameters.AddWithValue("@email", nasabah.tgl_lahir);
                 cmd.Parameters.AddWithValue("@username", nasabah.username);
                 cmd.Parameters.AddWithValue("@password", nasabah.password);
                 cmd.Parameters.AddWithValue("@id_nasabah", id_nasabah);
@@ -212,5 +212,6 @@ namespace BankManagement.Model.Repository
             }
             return result;
         }
+
     }
 }

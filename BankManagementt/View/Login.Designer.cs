@@ -45,11 +45,11 @@
             this.btnSignIn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.linkSignUp = new System.Windows.Forms.LinkLabel();
             this.bunifuGradientPanel2 = new Bunifu.UI.WinForms.BunifuGradientPanel();
-            this.bunifuLabel8 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.lblUser = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.lblUser = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel8 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuFormCaptionButton1 = new Bunifu.UI.WinForms.BunifuFormCaptionButton();
             this.bunifuGradientPanel1 = new Bunifu.UI.WinForms.BunifuGradientPanel();
             this.bunifuGradientPanel2.SuspendLayout();
@@ -311,6 +311,7 @@
             this.btnSignIn.TextMarginLeft = 0;
             this.btnSignIn.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnSignIn.UseDefaultRadiusAndThickness = true;
+            this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
             // 
             // linkSignUp
             // 
@@ -322,6 +323,7 @@
             this.linkSignUp.TabIndex = 16;
             this.linkSignUp.TabStop = true;
             this.linkSignUp.Text = "Sign Up";
+            this.linkSignUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSignUp_LinkClicked);
             // 
             // bunifuGradientPanel2
             // 
@@ -342,26 +344,57 @@
             this.bunifuGradientPanel2.GradientBottomRight = System.Drawing.Color.White;
             this.bunifuGradientPanel2.GradientTopLeft = System.Drawing.Color.White;
             this.bunifuGradientPanel2.GradientTopRight = System.Drawing.Color.Moccasin;
-            this.bunifuGradientPanel2.Location = new System.Drawing.Point(669, 0);
+            this.bunifuGradientPanel2.Location = new System.Drawing.Point(666, 0);
             this.bunifuGradientPanel2.Name = "bunifuGradientPanel2";
             this.bunifuGradientPanel2.Quality = 10;
-            this.bunifuGradientPanel2.Size = new System.Drawing.Size(667, 684);
+            this.bunifuGradientPanel2.Size = new System.Drawing.Size(670, 684);
             this.bunifuGradientPanel2.TabIndex = 1;
             // 
-            // bunifuLabel8
+            // bunifuLabel3
             // 
-            this.bunifuLabel8.AllowParentOverrides = false;
-            this.bunifuLabel8.AutoEllipsis = false;
-            this.bunifuLabel8.CursorType = null;
-            this.bunifuLabel8.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel8.Location = new System.Drawing.Point(82, 180);
-            this.bunifuLabel8.Name = "bunifuLabel8";
-            this.bunifuLabel8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel8.Size = new System.Drawing.Size(96, 39);
-            this.bunifuLabel8.TabIndex = 8;
-            this.bunifuLabel8.Text = "Log In";
-            this.bunifuLabel8.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel8.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.bunifuLabel3.AllowParentOverrides = false;
+            this.bunifuLabel3.AutoEllipsis = false;
+            this.bunifuLabel3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel3.CursorType = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel3.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.bunifuLabel3.Location = new System.Drawing.Point(82, 553);
+            this.bunifuLabel3.Name = "bunifuLabel3";
+            this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel3.Size = new System.Drawing.Size(129, 17);
+            this.bunifuLabel3.TabIndex = 15;
+            this.bunifuLabel3.Text = "Don\'t have account ? ";
+            this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel3.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuLabel2
+            // 
+            this.bunifuLabel2.AllowParentOverrides = false;
+            this.bunifuLabel2.AutoEllipsis = false;
+            this.bunifuLabel2.CursorType = null;
+            this.bunifuLabel2.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel2.Location = new System.Drawing.Point(82, 400);
+            this.bunifuLabel2.Name = "bunifuLabel2";
+            this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel2.Size = new System.Drawing.Size(90, 23);
+            this.bunifuLabel2.TabIndex = 12;
+            this.bunifuLabel2.Text = "Password";
+            this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel2.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuLabel1
+            // 
+            this.bunifuLabel1.AllowParentOverrides = false;
+            this.bunifuLabel1.AutoEllipsis = false;
+            this.bunifuLabel1.CursorType = null;
+            this.bunifuLabel1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel1.Location = new System.Drawing.Point(82, 307);
+            this.bunifuLabel1.Name = "bunifuLabel1";
+            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel1.Size = new System.Drawing.Size(52, 23);
+            this.bunifuLabel1.TabIndex = 10;
+            this.bunifuLabel1.Text = "Email";
+            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // lblUser
             // 
@@ -379,51 +412,20 @@
             this.lblUser.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lblUser.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // bunifuLabel1
+            // bunifuLabel8
             // 
-            this.bunifuLabel1.AllowParentOverrides = false;
-            this.bunifuLabel1.AutoEllipsis = false;
-            this.bunifuLabel1.CursorType = null;
-            this.bunifuLabel1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel1.Location = new System.Drawing.Point(82, 307);
-            this.bunifuLabel1.Name = "bunifuLabel1";
-            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(52, 23);
-            this.bunifuLabel1.TabIndex = 10;
-            this.bunifuLabel1.Text = "Email";
-            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuLabel2
-            // 
-            this.bunifuLabel2.AllowParentOverrides = false;
-            this.bunifuLabel2.AutoEllipsis = false;
-            this.bunifuLabel2.CursorType = null;
-            this.bunifuLabel2.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel2.Location = new System.Drawing.Point(82, 400);
-            this.bunifuLabel2.Name = "bunifuLabel2";
-            this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel2.Size = new System.Drawing.Size(90, 23);
-            this.bunifuLabel2.TabIndex = 12;
-            this.bunifuLabel2.Text = "Password";
-            this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel2.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuLabel3
-            // 
-            this.bunifuLabel3.AllowParentOverrides = false;
-            this.bunifuLabel3.AutoEllipsis = false;
-            this.bunifuLabel3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel3.CursorType = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel3.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.bunifuLabel3.Location = new System.Drawing.Point(82, 553);
-            this.bunifuLabel3.Name = "bunifuLabel3";
-            this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel3.Size = new System.Drawing.Size(129, 17);
-            this.bunifuLabel3.TabIndex = 15;
-            this.bunifuLabel3.Text = "Don\'t have account ? ";
-            this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel3.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.bunifuLabel8.AllowParentOverrides = false;
+            this.bunifuLabel8.AutoEllipsis = false;
+            this.bunifuLabel8.CursorType = null;
+            this.bunifuLabel8.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel8.Location = new System.Drawing.Point(82, 180);
+            this.bunifuLabel8.Name = "bunifuLabel8";
+            this.bunifuLabel8.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel8.Size = new System.Drawing.Size(96, 39);
+            this.bunifuLabel8.TabIndex = 8;
+            this.bunifuLabel8.Text = "Log In";
+            this.bunifuLabel8.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel8.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // bunifuFormCaptionButton1
             // 
@@ -466,6 +468,7 @@
             this.bunifuFormCaptionButton1.ShowBorders = true;
             this.bunifuFormCaptionButton1.Size = new System.Drawing.Size(58, 42);
             this.bunifuFormCaptionButton1.TabIndex = 2;
+            this.bunifuFormCaptionButton1.Click += new System.EventHandler(this.bunifuFormCaptionButton1_Click);
             // 
             // bunifuGradientPanel1
             // 
@@ -495,6 +498,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);
             this.bunifuGradientPanel2.ResumeLayout(false);
             this.bunifuGradientPanel2.PerformLayout();
             this.bunifuGradientPanel1.ResumeLayout(false);
