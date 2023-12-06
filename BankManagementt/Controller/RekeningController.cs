@@ -122,5 +122,23 @@ namespace BankManagementt.Controller
             }
             return result;
         }
+        //controller untuk tambah saldo
+        public int AddSaldo(int saldo_now, int nomor_rekening)
+        {
+            int result = 0;
+            using (DbContext context = new DbContext())
+            {
+                _repository = new RekeningRepository(context);
+                result = _repository.AddSaldo(saldo_now, nomor_rekening);
+            }
+
+            if (result > 0)
+            {
+                MessageBox.Show("Saldo berhasil diupdate !!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("Saldo gagal diupdate !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            return result;
+        }
     }
 }

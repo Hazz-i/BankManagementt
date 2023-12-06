@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using BankManagement.Model.Context;
 using BankManagement.Model.Entity;
+using BankManagementt.View;
 using MySql.Data.MySqlClient;
 
 namespace BankManagement.Model.Repository
@@ -144,14 +145,14 @@ namespace BankManagement.Model.Repository
         public int Update(Rekening rekening, int id_rekening)
         {
             int result = 0;
-            string sql = @"update rekening set id_nasabah = @id_nasabah, id_bank = @id_bank, saldo = @saldo, status = @status where id_rekening = @id_rekening";
+            string sql = @"update rekening set id_nasabah = @id_nasabah, id_bank = @id_bank, saldo = @saldo, status = @status where nomor_rekening = @nomor_rekening";
             using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
             {
                 cmd.Parameters.AddWithValue("@id_nasabah", rekening.id_nasabah);
                 cmd.Parameters.AddWithValue("@id_bank", rekening.id_bank);
                 cmd.Parameters.AddWithValue("@saldo", rekening.saldo);
                 cmd.Parameters.AddWithValue("@status", rekening.status);
-                cmd.Parameters.AddWithValue("@id_rekening", id_rekening);
+                cmd.Parameters.AddWithValue("@nomor_rekening", id_rekening);
                 try
                 {
                     result = cmd.ExecuteNonQuery();
@@ -167,10 +168,10 @@ namespace BankManagement.Model.Repository
         public int Delete(Rekening rekening)
         {
             int result = 0;
-            string sql = @"delete from rekening where id_rekening = @id_rekening";
+            string sql = @"delete from rekening where nomor_rekening = @nomor_rekening";
             using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
             {
-                cmd.Parameters.AddWithValue("@id_rekening", rekening.nomor_rekening);
+                cmd.Parameters.AddWithValue("@nomor_rekening", rekening.nomor_rekening);
                 try
                 {
                     result = cmd.ExecuteNonQuery();
@@ -182,5 +183,26 @@ namespace BankManagement.Model.Repository
             }
             return result;
         }
+        //Menambah Saldo
+        public int AddSaldo(int saldo_now, int nomor_rekening)
+        {
+            int result = 0;
+            string sql = @"update rekening set saldo = @saldo_now where nomor_rekening = @nomor_rekening";
+            using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
+            {
+                cmd.Parameters.AddWithValue("@saldo_now", saldo_now);
+                cmd.Parameters.AddWithValue("@nomor_rekening", nomor_rekening);
+                try
+                {
+                    result = cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.Print("Update error: {0}", ex.Message);
+                }
+            }
+            return result;
+        }
+
     }
 }
