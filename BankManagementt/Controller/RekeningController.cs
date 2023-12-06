@@ -48,12 +48,6 @@ namespace BankManagementt.Controller
                 MessageBox.Show("Nomor tidak boleh tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return 0;
             }
-            if (string.IsNullOrEmpty(rekening.saldo.ToString()))
-            {
-                MessageBox.Show("Saldo tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return 0;
-            }
-
 
             using (DbContext context = new DbContext())
             {
