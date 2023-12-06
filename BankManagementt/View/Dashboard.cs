@@ -19,11 +19,14 @@ namespace BankManagementt.View
         public static string username;
         public static string alamat;
         public static string nama;
+        public static int nomor_rekening;
         public int iDnasbah;
+
         public Dashboard()
         {
             InitializeComponent();
             userList = new List<Nasabah>();
+            rekeningList = new List<Rekening>();
             _controller = new NasabahController();
             _rekeningController = new RekeningController();
 
@@ -55,7 +58,7 @@ namespace BankManagementt.View
 
             foreach (var rekening in rekeningList)
             {
-                drpRekening.Items.Add(rekening.nomor_rekening.ToString()+"\t("+ rekening.nama_bank.ToString() + ")");
+                drpRekening.Items.Add(rekening.nomor_rekening.ToString());
             }
         }
 
@@ -63,6 +66,10 @@ namespace BankManagementt.View
         private void OnCreateEventHandler(Rekening rekening)
         {
             comboBoxRekening();
+        }
+        private void OnCreateEventHandlerSaldo(Rekening rekening)
+        {
+            lblSaldo.Text = rekening.saldo.ToString();
         }
 
         private void bunifuIconButton1_Click(object sender, EventArgs e)
@@ -88,7 +95,11 @@ namespace BankManagementt.View
             }
             else
             {
-                lblSaldo.Text = drpRekening.SelectedItem.ToString();
+                nomor_rekening = int.Parse(drpRekening.SelectedItem.ToString());
+
+                AddSaldo add = new AddSaldo("Tambah Saldo", _rekeningController);
+                add.insertSaldo += OnCreateEventHandlerSaldo;
+                add.ShowDialog();
             }
         }
 
@@ -105,6 +116,22 @@ namespace BankManagementt.View
             this.Visible = false;
             this.Close();
             profile.ShowDialog();
+        }
+
+        private void txtSaldo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void drpRekening_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rekeningList = _rekeningController.readRekeningComboBox(int.Parse(drpRekening.SelectedItem.ToString()));
+
+            foreach (var item in rekeningList)
+            {
+                txtNamaRekening.Text = item.nama_bank.ToString();
+                lblSaldo.Text = item.saldo.ToString();
+            }
         }
     }
 }

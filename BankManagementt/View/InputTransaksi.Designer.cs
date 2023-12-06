@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // Transction
+            // InputTransaksi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 684);
+            this.ClientSize = new System.Drawing.Size(561, 684);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Transction";
+            this.Name = "InputTransaksi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transction";
             this.ResumeLayout(false);

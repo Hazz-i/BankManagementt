@@ -28,6 +28,19 @@ namespace BankManagementt.Controller
             return list;
         }
 
+        //Read Rekening By Id Nasabah
+        public List<Rekening> readRekeningComboBox(int nomorRekening)
+        {
+            List<Rekening> list = new List<Rekening>();
+            using (DbContext context = new DbContext())
+            {
+                _repository = new RekeningRepository(context);
+                list = _repository.ReadRekeningByComboBox(nomorRekening);
+            }
+
+            return list;
+        }
+
         //membuat rekening
         public int createRekening(Rekening rekening, int id_nasabah)
         {
@@ -48,12 +61,6 @@ namespace BankManagementt.Controller
                 MessageBox.Show("Nomor tidak boleh tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return 0;
             }
-            if (string.IsNullOrEmpty(rekening.saldo.ToString()))
-            {
-                MessageBox.Show("Saldo tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return 0;
-            }
-
 
             using (DbContext context = new DbContext())
             {
@@ -70,40 +77,33 @@ namespace BankManagementt.Controller
             return result;
         }
         // mengupdate Rekening
-/*        public int UpdateRekening(Rekening rekening, int id_nasabah)
+        public int UpdateRekening(Rekening rekening, int id_nasabah)
         {
             int result = 0;
 
-            if (string.IsNullOrEmpty(rekening.id_bank.ToString()))
-            {
-                MessageBox.Show("Bank tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return 0;
-            }
-            if (string.IsNullOrEmpty(rekening.saldo))
+            if (string.IsNullOrEmpty(rekening.saldo.ToString()))
             {
                 MessageBox.Show("Saldo tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return 0;
             }
-            if (string.IsNullOrEmpty(rekening.status))
+
+            // membuat objek context menggunakan blok using
+            using (DbContext context = new DbContext())
             {
-                MessageBox.Show("Status tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                // membuat objek context menggunakan blok using
-                using (DbContext context = new DbContext())
-                {
-                    _repository = new RekeningRepository(context);
-                    result = _repository.Update(rekening, id_nasabah);
-                }
-
-                if (result > 0)
-                {
-                    MessageBox.Show("Data berhasil diupdate !", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                    MessageBox.Show("Data gagal diupdate !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return result;
+                _repository = new RekeningRepository(context);
+                result = _repository.Update(rekening, id_nasabah);
             }
-        }*/
+
+            if (result > 0)
+            {
+                MessageBox.Show("Data berhasil diupdate !", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("Data gagal diupdate !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            return result;
+
+        }
 
         // menghapus Rekening
         public int Delete(Rekening rekening)
