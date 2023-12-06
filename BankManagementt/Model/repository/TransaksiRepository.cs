@@ -78,6 +78,26 @@ namespace BankManagement.Model.Repository
             }
             return result;
         }
+        // Query Update Saldo Asal
+        public int UpdateSaldo(int saldo_update, int nomor_rekening)
+        {
+            int result = 0;
+            string sql = @"update rekening set saldo = @saldo_update where nomor_rekening = @nomor_rekening";
+            using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
+            {
+                cmd.Parameters.AddWithValue("@saldo_update", saldo_update);
+                cmd.Parameters.AddWithValue("@nomor_rekening", nomor_rekening);
+                try
+                {
+                    result = cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.Print("Create error: {0}", ex.Message);
+                }
+            }
+            return result;
+        }
         // Query Update Transaksi
         public int Update(Transaksi transaksi, int id_transaksi)
         {
