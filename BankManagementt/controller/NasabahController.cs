@@ -142,7 +142,7 @@ namespace BankManagementt.Controller
         }
 
         // menghapus data nasabah
-        public int Delete(Nasabah nasabah)
+        public int Delete(int nasabahId)
         {
             int result = 0;
 
@@ -153,8 +153,17 @@ namespace BankManagementt.Controller
                 using (DbContext context = new DbContext())
                 {
                     _repository = new NasabahRepository(context);
-                    result = _repository.Delete(nasabah);
+                    result = _repository.Delete(nasabahId);
                 }
+            }
+
+            if(result > 0)
+            {
+                MessageBox.Show("Akun berhasil di hapus", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Akun gagal di hapus", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             return result;

@@ -18,9 +18,8 @@ namespace BankManagementt.View
         public static string name;
         public static string username;
         public static string alamat;
+        public static string nama;
         public int iDnasbah;
-
-
         public Dashboard()
         {
             InitializeComponent();
@@ -75,9 +74,9 @@ namespace BankManagementt.View
         private void lblTransaction_Click(object sender, EventArgs e)
         {
             Transaksi transaksi = new Transaksi();
-            transaksi.ShowDialog();
             this.Visible = false;
             this.Dispose();
+            transaksi.ShowDialog();
         }
 
         // tambah saldo
@@ -89,7 +88,7 @@ namespace BankManagementt.View
             }
             else
             {
-
+                lblSaldo.Text = drpRekening.SelectedItem.ToString();
             }
         }
 
@@ -103,10 +102,9 @@ namespace BankManagementt.View
         private void btnProfile_Click(object sender, EventArgs e)
         {
             Profile profile = new Profile();
-            profile.ShowDialog();
-
             this.Visible = false;
             this.Close();
+            profile.ShowDialog();
         }
     }
 }

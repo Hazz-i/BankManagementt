@@ -336,6 +336,9 @@
     <EmbeddedResource Include="View\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Profile.resx">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\SignUpd.resx">
       <DependentUpon>SignUpd.cs</DependentUpon>
     </EmbeddedResource>

@@ -196,6 +196,7 @@
             this.bunifuIconButton2.Size = new System.Drawing.Size(40, 40);
             this.bunifuIconButton2.Style = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ButtonStyles.Round;
             this.bunifuIconButton2.TabIndex = 2;
+            this.bunifuIconButton2.Click += new System.EventHandler(this.bunifuIconButton2_Click);
             // 
             // bunifuGradientPanel1
             // 

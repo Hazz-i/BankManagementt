@@ -194,13 +194,13 @@ namespace BankManagement.Model.Repository
             return result;
         }
         // Query Delete Nasabah
-        public int Delete(Nasabah nasabah)
+        public int Delete(int nasabahId)
         {
             int result = 0;
             string sql = @"delete from nasabah where id_nasabah = @id_nasabah";
             using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
             {
-                cmd.Parameters.AddWithValue("@id_nasabah", nasabah.id_nasabah);
+                cmd.Parameters.AddWithValue("@id_nasabah", nasabahId);
                 try
                 {
                     result = cmd.ExecuteNonQuery();

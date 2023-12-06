@@ -67,7 +67,6 @@ namespace BankManagementt.View
             rekening.id_bank = int.Parse(drpBank.SelectedItem.ToString());
             rekening.status = drpStatus.SelectedItem.ToString();
             rekening.nomor_rekening = int.Parse(txtNomorRekening.Text);
-            rekening.saldo = int.Parse(txtSaldo.Text);
 
             int result = 0;
             if (isNewData)

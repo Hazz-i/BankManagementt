@@ -122,13 +122,12 @@ namespace BankManagement.Model.Repository
         public int Create(Rekening rekening, int id_nasabah)
         {
             int result = 0;
-            string sql = @"insert into rekening (id_nasabah, id_bank, saldo, status, nomor_rekening) values (@id_nasabah, @id_bank, @saldo, @status, @nomor_rekening)";
+            string sql = @"insert into rekening (id_nasabah, id_bank, status, nomor_rekening) values (@id_nasabah, @id_bank, @status, @nomor_rekening)";
             using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
             {
                 cmd.Parameters.AddWithValue("@id_nasabah", id_nasabah);
                 cmd.Parameters.AddWithValue("@nomor_rekening", rekening.nomor_rekening);
                 cmd.Parameters.AddWithValue("@id_bank", rekening.id_bank);
-                cmd.Parameters.AddWithValue("@saldo", rekening.saldo);
                 cmd.Parameters.AddWithValue("@status", rekening.status);
                 try
                 {
