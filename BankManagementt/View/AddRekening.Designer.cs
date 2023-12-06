@@ -45,6 +45,7 @@
             this.txtNomorRekening = new Bunifu.UI.WinForms.BunifuTextBox();
             this.btnCancel = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblBalance
@@ -53,7 +54,7 @@
             this.lblBalance.AutoEllipsis = false;
             this.lblBalance.CursorType = null;
             this.lblBalance.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
-            this.lblBalance.Location = new System.Drawing.Point(126, 41);
+            this.lblBalance.Location = new System.Drawing.Point(110, 54);
             this.lblBalance.Name = "lblBalance";
             this.lblBalance.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblBalance.Size = new System.Drawing.Size(220, 32);
@@ -345,7 +346,7 @@
             this.txtNomorRekening.Padding = new System.Windows.Forms.Padding(3);
             this.txtNomorRekening.PasswordChar = '\0';
             this.txtNomorRekening.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtNomorRekening.PlaceholderText = "Enter your password";
+            this.txtNomorRekening.PlaceholderText = "Enter your rekening";
             this.txtNomorRekening.ReadOnly = false;
             this.txtNomorRekening.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtNomorRekening.SelectedText = "";
@@ -359,7 +360,7 @@
             this.txtNomorRekening.TextMarginBottom = 0;
             this.txtNomorRekening.TextMarginLeft = 3;
             this.txtNomorRekening.TextMarginTop = 1;
-            this.txtNomorRekening.TextPlaceholder = "Enter your password";
+            this.txtNomorRekening.TextPlaceholder = "Enter your rekening";
             this.txtNomorRekening.UseSystemPasswordChar = false;
             this.txtNomorRekening.WordWrap = true;
             // 
@@ -410,7 +411,7 @@
             this.btnCancel.IdleIconLeftImage = null;
             this.btnCancel.IdleIconRightImage = null;
             this.btnCancel.IndicateFocus = false;
-            this.btnCancel.Location = new System.Drawing.Point(87, 396);
+            this.btnCancel.Location = new System.Drawing.Point(86, 396);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnCancel.OnDisabledState.BorderRadius = 20;
@@ -455,12 +456,17 @@
             // 
             // bunifuPanel1
             // 
-            this.bunifuPanel1.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel1.BackgroundColor = System.Drawing.Color.White;
             this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
             this.bunifuPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuPanel1.BorderColor = System.Drawing.Color.Black;
             this.bunifuPanel1.BorderRadius = 3;
             this.bunifuPanel1.BorderThickness = 1;
+            this.bunifuPanel1.Controls.Add(this.btnCancel);
+            this.bunifuPanel1.Controls.Add(this.bunifuLabel2);
+            this.bunifuPanel1.Controls.Add(this.bunifuLabel1);
+            this.bunifuPanel1.Controls.Add(this.lblBalance);
+            this.bunifuPanel1.Controls.Add(this.bunifuLabel4);
             this.bunifuPanel1.Location = new System.Drawing.Point(0, 0);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
@@ -472,13 +478,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(454, 470);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtNomorRekening);
-            this.Controls.Add(this.bunifuLabel2);
             this.Controls.Add(this.drpStatus);
-            this.Controls.Add(this.bunifuLabel1);
-            this.Controls.Add(this.bunifuLabel4);
-            this.Controls.Add(this.lblBalance);
             this.Controls.Add(this.drpBank);
             this.Controls.Add(this.btnCreateRekening);
             this.Controls.Add(this.bunifuPanel1);
@@ -486,8 +487,9 @@
             this.Name = "AddRekening";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddRekening";
+            this.bunifuPanel1.ResumeLayout(false);
+            this.bunifuPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

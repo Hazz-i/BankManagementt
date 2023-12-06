@@ -280,6 +280,12 @@
     <Compile Include="View\AddRekening.Designer.cs">
       <DependentUpon>AddRekening.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\AddSaldo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AddSaldo.Designer.cs">
+      <DependentUpon>AddSaldo.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -329,6 +335,9 @@
     </Compile>
     <EmbeddedResource Include="View\AddRekening.resx">
       <DependentUpon>AddRekening.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AddSaldo.resx">
+      <DependentUpon>AddSaldo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

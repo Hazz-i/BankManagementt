@@ -19,8 +19,6 @@ namespace BankManagementt.View
         private List<Bank> bankList;
         bool isNewData = true;
 
-        public int nasabahId = int.Parse(Dashboard.nasabahId);
-
         // event 
         public event HandleAddRekening createRekening;
 
@@ -71,7 +69,7 @@ namespace BankManagementt.View
             int result = 0;
             if (isNewData)
             {
-                result = _rekeningController.createRekening(rekening, nasabahId);
+                result = _rekeningController.createRekening(rekening, int.Parse(Dashboard.nasabahId));
 
                 if (result > 0)
                 {
