@@ -41,7 +41,7 @@ namespace BankManagementt.Controller
                 return 0;
             }
 
-            MessageBox.Show(transaksi.jumlah+" "+transaksi.nomor_rekening + " " + transaksi.asal_bank + " " + transaksi.tgl_transaksi + " " + transaksi.tujuan_bank + " " + transaksi.jenis_transaksi);
+            /*MessageBox.Show(transaksi.jumlah+" "+transaksi.nomor_rekening + " " + transaksi.asal_bank + " " + transaksi.tgl_transaksi + " " + transaksi.tujuan_bank + " " + transaksi.jenis_transaksi);*/
 
             using (DbContext context = new DbContext())
             {

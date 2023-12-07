@@ -23,6 +23,7 @@ namespace BankManagementt.View
             InitializeComponent();
             _controller = new NasabahController();
             login = new List<Nasabah>();
+            txtPassword.UseSystemPasswordChar = true;
 
         }
 
@@ -91,17 +92,9 @@ namespace BankManagementt.View
 
         }
 
-        private void checkPass_CheckedChanged(object sender, EventArgs e)
+        private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-            if (checkPass.Checked)
-            {
-                txtPassword.UseSystemPasswordChar = true;
 
-            }
-            else
-            {
-                txtPassword.UseSystemPasswordChar = false;
-            }
         }
     }
 }

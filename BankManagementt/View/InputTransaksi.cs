@@ -16,11 +16,14 @@ namespace BankManagementt.View
 
         private TransaksiEntity transaksi;
         private TransaksiController _controller;
+        private BankController _bankController;
         private RekeningController _rekeningController;
         private List<Rekening> rekeningList;
         private List<TransaksiEntity> transaksiList;
+        private List<Bank> bankList;
 
         bool isNewData = true;
+        public static int amount;
 
         //event 
         public event addTransaksi onCreate;
@@ -30,6 +33,7 @@ namespace BankManagementt.View
         {
             _controller = new TransaksiController();
             _rekeningController = new RekeningController();
+            _bankController = new BankController();
             InitializeComponent();
 
 
@@ -47,6 +51,17 @@ namespace BankManagementt.View
                 txtNumber.Text = item.nomor_rekening.ToString();
             }
 
+        }
+
+        public void comboBoxRekening()
+        {
+            drpJnisBank.Items.Clear();
+            bankList = _bankController.readBank();
+
+            foreach (var bank in bankList)
+            {
+                drpJnisBank.Items.Add(bank.nama_bank.ToString());
+            }
         }
 
         public InputTransaksi(string title, TransaksiController controller)
@@ -89,7 +104,7 @@ namespace BankManagementt.View
             transaksi.nomor_rekening = int.Parse(txtNumber.Text);
             transaksi.asal_bank = txtFromBank.Text;
             transaksi.tgl_transaksi = datenow;
-            transaksi.tujuan_bank = txtToBank.Text;
+            transaksi.tujuan_bank = drpJnisBank.SelectedItem.ToString();
             transaksi.jenis_transaksi = txtCategory.Text;
 
             if (Dashboard.balance >= int.Parse(txtAmount.Text))
@@ -103,22 +118,7 @@ namespace BankManagementt.View
 
                     if (result > 0)
                     {
-                        // Memperbarui saldo dalam listRekening
-                        foreach (var item in rekeningList)
-                        {
-                            if (item.nomor_rekening == int.Parse(txtNumber.Text))
-                            {
-                                // Menambahkan saldo baru ke saldo yang ada pada rekening yang sesuai
-                                item.saldo -= int.Parse(txtAmount.Text);
-
-                                // Memperbarui saldo di database dengan memanggil metode UpdateSaldo dari TransaksiController
-                                TransaksiController transaksiController = new TransaksiController();
-                                transaksiController.UpdateSaldo(item.saldo, item.nomor_rekening);
-
-                                return; // Keluar dari method setelah proses selesai
-                            }
-                        }
-
+                        amount = int.Parse(txtAmount.Text);
                         onCreate(transaksi);
                         this.Close();
                     }

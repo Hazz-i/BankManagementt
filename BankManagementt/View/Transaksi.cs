@@ -71,6 +71,15 @@ namespace BankManagementt.View
         private void OnCreateEventHandler(TransaksiEntity transaksi)
         {
             LoadDataTransaksi();
+
+            // Assuming 'transaksi.jumlah' represents the transaction amount
+            // Reduce the balance label value by the transaction amount
+            int transactionAmount = InputTransaksi.amount;
+            int currentBalance = int.Parse(lblSaldo.Text);
+            int updatedBalance = currentBalance - transactionAmount;
+
+            // Update the balance label with the new value
+            lblSaldo.Text = updatedBalance.ToString();
         }
         private void bunifuIconButton1_Click(object sender, EventArgs e)
         {

@@ -230,19 +230,6 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="txtToBank.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAL8AAAAnCAYAAABe35koAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGVSURBVHhe7d0/TgJBFIDxKSk9gqWlJ7H2CDaexcQzeAVb
-        YP8hPYVUEJMlBjcbsybrBjdkfQ9fYggnYN73S6aAXbpvFoZiJgAwk8nktiiKcZZl1XQ6HRiMcx7asfT8
-        Il3fWeKn5OKF3rRYLJqqqoau6wbg3GnHdV0Py+WyzfP8VTq/tOT/afjb7dY+AsSnaZpBOn+TCTCy7ENI
-        0/ReZsaX3QNEa7VadTIBHi39v6e+fjUAsWvbVtcBG0s/hCRJvvu+t8tA3HQhbOmHoC8AL4gfbhE/3CJ+
-        uEX8cIv44Rbxwy3ih1vED7eIH24RP9wifrhF/HCL+OEW8cMt4odbxA+3iB9uET/cIn64Rfxwi/jhFvHD
-        LeKHW8QPt47iT5Kk3+/3dgmI21H8unWz7mALxG632w1pmjaW/iH+h/V6zWadiJ5uw18UxbOlfziYYiQT
-        4J0DKRAz/Wk/m80+Tw6okDeuZUZ8lGX5w47NiIlGr6cNzefzWh7yN5b8MZkAejTRk25ZrosCBiOGoX/o
-        SNdj6fvKUgc8C+EXAIRHA3C8yOMAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="bunifuLabel5.BaseStylesheet" xml:space="preserve">
     <value>#bunifu-label { padding: 0px; font-family: 'Century Gothic'; font-size: 10pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: rgb(0, 0, 0); text-align: left; }</value>
   </data>
