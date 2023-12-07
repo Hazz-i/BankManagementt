@@ -123,13 +123,14 @@ namespace BankManagementt.Controller
             return result;
         }
         //controller untuk tambah saldo
-        public int AddSaldo(int saldo_now, int nomor_rekening)
+        public int AddSaldo(int saldo_now, int nomor_rekening, int id_nasabah, int jumlah_saldo_add, int id_bank)
         {
             int result = 0;
             using (DbContext context = new DbContext())
             {
                 _repository = new RekeningRepository(context);
                 result = _repository.AddSaldo(saldo_now, nomor_rekening);
+               _repository.CreateTranksasiFromAddSaldo(nomor_rekening, id_nasabah, jumlah_saldo_add, id_bank);
             }
 
             if (result > 0)

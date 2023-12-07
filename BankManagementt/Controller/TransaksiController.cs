@@ -138,5 +138,17 @@ namespace BankManagementt.Controller
 
             return list;
         }
+        //Controller Ambil Income dari Transaksi by Nomor Rekening
+        public List<TransaksiEntity> readAllforIncome(int nomer_rekening)
+        {
+            List<TransaksiEntity> list = new List<TransaksiEntity>();
+            using (DbContext context = new DbContext())
+            {
+                _repository = new TransaksiRepository(context);
+                list = _repository.readAllforIncome(nomer_rekening);
+            }
+
+            return list;
+        }
     }
 }
