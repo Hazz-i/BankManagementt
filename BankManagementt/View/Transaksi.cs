@@ -49,7 +49,7 @@ namespace BankManagementt.View
         private void LoadDataTransaksi()
         {
             lvwTransaction.Items.Clear();
-            transaksiList = _transaksiController.readAll();
+            transaksiList = _transaksiController.readByNasabahId(Dashboard.nomorBank);
 
             foreach (var trs in transaksiList)
             {
@@ -109,6 +109,35 @@ namespace BankManagementt.View
             InputTransaksi add = new InputTransaksi("Tambah Saldo", _transaksiController);
             add.onCreate += OnCreateEventHandler;
             add.ShowDialog();
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (lvwTransaction.SelectedItems.Count > 0)
+            {
+
+                // ambil objek mhs yang mau dihapus dari collection
+                TransaksiEntity rek = transaksiList[lvwTransaction.SelectedIndices[0]];
+
+                int result = _transaksiController.Delete(rek);
+
+
+                if (result > 0) LoadDataTransaksi();
+            }
+            else // data belum dipilih
+            {
+                MessageBox.Show("Data belum dipilih !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void lblRp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSaldo_Click(object sender, EventArgs e)
+        {
 
         }
     }

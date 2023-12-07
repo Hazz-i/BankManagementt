@@ -90,5 +90,18 @@ namespace BankManagementt.View
         {
 
         }
+
+        private void checkPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkPass.Checked)
+            {
+                txtPassword.UseSystemPasswordChar = true;
+
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = false;
+            }
+        }
     }
 }

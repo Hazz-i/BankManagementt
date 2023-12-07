@@ -670,7 +670,7 @@
             // 
             this.linkSignIn.AutoSize = true;
             this.linkSignIn.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkSignIn.Location = new System.Drawing.Point(213, 630);
+            this.linkSignIn.Location = new System.Drawing.Point(209, 620);
             this.linkSignIn.Name = "linkSignIn";
             this.linkSignIn.Size = new System.Drawing.Size(46, 17);
             this.linkSignIn.TabIndex = 16;
@@ -685,7 +685,7 @@
             this.bunifuLabel3.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel3.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel3.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.bunifuLabel3.Location = new System.Drawing.Point(82, 630);
+            this.bunifuLabel3.Location = new System.Drawing.Point(78, 620);
             this.bunifuLabel3.Name = "bunifuLabel3";
             this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel3.Size = new System.Drawing.Size(129, 17);

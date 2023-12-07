@@ -24,6 +24,7 @@ namespace BankManagementt.View
 
         //event 
         public event addTransaksi onCreate;
+        public event addTransaksi onUpdate;
 
         public InputTransaksi()
         {
@@ -83,50 +84,100 @@ namespace BankManagementt.View
         private void btnCancel_Click(object sender, EventArgs e)
         {
             if (isNewData) transaksi = new TransaksiEntity();
+            string strFormat = "yyyy-MM-dd H:m:s";
+            string datenow = DateTime.Now.ToString(strFormat);
             transaksi.nomor_rekening = int.Parse(txtNumber.Text);
             transaksi.asal_bank = txtFromBank.Text;
-            transaksi.tgl_transaksi = dte.Value.ToString();
+            transaksi.tgl_transaksi = datenow;
             transaksi.tujuan_bank = txtToBank.Text;
-            transaksi.jumlah = int.Parse(txtAmount.Text);
             transaksi.jenis_transaksi = txtCategory.Text;
 
-            int result = 0;
-            if (isNewData)
+            if (Dashboard.balance >= int.Parse(txtAmount.Text))
             {
-                result = _controller.createTransaksi(transaksi, int.Parse(Dashboard.nasabahId));
+                transaksi.jumlah = int.Parse(txtAmount.Text);
 
-                if (result > 0)
+                int result = 0;
+                if (isNewData)
                 {
-                    // Memperbarui saldo dalam listRekening
-                    foreach (var item in rekeningList)
+                    result = _controller.createTransaksi(transaksi, int.Parse(Dashboard.nasabahId));
+
+                    if (result > 0)
                     {
-                        if (item.nomor_rekening == int.Parse(txtNumber.Text))
+                        // Memperbarui saldo dalam listRekening
+                        foreach (var item in rekeningList)
                         {
-                            // Menambahkan saldo baru ke saldo yang ada pada rekening yang sesuai
-                            item.saldo -= int.Parse(txtAmount.Text);
+                            if (item.nomor_rekening == int.Parse(txtNumber.Text))
+                            {
+                                // Menambahkan saldo baru ke saldo yang ada pada rekening yang sesuai
+                                item.saldo -= int.Parse(txtAmount.Text);
 
-                            // Memperbarui saldo di database dengan memanggil metode UpdateSaldo dari TransaksiController
-                            TransaksiController transaksiController = new TransaksiController();
-                            transaksiController.UpdateSaldo(item.saldo, item.nomor_rekening);
+                                // Memperbarui saldo di database dengan memanggil metode UpdateSaldo dari TransaksiController
+                                TransaksiController transaksiController = new TransaksiController();
+                                transaksiController.UpdateSaldo(item.saldo, item.nomor_rekening);
 
-                            return; // Keluar dari method setelah proses selesai
+                                return; // Keluar dari method setelah proses selesai
+                            }
                         }
-                    }
 
-                    onCreate(transaksi);
-                    this.Close();
+                        onCreate(transaksi);
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    result = _controller.updateTransaksi(transaksi, Dashboard.nomorBank);
+                    
+                    if (result > 0)
+                    {
+                        if(transaksi.jumlah > Dashboard.balance)
+                        {
+                            // Memperbarui saldo dalam listRekening
+                            foreach (var item in rekeningList)
+                            {
+                                if (item.nomor_rekening == int.Parse(txtNumber.Text))
+                                {
+                                    // Menambahkan saldo baru ke saldo yang ada pada rekening yang sesuai
+                                    item.saldo += int.Parse(txtAmount.Text);
+
+                                    // Memperbarui saldo di database dengan memanggil metode UpdateSaldo dari TransaksiController
+                                    TransaksiController transaksiController = new TransaksiController();
+                                    transaksiController.UpdateSaldo(item.saldo, item.nomor_rekening);
+
+                                    return; // Keluar dari method setelah proses selesai
+                                }
+                            }
+                        }else
+                        {
+                            // Memperbarui saldo dalam listRekening
+                            foreach (var item in rekeningList)
+                            {
+                                if (item.nomor_rekening == int.Parse(txtNumber.Text))
+                                {
+                                    // Menambahkan saldo baru ke saldo yang ada pada rekening yang sesuai
+                                    item.saldo -= int.Parse(txtAmount.Text);
+
+                                    // Memperbarui saldo di database dengan memanggil metode UpdateSaldo dari TransaksiController
+                                    TransaksiController transaksiController = new TransaksiController();
+                                    transaksiController.UpdateSaldo(item.saldo, item.nomor_rekening);
+
+                                    return; // Keluar dari method setelah proses selesai
+                                }
+                            }
+                        }
+
+                        onUpdate(transaksi);
+                        this.Close();
+                    }
                 }
             }
             else
             {
-/*              result = _controller.(transaction);
-                transacitonId = transaction.transactionID;
-                if (result > 0)
-                {
-                    OnUpdateData(transaction);
-                    this.Close();
-                }*/
+                MessageBox.Show("Saldo Anda tidak Mencukupi", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAmount.Text = "";
+                txtAmount.Focus();
             }
+
+
         }
 
         private void btnCancel_Click_1(object sender, EventArgs e)

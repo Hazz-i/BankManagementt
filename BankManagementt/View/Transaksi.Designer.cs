@@ -346,6 +346,7 @@
             this.btnDelete.Size = new System.Drawing.Size(35, 35);
             this.btnDelete.Style = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ButtonStyles.Round;
             this.btnDelete.TabIndex = 18;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -449,7 +450,7 @@
             this.btnTransfer.IdleIconLeftImage = null;
             this.btnTransfer.IdleIconRightImage = null;
             this.btnTransfer.IndicateFocus = false;
-            this.btnTransfer.Location = new System.Drawing.Point(113, 181);
+            this.btnTransfer.Location = new System.Drawing.Point(139, 181);
             this.btnTransfer.Name = "btnTransfer";
             this.btnTransfer.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnTransfer.OnDisabledState.BorderRadius = 20;
@@ -544,7 +545,7 @@
             this.lblSaldo.AutoEllipsis = false;
             this.lblSaldo.CursorType = null;
             this.lblSaldo.Font = new System.Drawing.Font("Century Gothic", 20F);
-            this.lblSaldo.Location = new System.Drawing.Point(124, 124);
+            this.lblSaldo.Location = new System.Drawing.Point(139, 129);
             this.lblSaldo.Name = "lblSaldo";
             this.lblSaldo.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblSaldo.Size = new System.Drawing.Size(22, 33);
@@ -552,6 +553,7 @@
             this.lblSaldo.Text = "0;";
             this.lblSaldo.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lblSaldo.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.lblSaldo.Click += new System.EventHandler(this.lblSaldo_Click);
             // 
             // bunifuIconButton1
             // 
@@ -591,7 +593,7 @@
             this.lblRp.AutoEllipsis = false;
             this.lblRp.CursorType = null;
             this.lblRp.Font = new System.Drawing.Font("Century Gothic", 20F);
-            this.lblRp.Location = new System.Drawing.Point(73, 123);
+            this.lblRp.Location = new System.Drawing.Point(88, 128);
             this.lblRp.Name = "lblRp";
             this.lblRp.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblRp.Size = new System.Drawing.Size(39, 33);
@@ -599,6 +601,7 @@
             this.lblRp.Text = "RP.";
             this.lblRp.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lblRp.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.lblRp.Click += new System.EventHandler(this.lblRp_Click);
             // 
             // lblBalance
             // 
@@ -606,7 +609,7 @@
             this.lblBalance.AutoEllipsis = false;
             this.lblBalance.CursorType = null;
             this.lblBalance.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold);
-            this.lblBalance.Location = new System.Drawing.Point(58, 72);
+            this.lblBalance.Location = new System.Drawing.Point(82, 76);
             this.lblBalance.Name = "lblBalance";
             this.lblBalance.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblBalance.Size = new System.Drawing.Size(132, 39);

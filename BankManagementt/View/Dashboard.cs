@@ -119,7 +119,7 @@ namespace BankManagementt.View
         {
             Transaksi transaksi = new Transaksi();
             this.Visible = false;
-            this.Dispose();
+            this.Close();
             transaksi.ShowDialog();
         }
 

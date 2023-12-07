@@ -41,6 +41,7 @@
             Bunifu.UI.WinForms.BunifuFormCaptionButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuFormCaptionButton.BorderEdges();
             this.bunifuLabel14 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuGradientPanel2 = new Bunifu.UI.WinForms.BunifuGradientPanel();
+            this.checkPass = new System.Windows.Forms.CheckBox();
             this.linkSignUp = new System.Windows.Forms.LinkLabel();
             this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
             this.btnSignIn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
@@ -51,9 +52,8 @@
             this.lblUser = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel8 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuGradientPanel1 = new Bunifu.UI.WinForms.BunifuGradientPanel();
-            this.bunifuFormCaptionButton1 = new Bunifu.UI.WinForms.BunifuFormCaptionButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.checkPass = new System.Windows.Forms.CheckBox();
+            this.bunifuFormCaptionButton1 = new Bunifu.UI.WinForms.BunifuFormCaptionButton();
             this.bunifuGradientPanel2.SuspendLayout();
             this.bunifuGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -99,6 +99,18 @@
             this.bunifuGradientPanel2.Quality = 10;
             this.bunifuGradientPanel2.Size = new System.Drawing.Size(670, 684);
             this.bunifuGradientPanel2.TabIndex = 1;
+            // 
+            // checkPass
+            // 
+            this.checkPass.AutoSize = true;
+            this.checkPass.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkPass.Location = new System.Drawing.Point(96, 439);
+            this.checkPass.Name = "checkPass";
+            this.checkPass.Size = new System.Drawing.Size(112, 21);
+            this.checkPass.TabIndex = 17;
+            this.checkPass.Text = "Hide Password";
+            this.checkPass.UseVisualStyleBackColor = true;
+            this.checkPass.CheckedChanged += new System.EventHandler(this.checkPass_CheckedChanged);
             // 
             // linkSignUp
             // 
@@ -449,6 +461,16 @@
             this.bunifuGradientPanel1.Size = new System.Drawing.Size(667, 684);
             this.bunifuGradientPanel1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BankManagementt.Properties.Resources.bank;
+            this.pictureBox1.Location = new System.Drawing.Point(196, 180);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(262, 309);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // bunifuFormCaptionButton1
             // 
             this.bunifuFormCaptionButton1.AllowAnimations = true;
@@ -491,27 +513,6 @@
             this.bunifuFormCaptionButton1.Size = new System.Drawing.Size(58, 42);
             this.bunifuFormCaptionButton1.TabIndex = 2;
             this.bunifuFormCaptionButton1.Click += new System.EventHandler(this.bunifuFormCaptionButton1_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::BankManagementt.Properties.Resources.bank;
-            this.pictureBox1.Location = new System.Drawing.Point(196, 180);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(262, 309);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
-            // checkPass
-            // 
-            this.checkPass.AutoSize = true;
-            this.checkPass.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkPass.Location = new System.Drawing.Point(96, 439);
-            this.checkPass.Name = "checkPass";
-            this.checkPass.Size = new System.Drawing.Size(117, 21);
-            this.checkPass.TabIndex = 17;
-            this.checkPass.Text = "Show Password";
-            this.checkPass.UseVisualStyleBackColor = true;
             // 
             // Login
             // 

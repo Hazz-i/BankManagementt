@@ -29,7 +29,7 @@ namespace BankManagementt.View
 
             foreach(var nasabah in nasabahList)
             {
-                lblUsername.Text = nasabah.username;
+                txtUsername.Text = nasabah.username;
                 txtAddress.Text = nasabah.alamat;
                 txtName.Text = nasabah.nama_nasabah;
                 txtEmail.Text = nasabah.email;
