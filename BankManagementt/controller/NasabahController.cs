@@ -61,8 +61,6 @@ namespace BankManagementt.Controller
                 return 0;
             }
 
-            MessageBox.Show(nasabah.alamat + " " + nasabah.nama_nasabah + " " + nasabah.username + " " + nasabah.no_telepon.ToString() + " " + nasabah.password);
-
             using (DbContext context = new DbContext())
             {
                 _repository = new NasabahRepository(context);

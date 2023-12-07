@@ -19,9 +19,9 @@ namespace BankManagement.Model.Repository
         }
 
         //Query Read Semua Transaksi Yang Ada
-        public List<Transaksi> ReadAll()
+        public List<TransaksiEntity> ReadAll()
         {
-            List<Transaksi> list = new List<Transaksi>();
+            List<TransaksiEntity> list = new List<TransaksiEntity>();
             try
             {
                 string sql = @"select transaksi.id_transaksi, transaksi.nomor_rekening, transaksi.jumlah, transaksi.tgl_transaksi, transaksi.jenis_transaksi, transaksi.asal_bank, transaksi.tujuan_bank, rekening.saldo, nasabah.id_nasabah, nasabah.nama_nasabah, bank.id_bank, bank.nama_bank from transaksi join rekening on transaksi.nomor_rekening = rekening.nomor_rekening join nasabah on rekening.id_nasabah = nasabah.id_nasabah join bank where rekening.id_bank = bank.id_bank";
@@ -31,7 +31,7 @@ namespace BankManagement.Model.Repository
                     {
                         while (reader.Read())
                         {
-                            Transaksi transaksi = new Transaksi();
+                            TransaksiEntity transaksi = new TransaksiEntity();
                             transaksi.id_transaksi = int.Parse(reader["id_transaksi"].ToString());
                             transaksi.nomor_rekening = int.Parse(reader["nomor_rekening"].ToString());
                             transaksi.jumlah = int.Parse(reader["jumlah"].ToString());
@@ -55,12 +55,13 @@ namespace BankManagement.Model.Repository
             return list;
         }
         //Query Menambahkan Transaksi
-        public int Create(Transaksi transaksi)
+        public int Create(TransaksiEntity transaksi, int nasabahId)
         {
             int result = 0;
-            string sql = @"insert into transaksi (nomor_rekening, jumlah, tgl_transaksi, jenis_transaksi, asal_bank, tujuan_bank) values (@nomor_rekening, @jumlah, @tgl_transaksi, @jenis_transaksi, @asal_bank, @tujuan_bank)";
+            string sql = @"insert into transaksi (nomor_rekening, jumlah, tgl_transaksi, jenis_transaksi, asal_bank, tujuan_bank) values (@nomor_rekening, @jumlah, @tgl_transaksi, @jenis_transaksi, @asal_bank, @tujuan_bank) WHERE id_nasbah = @id_nasabah";
             using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
             {
+                cmd.Parameters.AddWithValue("@id_nasabah", nasabahId);
                 cmd.Parameters.AddWithValue("@nomor_rekening", transaksi.nomor_rekening);
                 cmd.Parameters.AddWithValue("@jumlah", transaksi.jumlah);
                 cmd.Parameters.AddWithValue("@tgl_transaksi", transaksi.tgl_transaksi);
@@ -99,7 +100,7 @@ namespace BankManagement.Model.Repository
             return result;
         }
         // Query Update Transaksi
-        public int Update(Transaksi transaksi, int id_transaksi)
+        public int Update(TransaksiEntity transaksi, int id_transaksi)
         {
             int result = 0;
             string sql = @"update transaksi set nomor_rekening = @nomor_rekening, jumlah = @jumlah, tgl_transaksi = @tgl_transaksi, jenis_transaksi = @jenis_transaksi, asal_bank = @asal_bank, tujuan_bank = @tujuan_bank, where id_transaksi = @id_transaksi";
@@ -124,7 +125,7 @@ namespace BankManagement.Model.Repository
             return result;
         }
         // Query Delete Transaksi
-        public int Delete(Transaksi transaksi)
+        public int Delete(TransaksiEntity transaksi)
         {
             int result = 0;
             string sql = @"delete from transaksi where id_transaksi = @id_transaksi";

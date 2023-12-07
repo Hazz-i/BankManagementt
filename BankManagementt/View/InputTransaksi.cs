@@ -30,7 +30,6 @@ namespace BankManagementt.View
             _controller = new TransaksiController();
             _rekeningController = new RekeningController();
             InitializeComponent();
-            MessageBox.Show(Dashboard.nasabahId);
 
 
             txtCategory.ReadOnly = true;
@@ -41,7 +40,6 @@ namespace BankManagementt.View
             dte.Value = DateTime.Now;
 
             rekeningList = _rekeningController.readRekeningComboBox(Dashboard.nomorBank);
-            MessageBox.Show(Dashboard.nomorBank.ToString());
             foreach (var item in rekeningList)
             {
                 txtFromBank.Text = item.nama_bank;
