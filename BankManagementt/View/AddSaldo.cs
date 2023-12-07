@@ -31,7 +31,7 @@ namespace BankManagementt.View
             _controller = new RekeningController();
             InitializeComponent();
 
-            listRekening = _controller.readRekeningComboBox(Dashboard.nomor_rekening);
+            listRekening = _controller.readRekeningComboBox(Dashboard.nomorBank);
             txtBank.Enabled = false;
             txtRekening.Enabled = false;
 
@@ -68,10 +68,29 @@ namespace BankManagementt.View
             rekening.status = status;
             rekening.saldo = int.Parse(txtSaldo.Text);
 
+            // Memperbarui saldo dalam listRekening
+            foreach (var item in listRekening)
+            {
+                if (item.nomor_rekening == int.Parse(txtRekening.Text))
+                {
+                    // Menambahkan saldo baru ke saldo yang ada pada rekening yang sesuai
+                    item.saldo += int.Parse(txtSaldo.Text);
+
+                    // Memperbarui saldo di database dengan memanggil metode UpdateSaldo dari TransaksiController
+                    TransaksiController transaksiController = new TransaksiController();
+                    transaksiController.UpdateSaldo(item.saldo, item.nomor_rekening);
+
+                    // Memanggil event insertSaldo untuk memperbarui tampilan saldo di Dashboard
+                    insertSaldo(rekening);
+                    this.Close();
+                    return; // Keluar dari method setelah proses selesai
+                }
+            }
+
             int result = 0;
             if (isNewData)
             {
-                result = _controller.UpdateRekening(rekening, int.Parse(txtRekening.Text));
+                result = _controller.AddSaldo(int.Parse(txtRekening.Text), int.Parse(txtRekening.Text));
 
                 if (result > 0)
                 {

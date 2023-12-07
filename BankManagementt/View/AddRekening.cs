@@ -17,7 +17,8 @@ namespace BankManagementt.View
         private RekeningController _rekeningController;
         private BankController _bankController;
         private List<Bank> bankList;
-        bool isNewData = true;
+        private bool isNewData = true;
+        private int idbank;
 
         // event 
         public event HandleAddRekening createRekening;
@@ -39,7 +40,7 @@ namespace BankManagementt.View
 
             foreach (var bank in bankList)
             {
-                drpBank.Items.Add(bank.id_bank);
+                drpBank.Items.Add(bank.nama_bank);
             }
         }
 
@@ -62,9 +63,19 @@ namespace BankManagementt.View
         {
             if(isNewData) rekening = new Rekening();
 
-            rekening.id_bank = int.Parse(drpBank.SelectedItem.ToString());
+            string bankName = drpBank.SelectedItem.ToString();
+
+            bankList = _bankController.readIdBank(bankName);
+
+            foreach (var bank in bankList)
+            {
+               idbank = bank.id_bank;
+            }
+
+            rekening.id_bank = idbank;
             rekening.status = drpStatus.SelectedItem.ToString();
             rekening.nomor_rekening = int.Parse(txtNomorRekening.Text);
+            rekening.saldo = int.Parse(txtSaldo.Text);
 
             int result = 0;
             if (isNewData)

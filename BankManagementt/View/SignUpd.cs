@@ -82,5 +82,13 @@ namespace BankManagementt.View
         private void SignUpd_FormClosed(object sender, FormClosedEventArgs e)
         {
         }
+
+        private void linkSignIn_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Login login = new Login();
+            this.Visible= false;
+            this.Close();
+            login.ShowDialog();
+        }
     }
 }

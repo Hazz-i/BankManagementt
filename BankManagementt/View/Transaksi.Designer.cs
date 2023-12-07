@@ -47,8 +47,6 @@
             this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuPanel5 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuPanel4 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.drpRekening = new Bunifu.UI.WinForms.BunifuDropdown();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
             this.btnDelete = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton();
             this.btnEdit = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton();
@@ -209,8 +207,6 @@
             this.bunifuGradientPanel1.BorderRadius = 1;
             this.bunifuGradientPanel1.Controls.Add(this.dte);
             this.bunifuGradientPanel1.Controls.Add(this.bunifuPanel3);
-            this.bunifuGradientPanel1.Controls.Add(this.bunifuLabel4);
-            this.bunifuGradientPanel1.Controls.Add(this.drpRekening);
             this.bunifuGradientPanel1.Controls.Add(this.bunifuPanel2);
             this.bunifuGradientPanel1.Controls.Add(this.btnTransfer);
             this.bunifuGradientPanel1.Controls.Add(this.lblAlamat);
@@ -301,65 +297,6 @@
             this.bunifuPanel4.ShowBorders = true;
             this.bunifuPanel4.Size = new System.Drawing.Size(200, 100);
             this.bunifuPanel4.TabIndex = 0;
-            // 
-            // bunifuLabel4
-            // 
-            this.bunifuLabel4.AllowParentOverrides = false;
-            this.bunifuLabel4.AutoEllipsis = false;
-            this.bunifuLabel4.CursorType = null;
-            this.bunifuLabel4.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel4.Location = new System.Drawing.Point(412, 85);
-            this.bunifuLabel4.Name = "bunifuLabel4";
-            this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel4.Size = new System.Drawing.Size(61, 16);
-            this.bunifuLabel4.TabIndex = 21;
-            this.bunifuLabel4.Text = "Rekening";
-            this.bunifuLabel4.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel4.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // drpRekening
-            // 
-            this.drpRekening.BackColor = System.Drawing.Color.Transparent;
-            this.drpRekening.BackgroundColor = System.Drawing.Color.White;
-            this.drpRekening.BorderColor = System.Drawing.Color.Silver;
-            this.drpRekening.BorderRadius = 5;
-            this.drpRekening.Color = System.Drawing.Color.Silver;
-            this.drpRekening.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
-            this.drpRekening.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.drpRekening.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.drpRekening.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.drpRekening.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.drpRekening.DisabledIndicatorColor = System.Drawing.Color.DarkGray;
-            this.drpRekening.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.drpRekening.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
-            this.drpRekening.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.drpRekening.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.drpRekening.FillDropDown = true;
-            this.drpRekening.FillIndicator = false;
-            this.drpRekening.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.drpRekening.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.drpRekening.ForeColor = System.Drawing.Color.Black;
-            this.drpRekening.FormattingEnabled = true;
-            this.drpRekening.Icon = null;
-            this.drpRekening.IndicatorAlignment = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.drpRekening.IndicatorColor = System.Drawing.Color.DarkGray;
-            this.drpRekening.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.drpRekening.IndicatorThickness = 2;
-            this.drpRekening.IsDropdownOpened = false;
-            this.drpRekening.ItemBackColor = System.Drawing.Color.White;
-            this.drpRekening.ItemBorderColor = System.Drawing.Color.White;
-            this.drpRekening.ItemForeColor = System.Drawing.Color.Black;
-            this.drpRekening.ItemHeight = 26;
-            this.drpRekening.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
-            this.drpRekening.ItemHighLightForeColor = System.Drawing.Color.White;
-            this.drpRekening.ItemTopMargin = 3;
-            this.drpRekening.Location = new System.Drawing.Point(412, 107);
-            this.drpRekening.Name = "drpRekening";
-            this.drpRekening.Size = new System.Drawing.Size(260, 32);
-            this.drpRekening.TabIndex = 20;
-            this.drpRekening.Text = null;
-            this.drpRekening.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.drpRekening.TextLeftMargin = 5;
             // 
             // bunifuPanel2
             // 
@@ -755,8 +692,6 @@
         private Bunifu.UI.WinForms.BunifuLabel lblUsername;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel6;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel3;
-        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel4;
-        private Bunifu.UI.WinForms.BunifuDropdown drpRekening;
         private Bunifu.UI.WinForms.BunifuDatePicker dte;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel5;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel4;

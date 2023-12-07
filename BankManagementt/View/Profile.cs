@@ -73,10 +73,15 @@ namespace BankManagementt.View
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            this.Visible = false;
-            this.Close();
-            login.ShowDialog();
+            var konfirmasi = MessageBox.Show("Apakah anda yakin ingin Logout??", "Peringatan", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(konfirmasi == DialogResult.Yes)
+            {
+                Login login = new Login();
+                this.Visible = false;
+                this.Close();
+                login.ShowDialog();
+            }
+
         }
     }
 }

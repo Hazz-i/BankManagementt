@@ -26,6 +26,19 @@ namespace BankManagementt.Controller
             return list;
         }
 
+        // membaca Id Bank By bank name
+        public List<Bank> readIdBank(string namaBank)
+        {
+            List<Bank> list = new List<Bank>();
+            using (DbContext context = new DbContext())
+            {
+                _repository = new BankRepository(context);
+                list = _repository.ReadAllUsername(namaBank);
+            }
+
+            return list;
+        }
+
         // membuat nasbah 
         public int createNasbah(Bank bank)
         {

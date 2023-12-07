@@ -35,6 +35,10 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.lblBalance = new Bunifu.UI.WinForms.BunifuLabel();
             this.drpBank = new Bunifu.UI.WinForms.BunifuDropdown();
             this.btnCreateRekening = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
@@ -45,6 +49,8 @@
             this.txtNomorRekening = new Bunifu.UI.WinForms.BunifuTextBox();
             this.btnCancel = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.txtSaldo = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,7 +105,7 @@
             this.drpBank.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
             this.drpBank.ItemHighLightForeColor = System.Drawing.Color.White;
             this.drpBank.ItemTopMargin = 3;
-            this.drpBank.Location = new System.Drawing.Point(86, 178);
+            this.drpBank.Location = new System.Drawing.Point(86, 130);
             this.drpBank.Name = "drpBank";
             this.drpBank.Size = new System.Drawing.Size(281, 32);
             this.drpBank.TabIndex = 21;
@@ -203,7 +209,7 @@
             this.bunifuLabel4.AutoEllipsis = false;
             this.bunifuLabel4.CursorType = null;
             this.bunifuLabel4.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel4.Location = new System.Drawing.Point(86, 156);
+            this.bunifuLabel4.Location = new System.Drawing.Point(86, 108);
             this.bunifuLabel4.Name = "bunifuLabel4";
             this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel4.Size = new System.Drawing.Size(33, 16);
@@ -218,7 +224,7 @@
             this.bunifuLabel1.AutoEllipsis = false;
             this.bunifuLabel1.CursorType = null;
             this.bunifuLabel1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel1.Location = new System.Drawing.Point(86, 292);
+            this.bunifuLabel1.Location = new System.Drawing.Point(87, 228);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel1.Size = new System.Drawing.Size(108, 16);
@@ -233,7 +239,7 @@
             this.bunifuLabel2.AutoEllipsis = false;
             this.bunifuLabel2.CursorType = null;
             this.bunifuLabel2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel2.Location = new System.Drawing.Point(86, 223);
+            this.bunifuLabel2.Location = new System.Drawing.Point(86, 168);
             this.bunifuLabel2.Name = "bunifuLabel2";
             this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel2.Size = new System.Drawing.Size(38, 16);
@@ -280,7 +286,7 @@
             this.drpStatus.Items.AddRange(new object[] {
             "Active"});
             this.drpStatus.ItemTopMargin = 3;
-            this.drpStatus.Location = new System.Drawing.Point(86, 245);
+            this.drpStatus.Location = new System.Drawing.Point(87, 190);
             this.drpStatus.Name = "drpStatus";
             this.drpStatus.Size = new System.Drawing.Size(281, 32);
             this.drpStatus.TabIndex = 26;
@@ -317,7 +323,7 @@
             this.txtNomorRekening.IconRight = null;
             this.txtNomorRekening.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNomorRekening.Lines = new string[0];
-            this.txtNomorRekening.Location = new System.Drawing.Point(86, 314);
+            this.txtNomorRekening.Location = new System.Drawing.Point(87, 250);
             this.txtNomorRekening.MaxLength = 32767;
             this.txtNomorRekening.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtNomorRekening.Modified = false;
@@ -462,8 +468,13 @@
             this.bunifuPanel1.BorderColor = System.Drawing.Color.Black;
             this.bunifuPanel1.BorderRadius = 3;
             this.bunifuPanel1.BorderThickness = 1;
+            this.bunifuPanel1.Controls.Add(this.txtSaldo);
+            this.bunifuPanel1.Controls.Add(this.bunifuLabel3);
+            this.bunifuPanel1.Controls.Add(this.txtNomorRekening);
             this.bunifuPanel1.Controls.Add(this.btnCancel);
+            this.bunifuPanel1.Controls.Add(this.drpStatus);
             this.bunifuPanel1.Controls.Add(this.bunifuLabel2);
+            this.bunifuPanel1.Controls.Add(this.drpBank);
             this.bunifuPanel1.Controls.Add(this.bunifuLabel1);
             this.bunifuPanel1.Controls.Add(this.lblBalance);
             this.bunifuPanel1.Controls.Add(this.bunifuLabel4);
@@ -473,14 +484,102 @@
             this.bunifuPanel1.Size = new System.Drawing.Size(454, 469);
             this.bunifuPanel1.TabIndex = 32;
             // 
+            // txtSaldo
+            // 
+            this.txtSaldo.AcceptsReturn = false;
+            this.txtSaldo.AcceptsTab = false;
+            this.txtSaldo.AnimationSpeed = 200;
+            this.txtSaldo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtSaldo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtSaldo.AutoSizeHeight = true;
+            this.txtSaldo.BackColor = System.Drawing.Color.Transparent;
+            this.txtSaldo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtSaldo.BackgroundImage")));
+            this.txtSaldo.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.txtSaldo.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtSaldo.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.txtSaldo.BorderColorIdle = System.Drawing.Color.Silver;
+            this.txtSaldo.BorderRadius = 10;
+            this.txtSaldo.BorderThickness = 1;
+            this.txtSaldo.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
+            this.txtSaldo.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtSaldo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSaldo.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.txtSaldo.DefaultText = "";
+            this.txtSaldo.FillColor = System.Drawing.Color.White;
+            this.txtSaldo.HideSelection = true;
+            this.txtSaldo.IconLeft = null;
+            this.txtSaldo.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSaldo.IconPadding = 10;
+            this.txtSaldo.IconRight = null;
+            this.txtSaldo.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSaldo.Lines = new string[0];
+            this.txtSaldo.Location = new System.Drawing.Point(87, 328);
+            this.txtSaldo.MaxLength = 32767;
+            this.txtSaldo.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txtSaldo.Modified = false;
+            this.txtSaldo.Multiline = false;
+            this.txtSaldo.Name = "txtSaldo";
+            stateProperties5.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties5.FillColor = System.Drawing.Color.Empty;
+            stateProperties5.ForeColor = System.Drawing.Color.Empty;
+            stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtSaldo.OnActiveState = stateProperties5;
+            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties6.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.txtSaldo.OnDisabledState = stateProperties6;
+            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties7.FillColor = System.Drawing.Color.Empty;
+            stateProperties7.ForeColor = System.Drawing.Color.Empty;
+            stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtSaldo.OnHoverState = stateProperties7;
+            stateProperties8.BorderColor = System.Drawing.Color.Silver;
+            stateProperties8.FillColor = System.Drawing.Color.White;
+            stateProperties8.ForeColor = System.Drawing.Color.Empty;
+            stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtSaldo.OnIdleState = stateProperties8;
+            this.txtSaldo.Padding = new System.Windows.Forms.Padding(3);
+            this.txtSaldo.PasswordChar = '\0';
+            this.txtSaldo.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtSaldo.PlaceholderText = "Enter your saldo";
+            this.txtSaldo.ReadOnly = false;
+            this.txtSaldo.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtSaldo.SelectedText = "";
+            this.txtSaldo.SelectionLength = 0;
+            this.txtSaldo.SelectionStart = 0;
+            this.txtSaldo.ShortcutsEnabled = true;
+            this.txtSaldo.Size = new System.Drawing.Size(281, 39);
+            this.txtSaldo.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
+            this.txtSaldo.TabIndex = 33;
+            this.txtSaldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtSaldo.TextMarginBottom = 0;
+            this.txtSaldo.TextMarginLeft = 3;
+            this.txtSaldo.TextMarginTop = 1;
+            this.txtSaldo.TextPlaceholder = "Enter your saldo";
+            this.txtSaldo.UseSystemPasswordChar = false;
+            this.txtSaldo.WordWrap = true;
+            // 
+            // bunifuLabel3
+            // 
+            this.bunifuLabel3.AllowParentOverrides = false;
+            this.bunifuLabel3.AutoEllipsis = false;
+            this.bunifuLabel3.CursorType = null;
+            this.bunifuLabel3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel3.Location = new System.Drawing.Point(87, 306);
+            this.bunifuLabel3.Name = "bunifuLabel3";
+            this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel3.Size = new System.Drawing.Size(37, 16);
+            this.bunifuLabel3.TabIndex = 32;
+            this.bunifuLabel3.Text = "Saldo";
+            this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel3.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
             // AddRekening
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(454, 470);
-            this.Controls.Add(this.txtNomorRekening);
-            this.Controls.Add(this.drpStatus);
-            this.Controls.Add(this.drpBank);
             this.Controls.Add(this.btnCreateRekening);
             this.Controls.Add(this.bunifuPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -505,5 +604,7 @@
         private Bunifu.UI.WinForms.BunifuTextBox txtNomorRekening;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 btnCancel;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
+        private Bunifu.UI.WinForms.BunifuTextBox txtSaldo;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel3;
     }
 }

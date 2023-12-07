@@ -80,8 +80,8 @@
             this.lblUser = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel8 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuGradientPanel1 = new Bunifu.UI.WinForms.BunifuGradientPanel();
-            this.bunifuFormCaptionButton1 = new Bunifu.UI.WinForms.BunifuFormCaptionButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bunifuFormCaptionButton1 = new Bunifu.UI.WinForms.BunifuFormCaptionButton();
             this.bunifuGradientPanel2.SuspendLayout();
             this.bunifuGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -676,6 +676,7 @@
             this.linkSignIn.TabIndex = 16;
             this.linkSignIn.TabStop = true;
             this.linkSignIn.Text = "Sign In";
+            this.linkSignIn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSignIn_LinkClicked_1);
             // 
             // bunifuLabel3
             // 
@@ -925,6 +926,16 @@
             this.bunifuGradientPanel1.Size = new System.Drawing.Size(674, 684);
             this.bunifuGradientPanel1.TabIndex = 4;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BankManagementt.Properties.Resources.bank;
+            this.pictureBox1.Location = new System.Drawing.Point(55, 131);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(262, 309);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
             // bunifuFormCaptionButton1
             // 
             this.bunifuFormCaptionButton1.AllowAnimations = true;
@@ -967,16 +978,6 @@
             this.bunifuFormCaptionButton1.Size = new System.Drawing.Size(58, 42);
             this.bunifuFormCaptionButton1.TabIndex = 3;
             this.bunifuFormCaptionButton1.Click += new System.EventHandler(this.bunifuFormCaptionButton1_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::BankManagementt.Properties.Resources.bank;
-            this.pictureBox1.Location = new System.Drawing.Point(55, 131);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(262, 309);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
             // 
             // SignUpd
             // 

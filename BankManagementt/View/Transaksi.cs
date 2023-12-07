@@ -10,30 +10,23 @@ namespace BankManagementt.View
     public partial class Transaksi : Form
     {
         private RekeningController _rekeningController;
+        private TransaksiController _transaksiController;
         public List<Rekening> rekeningList;
+        public List<TransaksiEntity> transaksiList;
 
         public Transaksi()
         {
             _rekeningController = new RekeningController();
+            _transaksiController = new TransaksiController();
 
             InitializeComponent();
             lblUser.Text = Dashboard.name;
             lblUsername.Text = Dashboard.username; 
             lblAlamat.Text = Dashboard.alamat;
+            lblSaldo.Text = Dashboard.balance.ToString();
             dte.Value = DateTime.Now;
-            comboBoxRekening();
-        }
-
-        // buat pilih rekening 
-        public void comboBoxRekening()
-        {
-            drpRekening.Items.Clear();
-            rekeningList = _rekeningController.ReadRekeningByIdNasabah(int.Parse(Dashboard.nasabahId));
-
-            foreach (var rekening in rekeningList)
-            {
-                drpRekening.Items.Add(rekening.nomor_rekening.ToString() + "\t(" + rekening.nama_bank.ToString() + ")");
-            }
+            InisialisasiOrder();
+            LoadDataTransaksi();
         }
 
         private void InisialisasiOrder()
@@ -44,15 +37,41 @@ namespace BankManagementt.View
 
             lvwTransaction.Columns.Add("No", 50, HorizontalAlignment.Left);
             lvwTransaction.Columns.Add("ID Transaction", 90, HorizontalAlignment.Center);
-            lvwTransaction.Columns.Add("Number", 150, HorizontalAlignment.Center);
-            lvwTransaction.Columns.Add("Amount", 70, HorizontalAlignment.Center);
+            lvwTransaction.Columns.Add("Number", 100, HorizontalAlignment.Center);
+            lvwTransaction.Columns.Add("Amount", 150, HorizontalAlignment.Center);
             lvwTransaction.Columns.Add("Date", 150, HorizontalAlignment.Center);
             lvwTransaction.Columns.Add("Trasaction Category", 150, HorizontalAlignment.Center);
-            lvwTransaction.Columns.Add("Bank", 150, HorizontalAlignment.Center);
-            lvwTransaction.Columns.Add("To Bank", 150, HorizontalAlignment.Center);
+            lvwTransaction.Columns.Add("Bank", 100, HorizontalAlignment.Center);
+            lvwTransaction.Columns.Add("To Bank", 100, HorizontalAlignment.Center);
             lvwTransaction.Columns.Add("Name", 150, HorizontalAlignment.Center);
         }
 
+        private void LoadDataTransaksi()
+        {
+            lvwTransaction.Items.Clear();
+            transaksiList = _transaksiController.readAll();
+
+            foreach (var trs in transaksiList)
+            {
+                var noUrut = lvwTransaction.Items.Count + 1;
+                var item = new ListViewItem(noUrut.ToString());
+                item.SubItems.Add(trs.id_transaksi.ToString());
+                item.SubItems.Add(trs.nomor_rekening.ToString());
+                item.SubItems.Add(trs.jumlah.ToString());
+                item.SubItems.Add(trs.tgl_transaksi);
+                item.SubItems.Add(trs.jenis_transaksi);
+                item.SubItems.Add(trs.asal_bank);
+                item.SubItems.Add(trs.tujuan_bank);
+                item.SubItems.Add(trs.nama_nasabah);
+                lvwTransaction.Items.Add(item);
+            }
+        }
+
+        // handler
+        private void OnCreateEventHandler(TransaksiEntity transaksi)
+        {
+            LoadDataTransaksi();
+        }
         private void bunifuIconButton1_Click(object sender, EventArgs e)
         {
 
@@ -86,7 +105,11 @@ namespace BankManagementt.View
 
         private void btnTransfer_Click(object sender, EventArgs e)
         {
-           
+
+            InputTransaksi add = new InputTransaksi("Tambah Saldo", _transaksiController);
+            add.onCreate += OnCreateEventHandler;
+            add.ShowDialog();
+
         }
     }
 }

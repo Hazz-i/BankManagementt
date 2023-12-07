@@ -2,6 +2,7 @@
 using BankManagementt.Controller;
 using System;
 using System.Collections.Generic;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace BankManagementt.View
@@ -19,7 +20,8 @@ namespace BankManagementt.View
         public static string username;
         public static string alamat;
         public static string nama;
-        public static int nomor_rekening;
+        public static int balance;
+        public static int nomorBank;
         public int iDnasbah;
 
         public Dashboard()
@@ -47,7 +49,10 @@ namespace BankManagementt.View
             namaUser2.Text = name;
             lblAalmat.Text = alamat;
             dte.Value = DateTime.Now;
+
             comboBoxRekening();
+            InisialisasiRekening();
+            LoadDataTransaksi();
         }
 
         // buat pilih rekening 
@@ -62,13 +67,45 @@ namespace BankManagementt.View
             }
         }
 
+        private void InisialisasiRekening()
+        {
+            lvwRekeing.View = System.Windows.Forms.View.Details;
+            lvwRekeing.FullRowSelect = true;
+            lvwRekeing.GridLines = true;
+
+            lvwRekeing.Columns.Add("No", 50, HorizontalAlignment.Left);
+            lvwRekeing.Columns.Add("Number", 150, HorizontalAlignment.Center);
+            lvwRekeing.Columns.Add("Bank", 100, HorizontalAlignment.Center);
+            lvwRekeing.Columns.Add("Amount", 150, HorizontalAlignment.Center);
+            lvwRekeing.Columns.Add("Status", 150, HorizontalAlignment.Center);
+        }
+
+        private void LoadDataTransaksi()
+        {
+            lvwRekeing.Items.Clear();
+            rekeningList = _rekeningController.ReadRekeningByIdNasabah(iDnasbah);
+
+            foreach (var trs in rekeningList)
+            {
+                var noUrut = lvwRekeing.Items.Count + 1;
+                var item = new ListViewItem(noUrut.ToString());
+                item.SubItems.Add(trs.nomor_rekening.ToString());
+                item.SubItems.Add(trs.nama_bank);
+                item.SubItems.Add(trs.saldo.ToString());
+                item.SubItems.Add(trs.status);
+                lvwRekeing.Items.Add(item);
+            }
+        }
+
         // handler
         private void OnCreateEventHandler(Rekening rekening)
         {
+            LoadDataTransaksi();
             comboBoxRekening();
         }
         private void OnCreateEventHandlerSaldo(Rekening rekening)
         {
+            LoadDataTransaksi();
             lblSaldo.Text = rekening.saldo.ToString();
         }
 
@@ -95,11 +132,19 @@ namespace BankManagementt.View
             }
             else
             {
-                nomor_rekening = int.Parse(drpRekening.SelectedItem.ToString());
 
                 AddSaldo add = new AddSaldo("Tambah Saldo", _rekeningController);
                 add.insertSaldo += OnCreateEventHandlerSaldo;
                 add.ShowDialog();
+
+                rekeningList = _rekeningController.readRekeningComboBox(int.Parse(drpRekening.SelectedItem.ToString()));
+
+                foreach (var item in rekeningList)
+                {
+                    lblSaldo.Text = item.saldo.ToString();
+                }
+
+                balance = int.Parse(lblSaldo.Text);
             }
         }
 
@@ -126,11 +171,37 @@ namespace BankManagementt.View
         private void drpRekening_SelectedIndexChanged(object sender, EventArgs e)
         {
             rekeningList = _rekeningController.readRekeningComboBox(int.Parse(drpRekening.SelectedItem.ToString()));
+            nomorBank = int.Parse(drpRekening.SelectedItem.ToString());
 
             foreach (var item in rekeningList)
             {
                 txtNamaRekening.Text = item.nama_bank.ToString();
                 lblSaldo.Text = item.saldo.ToString();
+            }
+
+            balance = int.Parse(lblSaldo.Text);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (lvwRekeing.SelectedItems.Count > 0)
+            {
+
+                // ambil objek mhs yang mau dihapus dari collection
+                Rekening rek = rekeningList[lvwRekeing.SelectedIndices[0]];
+
+                int result = _rekeningController.Delete(rek);
+
+
+                if (result > 0)
+                {
+                    LoadDataTransaksi();
+                    comboBoxRekening();
+                }
+            }
+            else // data belum dipilih
+            {
+                MessageBox.Show("Data belum dipilih !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

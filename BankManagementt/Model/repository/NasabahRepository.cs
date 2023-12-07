@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 using BankManagement.Model.Context;
 using BankManagement.Model.Entity;
 using MySql.Data.MySqlClient;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace BankManagement.Model.Repository
 {
@@ -90,6 +88,7 @@ namespace BankManagement.Model.Repository
             {
                 cmd.Parameters.AddWithValue("@nama_nasabah", nasabah.nama_nasabah);
                 cmd.Parameters.AddWithValue("@alamat", nasabah.alamat);
+                cmd.Parameters.AddWithValue("@email", nasabah.email);
                 cmd.Parameters.AddWithValue("@no_telepon", nasabah.no_telepon);
                 cmd.Parameters.AddWithValue("@username", nasabah.username);
                 cmd.Parameters.AddWithValue("@password", nasabah.password);

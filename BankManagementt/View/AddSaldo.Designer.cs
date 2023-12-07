@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddSaldo));
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.txtRekening = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.txtBank = new Bunifu.UI.WinForms.BunifuTextBox();
             this.btnCancel = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
-            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.lblBalance = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
             this.btnAdd = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
+            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.txtSaldo = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.txtBank = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.txtRekening = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +77,173 @@
             this.bunifuPanel1.ShowBorders = true;
             this.bunifuPanel1.Size = new System.Drawing.Size(454, 469);
             this.bunifuPanel1.TabIndex = 37;
+            // 
+            // bunifuLabel2
+            // 
+            this.bunifuLabel2.AllowParentOverrides = false;
+            this.bunifuLabel2.AutoEllipsis = false;
+            this.bunifuLabel2.CursorType = null;
+            this.bunifuLabel2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel2.Location = new System.Drawing.Point(86, 216);
+            this.bunifuLabel2.Name = "bunifuLabel2";
+            this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel2.Size = new System.Drawing.Size(108, 16);
+            this.bunifuLabel2.TabIndex = 40;
+            this.bunifuLabel2.Text = "Nomor Rekening";
+            this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel2.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // txtRekening
+            // 
+            this.txtRekening.AcceptsReturn = false;
+            this.txtRekening.AcceptsTab = false;
+            this.txtRekening.AnimationSpeed = 200;
+            this.txtRekening.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtRekening.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtRekening.AutoSizeHeight = true;
+            this.txtRekening.BackColor = System.Drawing.Color.Transparent;
+            this.txtRekening.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtRekening.BackgroundImage")));
+            this.txtRekening.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.txtRekening.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtRekening.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.txtRekening.BorderColorIdle = System.Drawing.Color.Silver;
+            this.txtRekening.BorderRadius = 10;
+            this.txtRekening.BorderThickness = 1;
+            this.txtRekening.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
+            this.txtRekening.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtRekening.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtRekening.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.txtRekening.DefaultText = "";
+            this.txtRekening.FillColor = System.Drawing.Color.White;
+            this.txtRekening.HideSelection = true;
+            this.txtRekening.IconLeft = null;
+            this.txtRekening.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtRekening.IconPadding = 10;
+            this.txtRekening.IconRight = null;
+            this.txtRekening.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtRekening.Lines = new string[0];
+            this.txtRekening.Location = new System.Drawing.Point(87, 238);
+            this.txtRekening.MaxLength = 32767;
+            this.txtRekening.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txtRekening.Modified = false;
+            this.txtRekening.Multiline = false;
+            this.txtRekening.Name = "txtRekening";
+            stateProperties5.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties5.FillColor = System.Drawing.Color.Empty;
+            stateProperties5.ForeColor = System.Drawing.Color.Empty;
+            stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtRekening.OnActiveState = stateProperties5;
+            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties6.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.txtRekening.OnDisabledState = stateProperties6;
+            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties7.FillColor = System.Drawing.Color.Empty;
+            stateProperties7.ForeColor = System.Drawing.Color.Empty;
+            stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtRekening.OnHoverState = stateProperties7;
+            stateProperties8.BorderColor = System.Drawing.Color.Silver;
+            stateProperties8.FillColor = System.Drawing.Color.White;
+            stateProperties8.ForeColor = System.Drawing.Color.Empty;
+            stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtRekening.OnIdleState = stateProperties8;
+            this.txtRekening.Padding = new System.Windows.Forms.Padding(3);
+            this.txtRekening.PasswordChar = '\0';
+            this.txtRekening.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtRekening.PlaceholderText = "Enter your rekening";
+            this.txtRekening.ReadOnly = false;
+            this.txtRekening.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtRekening.SelectedText = "";
+            this.txtRekening.SelectionLength = 0;
+            this.txtRekening.SelectionStart = 0;
+            this.txtRekening.ShortcutsEnabled = true;
+            this.txtRekening.Size = new System.Drawing.Size(281, 39);
+            this.txtRekening.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
+            this.txtRekening.TabIndex = 39;
+            this.txtRekening.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtRekening.TextMarginBottom = 0;
+            this.txtRekening.TextMarginLeft = 3;
+            this.txtRekening.TextMarginTop = 1;
+            this.txtRekening.TextPlaceholder = "Enter your rekening";
+            this.txtRekening.UseSystemPasswordChar = false;
+            this.txtRekening.WordWrap = true;
+            // 
+            // txtBank
+            // 
+            this.txtBank.AcceptsReturn = false;
+            this.txtBank.AcceptsTab = false;
+            this.txtBank.AnimationSpeed = 200;
+            this.txtBank.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtBank.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtBank.AutoSizeHeight = true;
+            this.txtBank.BackColor = System.Drawing.Color.Transparent;
+            this.txtBank.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtBank.BackgroundImage")));
+            this.txtBank.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.txtBank.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtBank.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.txtBank.BorderColorIdle = System.Drawing.Color.Silver;
+            this.txtBank.BorderRadius = 10;
+            this.txtBank.BorderThickness = 1;
+            this.txtBank.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
+            this.txtBank.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtBank.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBank.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.txtBank.DefaultText = "";
+            this.txtBank.FillColor = System.Drawing.Color.White;
+            this.txtBank.HideSelection = true;
+            this.txtBank.IconLeft = null;
+            this.txtBank.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBank.IconPadding = 10;
+            this.txtBank.IconRight = null;
+            this.txtBank.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBank.Lines = new string[0];
+            this.txtBank.Location = new System.Drawing.Point(86, 163);
+            this.txtBank.MaxLength = 32767;
+            this.txtBank.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txtBank.Modified = false;
+            this.txtBank.Multiline = false;
+            this.txtBank.Name = "txtBank";
+            stateProperties9.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties9.FillColor = System.Drawing.Color.Empty;
+            stateProperties9.ForeColor = System.Drawing.Color.Empty;
+            stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtBank.OnActiveState = stateProperties9;
+            stateProperties10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties10.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.txtBank.OnDisabledState = stateProperties10;
+            stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties11.FillColor = System.Drawing.Color.Empty;
+            stateProperties11.ForeColor = System.Drawing.Color.Empty;
+            stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtBank.OnHoverState = stateProperties11;
+            stateProperties12.BorderColor = System.Drawing.Color.Silver;
+            stateProperties12.FillColor = System.Drawing.Color.White;
+            stateProperties12.ForeColor = System.Drawing.Color.Empty;
+            stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtBank.OnIdleState = stateProperties12;
+            this.txtBank.Padding = new System.Windows.Forms.Padding(3);
+            this.txtBank.PasswordChar = '\0';
+            this.txtBank.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtBank.PlaceholderText = "Enter your rekening";
+            this.txtBank.ReadOnly = false;
+            this.txtBank.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBank.SelectedText = "";
+            this.txtBank.SelectionLength = 0;
+            this.txtBank.SelectionStart = 0;
+            this.txtBank.ShortcutsEnabled = true;
+            this.txtBank.Size = new System.Drawing.Size(281, 39);
+            this.txtBank.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
+            this.txtBank.TabIndex = 38;
+            this.txtBank.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtBank.TextMarginBottom = 0;
+            this.txtBank.TextMarginLeft = 3;
+            this.txtBank.TextMarginTop = 1;
+            this.txtBank.TextPlaceholder = "Enter your rekening";
+            this.txtBank.UseSystemPasswordChar = false;
+            this.txtBank.WordWrap = true;
             // 
             // btnCancel
             // 
@@ -167,21 +334,6 @@
             this.btnCancel.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnCancel.UseDefaultRadiusAndThickness = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // bunifuLabel1
-            // 
-            this.bunifuLabel1.AllowParentOverrides = false;
-            this.bunifuLabel1.AutoEllipsis = false;
-            this.bunifuLabel1.CursorType = null;
-            this.bunifuLabel1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel1.Location = new System.Drawing.Point(86, 293);
-            this.bunifuLabel1.Name = "bunifuLabel1";
-            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(37, 16);
-            this.bunifuLabel1.TabIndex = 25;
-            this.bunifuLabel1.Text = "Saldo";
-            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // lblBalance
             // 
@@ -303,6 +455,21 @@
             this.btnAdd.UseDefaultRadiusAndThickness = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // bunifuLabel1
+            // 
+            this.bunifuLabel1.AllowParentOverrides = false;
+            this.bunifuLabel1.AutoEllipsis = false;
+            this.bunifuLabel1.CursorType = null;
+            this.bunifuLabel1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel1.Location = new System.Drawing.Point(86, 293);
+            this.bunifuLabel1.Name = "bunifuLabel1";
+            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel1.Size = new System.Drawing.Size(37, 16);
+            this.bunifuLabel1.TabIndex = 25;
+            this.bunifuLabel1.Text = "Saldo";
+            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
             // txtSaldo
             // 
             this.txtSaldo.AcceptsReturn = false;
@@ -379,173 +546,6 @@
             this.txtSaldo.UseSystemPasswordChar = false;
             this.txtSaldo.WordWrap = true;
             // 
-            // txtBank
-            // 
-            this.txtBank.AcceptsReturn = false;
-            this.txtBank.AcceptsTab = false;
-            this.txtBank.AnimationSpeed = 200;
-            this.txtBank.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtBank.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtBank.AutoSizeHeight = true;
-            this.txtBank.BackColor = System.Drawing.Color.Transparent;
-            this.txtBank.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtBank.BackgroundImage")));
-            this.txtBank.BorderColorActive = System.Drawing.Color.DodgerBlue;
-            this.txtBank.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtBank.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.txtBank.BorderColorIdle = System.Drawing.Color.Silver;
-            this.txtBank.BorderRadius = 10;
-            this.txtBank.BorderThickness = 1;
-            this.txtBank.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
-            this.txtBank.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtBank.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBank.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
-            this.txtBank.DefaultText = "";
-            this.txtBank.FillColor = System.Drawing.Color.White;
-            this.txtBank.HideSelection = true;
-            this.txtBank.IconLeft = null;
-            this.txtBank.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBank.IconPadding = 10;
-            this.txtBank.IconRight = null;
-            this.txtBank.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBank.Lines = new string[0];
-            this.txtBank.Location = new System.Drawing.Point(86, 163);
-            this.txtBank.MaxLength = 32767;
-            this.txtBank.MinimumSize = new System.Drawing.Size(1, 1);
-            this.txtBank.Modified = false;
-            this.txtBank.Multiline = false;
-            this.txtBank.Name = "txtBank";
-            stateProperties9.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties9.FillColor = System.Drawing.Color.Empty;
-            stateProperties9.ForeColor = System.Drawing.Color.Empty;
-            stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtBank.OnActiveState = stateProperties9;
-            stateProperties10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties10.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.txtBank.OnDisabledState = stateProperties10;
-            stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties11.FillColor = System.Drawing.Color.Empty;
-            stateProperties11.ForeColor = System.Drawing.Color.Empty;
-            stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtBank.OnHoverState = stateProperties11;
-            stateProperties12.BorderColor = System.Drawing.Color.Silver;
-            stateProperties12.FillColor = System.Drawing.Color.White;
-            stateProperties12.ForeColor = System.Drawing.Color.Empty;
-            stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtBank.OnIdleState = stateProperties12;
-            this.txtBank.Padding = new System.Windows.Forms.Padding(3);
-            this.txtBank.PasswordChar = '\0';
-            this.txtBank.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtBank.PlaceholderText = "Enter your rekening";
-            this.txtBank.ReadOnly = false;
-            this.txtBank.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBank.SelectedText = "";
-            this.txtBank.SelectionLength = 0;
-            this.txtBank.SelectionStart = 0;
-            this.txtBank.ShortcutsEnabled = true;
-            this.txtBank.Size = new System.Drawing.Size(281, 39);
-            this.txtBank.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.txtBank.TabIndex = 38;
-            this.txtBank.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtBank.TextMarginBottom = 0;
-            this.txtBank.TextMarginLeft = 3;
-            this.txtBank.TextMarginTop = 1;
-            this.txtBank.TextPlaceholder = "Enter your rekening";
-            this.txtBank.UseSystemPasswordChar = false;
-            this.txtBank.WordWrap = true;
-            // 
-            // txtRekening
-            // 
-            this.txtRekening.AcceptsReturn = false;
-            this.txtRekening.AcceptsTab = false;
-            this.txtRekening.AnimationSpeed = 200;
-            this.txtRekening.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtRekening.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtRekening.AutoSizeHeight = true;
-            this.txtRekening.BackColor = System.Drawing.Color.Transparent;
-            this.txtRekening.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtRekening.BackgroundImage")));
-            this.txtRekening.BorderColorActive = System.Drawing.Color.DodgerBlue;
-            this.txtRekening.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtRekening.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.txtRekening.BorderColorIdle = System.Drawing.Color.Silver;
-            this.txtRekening.BorderRadius = 10;
-            this.txtRekening.BorderThickness = 1;
-            this.txtRekening.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
-            this.txtRekening.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtRekening.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtRekening.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
-            this.txtRekening.DefaultText = "";
-            this.txtRekening.FillColor = System.Drawing.Color.White;
-            this.txtRekening.HideSelection = true;
-            this.txtRekening.IconLeft = null;
-            this.txtRekening.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtRekening.IconPadding = 10;
-            this.txtRekening.IconRight = null;
-            this.txtRekening.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtRekening.Lines = new string[0];
-            this.txtRekening.Location = new System.Drawing.Point(87, 238);
-            this.txtRekening.MaxLength = 32767;
-            this.txtRekening.MinimumSize = new System.Drawing.Size(1, 1);
-            this.txtRekening.Modified = false;
-            this.txtRekening.Multiline = false;
-            this.txtRekening.Name = "txtRekening";
-            stateProperties5.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties5.FillColor = System.Drawing.Color.Empty;
-            stateProperties5.ForeColor = System.Drawing.Color.Empty;
-            stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtRekening.OnActiveState = stateProperties5;
-            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties6.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.txtRekening.OnDisabledState = stateProperties6;
-            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties7.FillColor = System.Drawing.Color.Empty;
-            stateProperties7.ForeColor = System.Drawing.Color.Empty;
-            stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtRekening.OnHoverState = stateProperties7;
-            stateProperties8.BorderColor = System.Drawing.Color.Silver;
-            stateProperties8.FillColor = System.Drawing.Color.White;
-            stateProperties8.ForeColor = System.Drawing.Color.Empty;
-            stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtRekening.OnIdleState = stateProperties8;
-            this.txtRekening.Padding = new System.Windows.Forms.Padding(3);
-            this.txtRekening.PasswordChar = '\0';
-            this.txtRekening.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtRekening.PlaceholderText = "Enter your rekening";
-            this.txtRekening.ReadOnly = false;
-            this.txtRekening.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtRekening.SelectedText = "";
-            this.txtRekening.SelectionLength = 0;
-            this.txtRekening.SelectionStart = 0;
-            this.txtRekening.ShortcutsEnabled = true;
-            this.txtRekening.Size = new System.Drawing.Size(281, 39);
-            this.txtRekening.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.txtRekening.TabIndex = 39;
-            this.txtRekening.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtRekening.TextMarginBottom = 0;
-            this.txtRekening.TextMarginLeft = 3;
-            this.txtRekening.TextMarginTop = 1;
-            this.txtRekening.TextPlaceholder = "Enter your rekening";
-            this.txtRekening.UseSystemPasswordChar = false;
-            this.txtRekening.WordWrap = true;
-            // 
-            // bunifuLabel2
-            // 
-            this.bunifuLabel2.AllowParentOverrides = false;
-            this.bunifuLabel2.AutoEllipsis = false;
-            this.bunifuLabel2.CursorType = null;
-            this.bunifuLabel2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel2.Location = new System.Drawing.Point(86, 216);
-            this.bunifuLabel2.Name = "bunifuLabel2";
-            this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel2.Size = new System.Drawing.Size(108, 16);
-            this.bunifuLabel2.TabIndex = 40;
-            this.bunifuLabel2.Text = "Nomor Rekening";
-            this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel2.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
             // AddSaldo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -569,13 +569,13 @@
 
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 btnCancel;
-        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
         private Bunifu.UI.WinForms.BunifuLabel lblBalance;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel4;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 btnAdd;
-        private Bunifu.UI.WinForms.BunifuTextBox txtSaldo;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel2;
         private Bunifu.UI.WinForms.BunifuTextBox txtRekening;
         private Bunifu.UI.WinForms.BunifuTextBox txtBank;
+        private Bunifu.UI.WinForms.BunifuTextBox txtSaldo;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
     }
 }

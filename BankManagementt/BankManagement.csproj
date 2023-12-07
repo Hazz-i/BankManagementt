@@ -267,7 +267,7 @@
     <Compile Include="Model\Entity\Bank.cs" />
     <Compile Include="Model\Entity\Nasabah.cs" />
     <Compile Include="Model\Entity\Rekening.cs" />
-    <Compile Include="Model\Entity\Transaksi.cs" />
+    <Compile Include="Model\Entity\TransaksiEntity.cs" />
     <Compile Include="Model\Repository\BankRepository.cs" />
     <Compile Include="Model\Repository\NasabahRepository.cs" />
     <Compile Include="Model\Repository\RekeningRepository.cs" />

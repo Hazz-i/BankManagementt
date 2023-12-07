@@ -46,6 +46,33 @@ namespace BankManagement.Model.Repository
             }
             return list;
         }
+        // Query membaca id bank
+        public List<Bank> ReadAllUsername(string bankName)
+        {
+            List<Bank> list = new List<Bank>();
+            try
+            {
+                string sql = @"select * from bank where nama_bank = @nama_bank";
+                using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
+                {
+                    cmd.Parameters.AddWithValue("@nama_bank", bankName);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Bank bank = new Bank();
+                            bank.id_bank = int.Parse(reader["id_bank"].ToString());
+                            list.Add(bank);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print("ReadAll Eror : {0}", ex.Message);
+            }
+            return list;
+        }
         //Query Menambahkan Bank
         public int Create(Bank bank)
         {

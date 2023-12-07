@@ -1771,9 +1771,6 @@
         hHZqPG632+va5saYt88w/ATL8pmsO1s6hAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="bunifuLabel4.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 0px; font-family: 'Century Gothic'; font-size: 10pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: rgb(0, 0, 0); text-align: left; }</value>
-  </data>
   <data name="bunifuPanel2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABGYAAAGhCAYAAAAjnLJYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8

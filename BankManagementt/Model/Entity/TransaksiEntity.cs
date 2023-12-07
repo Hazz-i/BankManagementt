@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankManagement.Model.Entity
 {
-    public class Transaksi
+    public class TransaksiEntity
     {
         public int id_transaksi { get; set; }
         public int nomor_rekening { get; set; }
