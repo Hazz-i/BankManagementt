@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using BankManagement.Model.Context;
 using BankManagement.Model.Entity;
+using BankManagementt.View;
 using MySql.Data.MySqlClient;
 
 namespace BankManagement.Model.Repository
@@ -142,6 +143,80 @@ namespace BankManagement.Model.Repository
                 }
             }
             return result;
+        }
+        // Query Ambil Outcome dari Transaksi by Nomor Rekening
+        public List<TransaksiEntity> readAllforOutcome(int nomer_rekening)
+        {
+            List<TransaksiEntity> list = new List<TransaksiEntity>();
+            try
+            {
+                string sql = @"select transaksi.id_transaksi, transaksi.nomor_rekening, transaksi.jumlah, transaksi.tgl_transaksi, transaksi.jenis_transaksi, transaksi.asal_bank, transaksi.tujuan_bank, rekening.saldo, nasabah.id_nasabah, nasabah.nama_nasabah, bank.id_bank, bank.nama_bank from transaksi join rekening on transaksi.nomor_rekening = rekening.nomor_rekening join nasabah on rekening.id_nasabah = nasabah.id_nasabah join bank on rekening.id_bank = bank.id_bank WHERE rekening.nomor_rekening = @nomer_rekening && transaksi.jenis_transaksi = 'Transfer'";
+                using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
+                {
+                    cmd.Parameters.AddWithValue("@nomer_rekening", nomer_rekening);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            TransaksiEntity transaksi = new TransaksiEntity();
+                            transaksi.id_transaksi = int.Parse(reader["id_transaksi"].ToString());
+                            transaksi.nomor_rekening = int.Parse(reader["nomor_rekening"].ToString());
+                            transaksi.jumlah = int.Parse(reader["jumlah"].ToString());
+                            transaksi.tgl_transaksi = reader["tgl_transaksi"].ToString();
+                            transaksi.jenis_transaksi = reader["jenis_transaksi"].ToString();
+                            transaksi.asal_bank = reader["asal_bank"].ToString();
+                            transaksi.tujuan_bank = reader["tujuan_bank"].ToString();
+                            transaksi.id_nasabah = int.Parse(reader["id_nasabah"].ToString());
+                            transaksi.nama_nasabah = reader["nama_nasabah"].ToString();
+                            transaksi.id_bank = int.Parse(reader["id_bank"].ToString());
+                            transaksi.nama_bank = reader["nama_bank"].ToString();
+                            list.Add(transaksi);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print("readAllforIncome Eror : {0}", ex.Message);
+            }
+            return list;
+        }
+        // Query Ambil Income dari Transaksi by Nomor Rekening
+        public List<TransaksiEntity> readAllforIncome(int nomer_rekening)
+        {
+            List<TransaksiEntity> list = new List<TransaksiEntity>();
+            try
+            {
+                string sql = @"select transaksi.id_transaksi, transaksi.nomor_rekening, transaksi.jumlah, transaksi.tgl_transaksi, transaksi.jenis_transaksi, transaksi.asal_bank, transaksi.tujuan_bank, rekening.saldo, nasabah.id_nasabah, nasabah.nama_nasabah, bank.id_bank, bank.nama_bank from transaksi join rekening on transaksi.nomor_rekening = rekening.nomor_rekening join nasabah on rekening.id_nasabah = nasabah.id_nasabah join bank on rekening.id_bank = bank.id_bank WHERE rekening.nomor_rekening = @nomer_rekening && transaksi.jenis_transaksi = 'Penambahan'";
+                using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
+                {
+                    cmd.Parameters.AddWithValue("@nomer_rekening", nomer_rekening);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            TransaksiEntity transaksi = new TransaksiEntity();
+                            transaksi.id_transaksi = int.Parse(reader["id_transaksi"].ToString());
+                            transaksi.nomor_rekening = int.Parse(reader["nomor_rekening"].ToString());
+                            transaksi.jumlah = int.Parse(reader["jumlah"].ToString());
+                            transaksi.tgl_transaksi = reader["tgl_transaksi"].ToString();
+                            transaksi.jenis_transaksi = reader["jenis_transaksi"].ToString();
+                            transaksi.asal_bank = reader["asal_bank"].ToString();
+                            transaksi.tujuan_bank = reader["tujuan_bank"].ToString();
+                            transaksi.id_nasabah = int.Parse(reader["id_nasabah"].ToString());
+                            transaksi.nama_nasabah = reader["nama_nasabah"].ToString();
+                            transaksi.id_bank = int.Parse(reader["id_bank"].ToString());
+                            transaksi.nama_bank = reader["nama_bank"].ToString();
+                            list.Add(transaksi);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print("readAllforIncome Eror : {0}", ex.Message);
+            }
+            return list;
         }
     }
 }

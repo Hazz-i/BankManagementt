@@ -204,6 +204,28 @@ namespace BankManagement.Model.Repository
             }
             return result;
         }
-        
+        //Menambah History Saldo Pada Transaksi
+        public int CreateTranksasiFromAddSaldo(int nomor_rekening, int id_nasabah, int jumlah_saldo_add, int id_bank)
+        {
+            int result = 0;
+            string sql = @"insert into transaksi (id_nasabah, saldo, id_bank, status, nomor_rekening) values (@id_nasabah, @saldo,  @id_bank, 'Penambahan', @nomor_rekening)";
+            using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
+            {
+                cmd.Parameters.AddWithValue("@id_nasabah", id_nasabah);
+                cmd.Parameters.AddWithValue("@nomor_rekening", nomor_rekening);
+                cmd.Parameters.AddWithValue("@id_bank", id_bank);
+                cmd.Parameters.AddWithValue("@saldo", jumlah_saldo_add);
+                try
+                {
+                    result = cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.Print("Create error: {0}", ex.Message);
+                }
+            }
+            return result;
+        }
+
     }
 }
