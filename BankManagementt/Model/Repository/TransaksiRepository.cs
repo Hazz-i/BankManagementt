@@ -19,14 +19,15 @@ namespace BankManagement.Model.Repository
         }
 
         //Query Read Semua Transaksi Yang Ada
-        public List<TransaksiEntity> ReadAll()
+        public List<TransaksiEntity> readByNasabahid(int nomer_rekening)
         {
             List<TransaksiEntity> list = new List<TransaksiEntity>();
             try
             {
-                string sql = @"select transaksi.id_transaksi, transaksi.nomor_rekening, transaksi.jumlah, transaksi.tgl_transaksi, transaksi.jenis_transaksi, transaksi.asal_bank, transaksi.tujuan_bank, rekening.saldo, nasabah.id_nasabah, nasabah.nama_nasabah, bank.id_bank, bank.nama_bank from transaksi join rekening on transaksi.nomor_rekening = rekening.nomor_rekening join nasabah on rekening.id_nasabah = nasabah.id_nasabah join bank where rekening.id_bank = bank.id_bank";
+                string sql = @"select transaksi.id_transaksi, transaksi.nomor_rekening, transaksi.jumlah, transaksi.tgl_transaksi, transaksi.jenis_transaksi, transaksi.asal_bank, transaksi.tujuan_bank, rekening.saldo, nasabah.id_nasabah, nasabah.nama_nasabah, bank.id_bank, bank.nama_bank from transaksi join rekening on transaksi.nomor_rekening = rekening.nomor_rekening join nasabah on rekening.id_nasabah = nasabah.id_nasabah join bank on rekening.id_bank = bank.id_bank WHERE rekening.nomor_rekening = @nomer_rekening";
                 using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
                 {
+                    cmd.Parameters.AddWithValue("@nomer_rekening", nomer_rekening);
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -58,10 +59,9 @@ namespace BankManagement.Model.Repository
         public int Create(TransaksiEntity transaksi, int nasabahId)
         {
             int result = 0;
-            string sql = @"insert into transaksi (nomor_rekening, jumlah, tgl_transaksi, jenis_transaksi, asal_bank, tujuan_bank) values (@nomor_rekening, @jumlah, @tgl_transaksi, @jenis_transaksi, @asal_bank, @tujuan_bank) WHERE id_nasbah = @id_nasabah";
+            string sql = "INSERT INTO transaksi (nomor_rekening, jumlah, tgl_transaksi, jenis_transaksi, asal_bank, tujuan_bank) VALUES (@nomor_rekening, @jumlah, @tgl_transaksi, @jenis_transaksi, @asal_bank, @tujuan_bank)";
             using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
             {
-                cmd.Parameters.AddWithValue("@id_nasabah", nasabahId);
                 cmd.Parameters.AddWithValue("@nomor_rekening", transaksi.nomor_rekening);
                 cmd.Parameters.AddWithValue("@jumlah", transaksi.jumlah);
                 cmd.Parameters.AddWithValue("@tgl_transaksi", transaksi.tgl_transaksi);

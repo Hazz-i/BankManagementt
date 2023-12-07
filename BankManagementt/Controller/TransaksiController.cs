@@ -18,13 +18,13 @@ namespace BankManagementt.Controller
         private TransaksiRepository _repository;
 
         //Read Transaksi
-        public List<TransaksiEntity> readAll()
+        public List<TransaksiEntity> readByNasabahId(int nomer_rekening)
         {
             List<TransaksiEntity> list = new List<TransaksiEntity>();
             using (DbContext context = new DbContext())
             {
                 _repository = new TransaksiRepository(context);
-                list = _repository.ReadAll();
+                list = _repository.readByNasabahid(nomer_rekening);
             }
 
             return list;
@@ -40,6 +40,8 @@ namespace BankManagementt.Controller
                 MessageBox.Show("Rekening tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return 0;
             }
+
+            MessageBox.Show(transaksi.jumlah+" "+transaksi.nomor_rekening + " " + transaksi.asal_bank + " " + transaksi.tgl_transaksi + " " + transaksi.tujuan_bank + " " + transaksi.jenis_transaksi);
 
             using (DbContext context = new DbContext())
             {
@@ -93,6 +95,34 @@ namespace BankManagementt.Controller
             }
             else
                 MessageBox.Show("Data gagal ditambahkan !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            return result;
+        }
+
+        // menghapus data nasabah
+        public int Delete(TransaksiEntity transaksi)
+        {
+            int result = 0;
+
+            var konfirmasi = MessageBox.Show("Apalakah anda yakin untuk menghapus data ini ??", "Peringatan", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (konfirmasi == DialogResult.Yes)
+            {
+                using (DbContext context = new DbContext())
+                {
+                    _repository = new TransaksiRepository(context);
+                    result = _repository.Delete(transaksi);
+                }
+            }
+
+            if (result > 0)
+            {
+                MessageBox.Show("Data berhasil di hapus", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Data gagal di hapus", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
             return result;
         }
     }
