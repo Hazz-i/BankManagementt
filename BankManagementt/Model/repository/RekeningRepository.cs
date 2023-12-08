@@ -210,7 +210,7 @@ namespace BankManagement.Model.Repository
             int result = 0;
             string strFormat = "yyyy-MM-dd H:m:s";
             string datenow = DateTime.Now.ToString(strFormat);
-            string sql = "insert into transaksi (nomor_rekening, jumlah, tgl_transaksi, jenis_transaksi, asal_bank, tujuan_bank) values (@nomor_rekening, @jumlah,  @tgl_transaksi,  'Penambahan', @asal_bank, @tujuan_bank)";
+            string sql = "insert into transaksi (nomor_rekening, jumlah, tgl_transaksi, jenis_transaksi, asal_bank, tujuan_bank) values (@nomor_rekening, @jumlah,  @tgl_transaksi, 'Penambahan', @asal_bank, @tujuan_bank)";
             using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
             {
                 cmd.Parameters.AddWithValue("@nomor_rekening", nomor_rekening);
