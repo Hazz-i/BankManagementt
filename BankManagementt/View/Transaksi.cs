@@ -219,5 +219,15 @@ namespace BankManagementt.View
         {
 
         }
+
+        private void bunifuPanel4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
