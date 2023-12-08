@@ -38,11 +38,11 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges7 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges8 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges9 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges10 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
             this.bunifuLabel14 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.lblTransaction = new Bunifu.UI.WinForms.BunifuLabel();
@@ -67,6 +67,8 @@
             this.bunifuLabel7 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel6 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.btnDelete = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton();
+            this.lvwRekeing = new System.Windows.Forms.ListView();
             this.bunifuLabel11 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuGradientPanel3 = new Bunifu.UI.WinForms.BunifuGradientPanel();
@@ -84,8 +86,6 @@
             this.bunifuLabel12 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuIconButton4 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.lvwRekeing = new System.Windows.Forms.ListView();
-            this.btnDelete = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton();
             this.bunifuPanel1.SuspendLayout();
             this.bunifuGradientPanel1.SuspendLayout();
             this.bunifuPanel3.SuspendLayout();
@@ -675,9 +675,9 @@
             this.lblBalance.Location = new System.Drawing.Point(34, 125);
             this.lblBalance.Name = "lblBalance";
             this.lblBalance.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblBalance.Size = new System.Drawing.Size(132, 39);
+            this.lblBalance.Size = new System.Drawing.Size(133, 39);
             this.lblBalance.TabIndex = 7;
-            this.lblBalance.Text = "Balence";
+            this.lblBalance.Text = "Balance";
             this.lblBalance.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lblBalance.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
@@ -727,6 +727,47 @@
             this.bunifuPanel3.ShowBorders = true;
             this.bunifuPanel3.Size = new System.Drawing.Size(632, 314);
             this.bunifuPanel3.TabIndex = 1;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.AllowAnimations = true;
+            this.btnDelete.AllowBorderColorChanges = true;
+            this.btnDelete.AllowMouseEffects = true;
+            this.btnDelete.AnimationSpeed = 200;
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnDelete.BorderColor = System.Drawing.Color.Transparent;
+            this.btnDelete.BorderRadius = 1;
+            this.btnDelete.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderStyles.Solid;
+            this.btnDelete.BorderThickness = 1;
+            this.btnDelete.ColorContrastOnClick = 30;
+            this.btnDelete.ColorContrastOnHover = 30;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges6.BottomLeft = true;
+            borderEdges6.BottomRight = true;
+            borderEdges6.TopLeft = true;
+            borderEdges6.TopRight = true;
+            this.btnDelete.CustomizableEdges = borderEdges6;
+            this.btnDelete.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnDelete.Image = global::BankManagementt.Properties.Resources.trash;
+            this.btnDelete.ImageMargin = new System.Windows.Forms.Padding(0);
+            this.btnDelete.Location = new System.Drawing.Point(561, 7);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.RoundBorders = true;
+            this.btnDelete.ShowBorders = true;
+            this.btnDelete.Size = new System.Drawing.Size(35, 35);
+            this.btnDelete.Style = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ButtonStyles.Round;
+            this.btnDelete.TabIndex = 38;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // lvwRekeing
+            // 
+            this.lvwRekeing.HideSelection = false;
+            this.lvwRekeing.Location = new System.Drawing.Point(22, 48);
+            this.lvwRekeing.Name = "lvwRekeing";
+            this.lvwRekeing.Size = new System.Drawing.Size(587, 251);
+            this.lvwRekeing.TabIndex = 38;
+            this.lvwRekeing.UseCompatibleStateImageBehavior = false;
             // 
             // bunifuLabel11
             // 
@@ -1071,47 +1112,6 @@
             this.bunifuLabel1.Text = "My Card";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // lvwRekeing
-            // 
-            this.lvwRekeing.HideSelection = false;
-            this.lvwRekeing.Location = new System.Drawing.Point(22, 48);
-            this.lvwRekeing.Name = "lvwRekeing";
-            this.lvwRekeing.Size = new System.Drawing.Size(587, 251);
-            this.lvwRekeing.TabIndex = 38;
-            this.lvwRekeing.UseCompatibleStateImageBehavior = false;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.AllowAnimations = true;
-            this.btnDelete.AllowBorderColorChanges = true;
-            this.btnDelete.AllowMouseEffects = true;
-            this.btnDelete.AnimationSpeed = 200;
-            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
-            this.btnDelete.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnDelete.BorderColor = System.Drawing.Color.Transparent;
-            this.btnDelete.BorderRadius = 1;
-            this.btnDelete.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderStyles.Solid;
-            this.btnDelete.BorderThickness = 1;
-            this.btnDelete.ColorContrastOnClick = 30;
-            this.btnDelete.ColorContrastOnHover = 30;
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges6.BottomLeft = true;
-            borderEdges6.BottomRight = true;
-            borderEdges6.TopLeft = true;
-            borderEdges6.TopRight = true;
-            this.btnDelete.CustomizableEdges = borderEdges6;
-            this.btnDelete.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnDelete.Image = global::BankManagementt.Properties.Resources.trash;
-            this.btnDelete.ImageMargin = new System.Windows.Forms.Padding(0);
-            this.btnDelete.Location = new System.Drawing.Point(561, 7);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.RoundBorders = true;
-            this.btnDelete.ShowBorders = true;
-            this.btnDelete.Size = new System.Drawing.Size(35, 35);
-            this.btnDelete.Style = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ButtonStyles.Round;
-            this.btnDelete.TabIndex = 38;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // Dashboard
             // 

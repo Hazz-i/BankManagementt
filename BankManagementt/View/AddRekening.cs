@@ -42,7 +42,6 @@ namespace BankManagementt.View
             foreach (var bank in bankList)
             {
                 drpBank.Items.Add(bank.nama_bank);
-                MessageBox.Show(bank.nama_bank);
             }
         }
 

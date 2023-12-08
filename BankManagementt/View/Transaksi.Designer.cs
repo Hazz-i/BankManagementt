@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Transaksi));
-            Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges7 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges11 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges12 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges8 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges9 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges10 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.lblTransaction = new Bunifu.UI.WinForms.BunifuLabel();
             this.lblDashboard = new Bunifu.UI.WinForms.BunifuLabel();
@@ -45,6 +45,8 @@
             this.bunifuGradientPanel1 = new Bunifu.UI.WinForms.BunifuGradientPanel();
             this.dte = new Bunifu.UI.WinForms.BunifuDatePicker();
             this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.lblOutcome = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel10 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel5 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
             this.btnDelete = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton();
@@ -60,8 +62,10 @@
             this.lblBalance = new Bunifu.UI.WinForms.BunifuLabel();
             this.lblUsername = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel6 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.lblOutcome = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuLabel10 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuPanel4 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.lblIncome = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel7 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel8 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuPanel1.SuspendLayout();
             this.bunifuGradientPanel1.SuspendLayout();
             this.bunifuPanel3.SuspendLayout();
@@ -183,11 +187,11 @@
             this.bunifuIconButton2.ColorContrastOnClick = 30;
             this.bunifuIconButton2.ColorContrastOnHover = 30;
             this.bunifuIconButton2.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges7.BottomLeft = true;
-            borderEdges7.BottomRight = true;
-            borderEdges7.TopLeft = true;
-            borderEdges7.TopRight = true;
-            this.bunifuIconButton2.CustomizableEdges = borderEdges7;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.bunifuIconButton2.CustomizableEdges = borderEdges1;
             this.bunifuIconButton2.DialogResult = System.Windows.Forms.DialogResult.None;
             this.bunifuIconButton2.Image = global::BankManagementt.Properties.Resources.user;
             this.bunifuIconButton2.ImageMargin = new System.Windows.Forms.Padding(0);
@@ -262,6 +266,10 @@
             this.bunifuPanel3.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel3.BorderRadius = 20;
             this.bunifuPanel3.BorderThickness = 1;
+            this.bunifuPanel3.Controls.Add(this.lblIncome);
+            this.bunifuPanel3.Controls.Add(this.bunifuLabel7);
+            this.bunifuPanel3.Controls.Add(this.bunifuLabel8);
+            this.bunifuPanel3.Controls.Add(this.bunifuPanel4);
             this.bunifuPanel3.Controls.Add(this.lblOutcome);
             this.bunifuPanel3.Controls.Add(this.bunifuLabel10);
             this.bunifuPanel3.Controls.Add(this.bunifuLabel5);
@@ -272,20 +280,52 @@
             this.bunifuPanel3.TabIndex = 22;
             this.bunifuPanel3.Click += new System.EventHandler(this.bunifuPanel3_Click);
             // 
+            // lblOutcome
+            // 
+            this.lblOutcome.AllowParentOverrides = false;
+            this.lblOutcome.AutoEllipsis = false;
+            this.lblOutcome.CursorType = null;
+            this.lblOutcome.Font = new System.Drawing.Font("Century Gothic", 15F);
+            this.lblOutcome.Location = new System.Drawing.Point(304, 66);
+            this.lblOutcome.Name = "lblOutcome";
+            this.lblOutcome.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblOutcome.Size = new System.Drawing.Size(16, 23);
+            this.lblOutcome.TabIndex = 27;
+            this.lblOutcome.Text = "0;";
+            this.lblOutcome.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lblOutcome.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuLabel10
+            // 
+            this.bunifuLabel10.AllowParentOverrides = false;
+            this.bunifuLabel10.AutoEllipsis = false;
+            this.bunifuLabel10.CursorType = null;
+            this.bunifuLabel10.Font = new System.Drawing.Font("Century Gothic", 15F);
+            this.bunifuLabel10.Location = new System.Drawing.Point(271, 66);
+            this.bunifuLabel10.Name = "bunifuLabel10";
+            this.bunifuLabel10.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel10.Size = new System.Drawing.Size(29, 23);
+            this.bunifuLabel10.TabIndex = 26;
+            this.bunifuLabel10.Text = "RP.";
+            this.bunifuLabel10.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel10.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.bunifuLabel10.Click += new System.EventHandler(this.bunifuLabel10_Click);
+            // 
             // bunifuLabel5
             // 
             this.bunifuLabel5.AllowParentOverrides = false;
             this.bunifuLabel5.AutoEllipsis = false;
             this.bunifuLabel5.CursorType = null;
-            this.bunifuLabel5.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel5.Location = new System.Drawing.Point(30, 26);
+            this.bunifuLabel5.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel5.Location = new System.Drawing.Point(245, 25);
             this.bunifuLabel5.Name = "bunifuLabel5";
             this.bunifuLabel5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel5.Size = new System.Drawing.Size(93, 23);
+            this.bunifuLabel5.Size = new System.Drawing.Size(70, 18);
             this.bunifuLabel5.TabIndex = 25;
             this.bunifuLabel5.Text = "Outcome";
             this.bunifuLabel5.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel5.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.bunifuLabel5.Click += new System.EventHandler(this.bunifuLabel5_Click);
             // 
             // bunifuPanel2
             // 
@@ -320,11 +360,11 @@
             this.btnDelete.ColorContrastOnClick = 30;
             this.btnDelete.ColorContrastOnHover = 30;
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges11.BottomLeft = true;
-            borderEdges11.BottomRight = true;
-            borderEdges11.TopLeft = true;
-            borderEdges11.TopRight = true;
-            this.btnDelete.CustomizableEdges = borderEdges11;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.btnDelete.CustomizableEdges = borderEdges2;
             this.btnDelete.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnDelete.Image = global::BankManagementt.Properties.Resources.trash;
             this.btnDelete.ImageMargin = new System.Windows.Forms.Padding(0);
@@ -352,11 +392,11 @@
             this.btnEdit.ColorContrastOnClick = 30;
             this.btnEdit.ColorContrastOnHover = 30;
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges12.BottomLeft = true;
-            borderEdges12.BottomRight = true;
-            borderEdges12.TopLeft = true;
-            borderEdges12.TopRight = true;
-            this.btnEdit.CustomizableEdges = borderEdges12;
+            borderEdges3.BottomLeft = true;
+            borderEdges3.BottomRight = true;
+            borderEdges3.TopLeft = true;
+            borderEdges3.TopRight = true;
+            this.btnEdit.CustomizableEdges = borderEdges3;
             this.btnEdit.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnEdit.Image = global::BankManagementt.Properties.Resources.edit;
             this.btnEdit.ImageMargin = new System.Windows.Forms.Padding(0);
@@ -412,11 +452,11 @@
             this.btnTransfer.ColorContrastOnClick = 45;
             this.btnTransfer.ColorContrastOnHover = 45;
             this.btnTransfer.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges8.BottomLeft = true;
-            borderEdges8.BottomRight = true;
-            borderEdges8.TopLeft = true;
-            borderEdges8.TopRight = true;
-            this.btnTransfer.CustomizableEdges = borderEdges8;
+            borderEdges4.BottomLeft = true;
+            borderEdges4.BottomRight = true;
+            borderEdges4.TopLeft = true;
+            borderEdges4.TopRight = true;
+            this.btnTransfer.CustomizableEdges = borderEdges4;
             this.btnTransfer.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnTransfer.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnTransfer.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -513,11 +553,11 @@
             this.bunifuIconButton8.ColorContrastOnClick = 30;
             this.bunifuIconButton8.ColorContrastOnHover = 30;
             this.bunifuIconButton8.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges9.BottomLeft = true;
-            borderEdges9.BottomRight = true;
-            borderEdges9.TopLeft = true;
-            borderEdges9.TopRight = true;
-            this.bunifuIconButton8.CustomizableEdges = borderEdges9;
+            borderEdges5.BottomLeft = true;
+            borderEdges5.BottomRight = true;
+            borderEdges5.TopLeft = true;
+            borderEdges5.TopRight = true;
+            this.bunifuIconButton8.CustomizableEdges = borderEdges5;
             this.bunifuIconButton8.DialogResult = System.Windows.Forms.DialogResult.None;
             this.bunifuIconButton8.Image = global::BankManagementt.Properties.Resources.location;
             this.bunifuIconButton8.ImageMargin = new System.Windows.Forms.Padding(0);
@@ -560,11 +600,11 @@
             this.bunifuIconButton1.ColorContrastOnClick = 30;
             this.bunifuIconButton1.ColorContrastOnHover = 30;
             this.bunifuIconButton1.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges10.BottomLeft = true;
-            borderEdges10.BottomRight = true;
-            borderEdges10.TopLeft = true;
-            borderEdges10.TopRight = true;
-            this.bunifuIconButton1.CustomizableEdges = borderEdges10;
+            borderEdges6.BottomLeft = true;
+            borderEdges6.BottomRight = true;
+            borderEdges6.TopLeft = true;
+            borderEdges6.TopRight = true;
+            this.bunifuIconButton1.CustomizableEdges = borderEdges6;
             this.bunifuIconButton1.DialogResult = System.Windows.Forms.DialogResult.None;
             this.bunifuIconButton1.Image = global::BankManagementt.Properties.Resources.power;
             this.bunifuIconButton1.ImageMargin = new System.Windows.Forms.Padding(0);
@@ -638,36 +678,65 @@
             this.bunifuLabel6.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel6.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // lblOutcome
+            // bunifuPanel4
             // 
-            this.lblOutcome.AllowParentOverrides = false;
-            this.lblOutcome.AutoEllipsis = false;
-            this.lblOutcome.CursorType = null;
-            this.lblOutcome.Font = new System.Drawing.Font("Century Gothic", 15F);
-            this.lblOutcome.Location = new System.Drawing.Point(107, 76);
-            this.lblOutcome.Name = "lblOutcome";
-            this.lblOutcome.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblOutcome.Size = new System.Drawing.Size(16, 23);
-            this.lblOutcome.TabIndex = 27;
-            this.lblOutcome.Text = "0;";
-            this.lblOutcome.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.lblOutcome.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.bunifuPanel4.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.bunifuPanel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel4.BackgroundImage")));
+            this.bunifuPanel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel4.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel4.BorderRadius = 20;
+            this.bunifuPanel4.BorderThickness = 1;
+            this.bunifuPanel4.Location = new System.Drawing.Point(208, 10);
+            this.bunifuPanel4.Name = "bunifuPanel4";
+            this.bunifuPanel4.ShowBorders = true;
+            this.bunifuPanel4.Size = new System.Drawing.Size(10, 125);
+            this.bunifuPanel4.TabIndex = 28;
+            this.bunifuPanel4.Click += new System.EventHandler(this.bunifuPanel4_Click);
             // 
-            // bunifuLabel10
+            // lblIncome
             // 
-            this.bunifuLabel10.AllowParentOverrides = false;
-            this.bunifuLabel10.AutoEllipsis = false;
-            this.bunifuLabel10.CursorType = null;
-            this.bunifuLabel10.Font = new System.Drawing.Font("Century Gothic", 15F);
-            this.bunifuLabel10.Location = new System.Drawing.Point(74, 76);
-            this.bunifuLabel10.Name = "bunifuLabel10";
-            this.bunifuLabel10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel10.Size = new System.Drawing.Size(29, 23);
-            this.bunifuLabel10.TabIndex = 26;
-            this.bunifuLabel10.Text = "RP.";
-            this.bunifuLabel10.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel10.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.bunifuLabel10.Click += new System.EventHandler(this.bunifuLabel10_Click);
+            this.lblIncome.AllowParentOverrides = false;
+            this.lblIncome.AutoEllipsis = false;
+            this.lblIncome.CursorType = null;
+            this.lblIncome.Font = new System.Drawing.Font("Century Gothic", 15F);
+            this.lblIncome.Location = new System.Drawing.Point(97, 66);
+            this.lblIncome.Name = "lblIncome";
+            this.lblIncome.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblIncome.Size = new System.Drawing.Size(16, 23);
+            this.lblIncome.TabIndex = 31;
+            this.lblIncome.Text = "0;";
+            this.lblIncome.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lblIncome.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuLabel7
+            // 
+            this.bunifuLabel7.AllowParentOverrides = false;
+            this.bunifuLabel7.AutoEllipsis = false;
+            this.bunifuLabel7.CursorType = null;
+            this.bunifuLabel7.Font = new System.Drawing.Font("Century Gothic", 15F);
+            this.bunifuLabel7.Location = new System.Drawing.Point(64, 66);
+            this.bunifuLabel7.Name = "bunifuLabel7";
+            this.bunifuLabel7.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel7.Size = new System.Drawing.Size(29, 23);
+            this.bunifuLabel7.TabIndex = 30;
+            this.bunifuLabel7.Text = "RP.";
+            this.bunifuLabel7.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel7.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuLabel8
+            // 
+            this.bunifuLabel8.AllowParentOverrides = false;
+            this.bunifuLabel8.AutoEllipsis = false;
+            this.bunifuLabel8.CursorType = null;
+            this.bunifuLabel8.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel8.Location = new System.Drawing.Point(38, 25);
+            this.bunifuLabel8.Name = "bunifuLabel8";
+            this.bunifuLabel8.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel8.Size = new System.Drawing.Size(57, 18);
+            this.bunifuLabel8.TabIndex = 29;
+            this.bunifuLabel8.Text = "Income";
+            this.bunifuLabel8.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel8.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // Transaksi
             // 
@@ -721,5 +790,9 @@
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel5;
         private Bunifu.UI.WinForms.BunifuLabel lblOutcome;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel10;
+        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel4;
+        private Bunifu.UI.WinForms.BunifuLabel lblIncome;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel7;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel8;
     }
 }

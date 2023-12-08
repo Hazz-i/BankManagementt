@@ -15,25 +15,22 @@ namespace BankManagementt.View
         public List<Rekening> rekeningList;
         public List<TransaksiEntity> transaksiList;
         public static int balanceAftertDelete;
-        public static int outcome = 0;
-
+        int outcome;
         public Transaksi()
         {
             _rekeningController = new RekeningController();
             _transaksiController = new TransaksiController();
 
             InitializeComponent();
+            outcomeRead();
             lblUser.Text = Dashboard.name;
             lblUsername.Text = Dashboard.username; 
             lblAlamat.Text = Dashboard.alamat;
             lblSaldo.Text = Dashboard.balance.ToString();
-            lblOutcome.Text = outcome.ToString();    
             dte.Value = DateTime.Now;
             InisialisasiOrder();
             LoadDataTransaksi();
         }
-
-        // membaca income
 
         private void InisialisasiOrder()
         {
@@ -56,6 +53,7 @@ namespace BankManagementt.View
         {
             lvwTransaction.Items.Clear();
             transaksiList = _transaksiController.readByNasabahId(Dashboard.nomorBank);
+            int outcome = 0;
 
             foreach (var trs in transaksiList)
             {
@@ -70,31 +68,39 @@ namespace BankManagementt.View
                 item.SubItems.Add(trs.tujuan_bank);
                 item.SubItems.Add(trs.nama_nasabah);
                 lvwTransaction.Items.Add(item);
+
+                outcome += trs.jumlah;
             }
+        }
+
+        // membaca income
+        void outcomeRead()
+        {
+            LoadDataTransaksi();
+
+            lblOutcome.Text = outcome.ToString(); ;
+
         }
 
         // handler
         private void OnCreateEventHandler(TransaksiEntity transaksi)
         {
             LoadDataTransaksi();
+            outcomeRead();
 
             rekeningList = _rekeningController.readRekeningComboBox(Dashboard.nomorBank);
-            transaksiList = _transaksiController.readAllforOutcome(Dashboard.nomorBank);
 
             foreach (var trs in rekeningList)
             {
                 lblSaldo.Text = trs.saldo.ToString();
             }
 
-            foreach (var trs in transaksiList)
-            {
-                outcome += trs.jumlah;
-            }
         }
 
         private void OnUpdateEventHandler(TransaksiEntity transaksi)
         {
             LoadDataTransaksi();
+            outcomeRead();
 
             rekeningList = _rekeningController.readRekeningComboBox(Dashboard.nomorBank);
 
