@@ -90,7 +90,7 @@ namespace BankManagementt.View
             int result = 0;
             if (isNewData)
             {
-                result = _controller.AddSaldo(int.Parse(txtSaldo.Text),Dashboard.balance, int.Parse(txtRekening.Text), Dashboard.namaBank);
+                result = _controller.AddSaldo(int.Parse(txtSaldo.Text), int.Parse(txtRekening.Text), Dashboard.balance, Dashboard.namaBank);
 
                 if (result > 0)
                 {
