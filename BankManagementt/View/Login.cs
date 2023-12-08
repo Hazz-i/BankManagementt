@@ -71,11 +71,6 @@ namespace BankManagementt.View
                     txtPassword.Text = "";
                     txtPassword.Focus();
                 }
-                else if(loggedInUser.email != nasabah.email){
-                    MessageBox.Show("Email Salah", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtEmail.Text = "";
-                    txtEmail.Focus();
-                }
                 else
                 {
                     MessageBox.Show("Akun tidak ditemukan!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);

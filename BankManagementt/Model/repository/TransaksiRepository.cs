@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using BankManagement.Model.Context;
 using BankManagement.Model.Entity;
-using BankManagementt.View;
 using MySql.Data.MySqlClient;
 
 namespace BankManagement.Model.Repository
@@ -57,7 +53,7 @@ namespace BankManagement.Model.Repository
             return list;
         }
         //Query Menambahkan Transaksi
-        public int Create(TransaksiEntity transaksi, int nasabahId)
+        public int Create(TransaksiEntity transaksi)
         {
             int result = 0;
             string sql = "INSERT INTO transaksi (nomor_rekening, jumlah, tgl_transaksi, jenis_transaksi, asal_bank, tujuan_bank) VALUES (@nomor_rekening, @jumlah, @tgl_transaksi, @jenis_transaksi, @asal_bank, @tujuan_bank)";
@@ -104,16 +100,12 @@ namespace BankManagement.Model.Repository
         public int Update(TransaksiEntity transaksi, int id_transaksi)
         {
             int result = 0;
-            string sql = @"update transaksi set nomor_rekening = @nomor_rekening, jumlah = @jumlah, tgl_transaksi = @tgl_transaksi, jenis_transaksi = @jenis_transaksi, asal_bank = @asal_bank, tujuan_bank = @tujuan_bank, where id_transaksi = @id_transaksi";
+            string sql = @"update transaksi set jumlah = @jumlah, tujuan_bank = @tujuan_bank where id_transaksi = @id_transaksi";
             using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
             {
-                cmd.Parameters.AddWithValue("@nomor_rekening", transaksi.nomor_rekening);
-                cmd.Parameters.AddWithValue("@jumlah", transaksi.jumlah);
-                cmd.Parameters.AddWithValue("@tgl_transaksi", transaksi.tgl_transaksi);
-                cmd.Parameters.AddWithValue("@jenis_transaksi", transaksi.jenis_transaksi);
-                cmd.Parameters.AddWithValue("@asal_bank", transaksi.asal_bank);
-                cmd.Parameters.AddWithValue("@tujuan_bank", transaksi.tujuan_bank);
                 cmd.Parameters.AddWithValue("@id_transaksi", id_transaksi);
+                cmd.Parameters.AddWithValue("@tujuan_bank", transaksi.tujuan_bank);
+                cmd.Parameters.AddWithValue("@jumlah", transaksi.jumlah);
                 try
                 {
                     result = cmd.ExecuteNonQuery();
@@ -182,7 +174,7 @@ namespace BankManagement.Model.Repository
             return list;
         }
         // Query Ambil Income dari Transaksi by Nomor Rekening
-        public List<TransaksiEntity> readAllforIncome(int nomer_rekening)
+       public List<TransaksiEntity> readAllforIncome(int nomer_rekening)
         {
             List<TransaksiEntity> list = new List<TransaksiEntity>();
             try
@@ -218,5 +210,8 @@ namespace BankManagement.Model.Repository
             }
             return list;
         }
+    
+
+
     }
 }
