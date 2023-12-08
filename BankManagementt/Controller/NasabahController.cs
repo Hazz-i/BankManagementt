@@ -99,7 +99,9 @@ namespace BankManagementt.Controller
                 _repository = new NasabahRepository(context);
                 list = _repository.ReadUserByEmail(email);
             }
+          
             return list;
+
         }
         //END READ BY EMAIL
 
