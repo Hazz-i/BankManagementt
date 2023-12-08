@@ -205,16 +205,21 @@ namespace BankManagement.Model.Repository
             return result;
         }
         //Menambah History Saldo Pada Transaksi
-        public int CreateTranksasiFromAddSaldo(int nomor_rekening, int id_nasabah, int jumlah_saldo_add, int id_bank)
+        public int CreateTranksasiFromAddSaldo(int nomor_rekening, int jumlah_saldo_add, string nama_bank)
         {
             int result = 0;
-            string sql = @"insert into transaksi (id_nasabah, saldo, id_bank, status, nomor_rekening) values (@id_nasabah, @saldo,  @id_bank, 'Penambahan', @nomor_rekening)";
+            string strFormat = "yyyy-MM-dd H:m:s";
+            string datenow = DateTime.Now.ToString(strFormat);
+            string sql = "insert into transaksi (nomor_rekening, jumlah, tgl_transaksi, jenis_transaksi, asal_bank, tujuan_bank) values (@nomor_rekening, @jumlah,  @tgl_transaksi, @jenis_transaksi, @asal_bank, @tujuan_bank)";
             using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
             {
-                cmd.Parameters.AddWithValue("@id_nasabah", id_nasabah);
                 cmd.Parameters.AddWithValue("@nomor_rekening", nomor_rekening);
-                cmd.Parameters.AddWithValue("@id_bank", id_bank);
-                cmd.Parameters.AddWithValue("@saldo", jumlah_saldo_add);
+                cmd.Parameters.AddWithValue("@jumlah", jumlah_saldo_add);
+                cmd.Parameters.AddWithValue("@tgl_transaksi", datenow);
+                cmd.Parameters.AddWithValue("@jenis_transaksi",  "Penambahan");
+                cmd.Parameters.AddWithValue("@asal_bank", nama_bank);
+                cmd.Parameters.AddWithValue("@tujuan_bank", nama_bank);
+                
                 try
                 {
                     result = cmd.ExecuteNonQuery();

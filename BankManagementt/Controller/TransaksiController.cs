@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
 using System.Windows.Forms;
 using BankManagement.Model.Context;
 using BankManagement.Model.Entity;
 using BankManagement.Model.Repository;
-using BankManagementt.View;
 
 namespace BankManagementt.Controller
 {
@@ -31,7 +26,7 @@ namespace BankManagementt.Controller
         }
 
         //membuat transaksi
-        public int createTransaksi(TransaksiEntity transaksi, int nasabahID)
+        public int createTransaksi(TransaksiEntity transaksi)
         {
             int result = 0;
 
@@ -46,7 +41,7 @@ namespace BankManagementt.Controller
             using (DbContext context = new DbContext())
             {
                 _repository = new TransaksiRepository(context);
-                result = _repository.Create(transaksi, nasabahID);
+                result = _repository.Create(transaksi);
             }
 
             if (result > 0)
@@ -59,14 +54,14 @@ namespace BankManagementt.Controller
         }
 
         //update transaksi
-        public int updateTransaksi(TransaksiEntity transaksi, int nomor_rekening)
+        public int updateTransaksi(TransaksiEntity transaksi, int id_transaksi)
         {
             int result = 0;
 
             using (DbContext context = new DbContext())
             {
                 _repository = new TransaksiRepository(context);
-                result = _repository.Update(transaksi, nomor_rekening);
+                result = _repository.Update(transaksi, id_transaksi);
             }
 
             if (result > 0)
@@ -88,13 +83,6 @@ namespace BankManagementt.Controller
                 _repository = new TransaksiRepository(context);
                 result = _repository.UpdateSaldo(saldo_update, nomor_rekening);
             }
-
-            if (result > 0)
-            {
-                MessageBox.Show("Data berhasil ditambahkan !!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-                MessageBox.Show("Data gagal ditambahkan !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             return result;
         }
 
@@ -138,6 +126,7 @@ namespace BankManagementt.Controller
 
             return list;
         }
+
         //Controller Ambil Income dari Transaksi by Nomor Rekening
         public List<TransaksiEntity> readAllforIncome(int nomer_rekening)
         {

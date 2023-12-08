@@ -6,6 +6,8 @@ using System.Transactions;
 using System.Windows.Forms;
 using BankManagement.Model.Entity;
 using BankManagementt.Controller;
+using MySqlX.XDevAPI.Common;
+using static BankManagementt.View.InputTransaksi;
 
 namespace BankManagementt.View
 {
@@ -24,6 +26,8 @@ namespace BankManagementt.View
 
         bool isNewData = true;
         public static int amount;
+        public int amount_obj;
+        public int id_transaksi;
 
         //event 
         public event addTransaksi onCreate;
@@ -77,18 +81,11 @@ namespace BankManagementt.View
             this._controller = controller;
             isNewData = false;
             transaksi = obj;
-
+            amount_obj = obj.jumlah;
+            id_transaksi = obj.id_transaksi;
             lblTransaksi.Text = "Update Data";
 
-/*          transaksiList = _controller.readAll();
-            foreach (var trs in transaksiList)
-            {
-                movieDropDown.Items.Add(trs.MovieName);
-                methodDropDown.Items.Add(trs.methode);
-                txtNumber.Text = trs.Number.ToString();
-                txtAmount.Text = trs.Amount.ToString();
-                snackDropDown.Items.Add(trs.Sncak);
-            }*/
+            txtCategory.Text = "Update";
         }
 
         private void bunifuPanel1_Click(object sender, EventArgs e)
@@ -114,22 +111,14 @@ namespace BankManagementt.View
                 int result = 0;
                 if (isNewData)
                 {
-                    result = _controller.createTransaksi(transaksi, int.Parse(Dashboard.nasabahId));
+                    int updated_saldo = Dashboard.balance - transaksi.jumlah;
+                    result = _controller.createTransaksi(transaksi);
+                    _controller.UpdateSaldo(updated_saldo, transaksi.nomor_rekening);
 
                     if (result > 0)
                     {
                         amount = int.Parse(txtAmount.Text);
                         onCreate(transaksi);
-                        this.Close();
-                    }
-                }
-                else
-                {
-                    result = _controller.updateTransaksi(transaksi, Dashboard.nomorBank);
-                    
-                    if (result > 0)
-                    {
-                        onUpdate(transaksi);
                         this.Close();
                     }
                 }
@@ -141,6 +130,19 @@ namespace BankManagementt.View
                 txtAmount.Focus();
             }
 
+
+            if (isNewData != true)
+            {
+                int updated_saldo = Dashboard.balance + amount_obj - transaksi.jumlah;
+                int result = _controller.updateTransaksi(transaksi, id_transaksi);
+
+                _controller.UpdateSaldo(updated_saldo, transaksi.nomor_rekening);
+                if (result > 0)
+                {
+                    onUpdate(transaksi);
+                    this.Close();
+                }
+            }
 
         }
 

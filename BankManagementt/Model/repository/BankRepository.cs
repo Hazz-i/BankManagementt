@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using BankManagement.Model.Context;
 using BankManagement.Model.Entity;
@@ -72,68 +69,6 @@ namespace BankManagement.Model.Repository
                 System.Diagnostics.Debug.Print("ReadAll Eror : {0}", ex.Message);
             }
             return list;
-        }
-        //Query Menambahkan Bank
-        public int Create(Bank bank)
-        {
-            int result = 0;
-            string sql = @"insert into bank (nama_bank, no_telepon, alamat) values (@nama_bank, @no_telepon, @alamat)";
-            using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
-            {
-                cmd.Parameters.AddWithValue("@nama_bank", bank.nama_bank);
-                cmd.Parameters.AddWithValue("@no_telepon", bank.no_telepon);
-                cmd.Parameters.AddWithValue("@alamat", bank.alamat);
-                try
-                {
-                    result = cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.Print("Create error: {0}", ex.Message);
-                }
-            }
-            return result;
-        }
-        // Query Update Bank
-        public int Update(Bank bank, int id_bank)
-        {
-            int result = 0;
-            string sql = @"update bank set nama_bank = @nama_bank, no_telepon = @no_telepon, alamat = @alamat where id_bank = @id_bank";
-            using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
-            {
-                cmd.Parameters.AddWithValue("@nama_bank", bank.nama_bank);
-                cmd.Parameters.AddWithValue("@no_telepon", bank.no_telepon);
-                cmd.Parameters.AddWithValue("@alamat", bank.alamat);
-                cmd.Parameters.AddWithValue("@id_bank", id_bank);
-                try
-                {
-                    result = cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.Print("Update error: {0}", ex.Message);
-                }
-            }
-            return result;
-        }
-        // Query Delete Bank
-        public int Delete(Bank bank)
-        {
-            int result = 0;
-            string sql = @"delete from bank where id_bank = @id_bank";
-            using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
-            {
-                cmd.Parameters.AddWithValue("@id_bank", bank.id_bank);
-                try
-                {
-                    result = cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.Print("Delete error: {0}", ex.Message);
-                }
-            }
-            return result;
         }
     }
 }

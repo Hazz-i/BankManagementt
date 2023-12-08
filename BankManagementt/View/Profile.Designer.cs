@@ -38,6 +38,7 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -55,12 +56,11 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties23 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties24 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuFormCaptionButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuFormCaptionButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties25 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties26 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties27 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties28 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
@@ -71,16 +71,17 @@
             this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
             this.txtPass = new Bunifu.UI.WinForms.BunifuTextBox();
             this.txtEmail = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.btnDelete = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton();
             this.txtPhoneNumber = new Bunifu.UI.WinForms.BunifuTextBox();
             this.txtAddress = new Bunifu.UI.WinForms.BunifuTextBox();
             this.txtName = new Bunifu.UI.WinForms.BunifuTextBox();
             this.txtNasabahID = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuGradientPanel3 = new Bunifu.UI.WinForms.BunifuGradientPanel();
             this.bunifuFormCaptionButton1 = new Bunifu.UI.WinForms.BunifuFormCaptionButton();
-            this.bunifuIconButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.btnDelete = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton();
             this.txtUsername = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.bunifuIconButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuIconButton();
+            this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuPanel3.SuspendLayout();
             this.bunifuGradientPanel3.SuspendLayout();
             this.bunifuPanel1.SuspendLayout();
@@ -447,6 +448,38 @@
             this.txtEmail.UseSystemPasswordChar = false;
             this.txtEmail.WordWrap = true;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.AllowAnimations = true;
+            this.btnDelete.AllowBorderColorChanges = true;
+            this.btnDelete.AllowMouseEffects = true;
+            this.btnDelete.AnimationSpeed = 200;
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnDelete.BorderColor = System.Drawing.Color.Transparent;
+            this.btnDelete.BorderRadius = 1;
+            this.btnDelete.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderStyles.Solid;
+            this.btnDelete.BorderThickness = 1;
+            this.btnDelete.ColorContrastOnClick = 30;
+            this.btnDelete.ColorContrastOnHover = 30;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.btnDelete.CustomizableEdges = borderEdges2;
+            this.btnDelete.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnDelete.Image = global::BankManagementt.Properties.Resources.trash;
+            this.btnDelete.ImageMargin = new System.Windows.Forms.Padding(0);
+            this.btnDelete.Location = new System.Drawing.Point(309, 317);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.RoundBorders = true;
+            this.btnDelete.ShowBorders = true;
+            this.btnDelete.Size = new System.Drawing.Size(40, 40);
+            this.btnDelete.Style = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ButtonStyles.Round;
+            this.btnDelete.TabIndex = 60;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
+            // 
             // txtPhoneNumber
             // 
             this.txtPhoneNumber.AcceptsReturn = false;
@@ -812,37 +845,6 @@
             this.bunifuFormCaptionButton1.TabIndex = 61;
             this.bunifuFormCaptionButton1.Click += new System.EventHandler(this.bunifuFormCaptionButton1_Click_1);
             // 
-            // bunifuIconButton1
-            // 
-            this.bunifuIconButton1.AllowAnimations = true;
-            this.bunifuIconButton1.AllowBorderColorChanges = true;
-            this.bunifuIconButton1.AllowMouseEffects = true;
-            this.bunifuIconButton1.AnimationSpeed = 200;
-            this.bunifuIconButton1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuIconButton1.BackgroundColor = System.Drawing.Color.Transparent;
-            this.bunifuIconButton1.BorderColor = System.Drawing.Color.Black;
-            this.bunifuIconButton1.BorderRadius = 1;
-            this.bunifuIconButton1.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderStyles.Solid;
-            this.bunifuIconButton1.BorderThickness = 1;
-            this.bunifuIconButton1.ColorContrastOnClick = 30;
-            this.bunifuIconButton1.ColorContrastOnHover = 30;
-            this.bunifuIconButton1.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges4.BottomLeft = true;
-            borderEdges4.BottomRight = true;
-            borderEdges4.TopLeft = true;
-            borderEdges4.TopRight = true;
-            this.bunifuIconButton1.CustomizableEdges = borderEdges4;
-            this.bunifuIconButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.bunifuIconButton1.Image = global::BankManagementt.Properties.Resources.user;
-            this.bunifuIconButton1.ImageMargin = new System.Windows.Forms.Padding(0);
-            this.bunifuIconButton1.Location = new System.Drawing.Point(166, 51);
-            this.bunifuIconButton1.Name = "bunifuIconButton1";
-            this.bunifuIconButton1.RoundBorders = true;
-            this.bunifuIconButton1.ShowBorders = true;
-            this.bunifuIconButton1.Size = new System.Drawing.Size(163, 163);
-            this.bunifuIconButton1.Style = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ButtonStyles.Round;
-            this.bunifuIconButton1.TabIndex = 58;
-            // 
             // bunifuPanel1
             // 
             this.bunifuPanel1.BackgroundColor = System.Drawing.Color.Transparent;
@@ -853,43 +855,12 @@
             this.bunifuPanel1.BorderThickness = 1;
             this.bunifuPanel1.Controls.Add(this.txtUsername);
             this.bunifuPanel1.Controls.Add(this.bunifuIconButton1);
+            this.bunifuPanel1.Controls.Add(this.bunifuPanel2);
             this.bunifuPanel1.Location = new System.Drawing.Point(0, 0);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
             this.bunifuPanel1.Size = new System.Drawing.Size(501, 302);
             this.bunifuPanel1.TabIndex = 62;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.AllowAnimations = true;
-            this.btnDelete.AllowBorderColorChanges = true;
-            this.btnDelete.AllowMouseEffects = true;
-            this.btnDelete.AnimationSpeed = 200;
-            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
-            this.btnDelete.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnDelete.BorderColor = System.Drawing.Color.Transparent;
-            this.btnDelete.BorderRadius = 1;
-            this.btnDelete.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderStyles.Solid;
-            this.btnDelete.BorderThickness = 1;
-            this.btnDelete.ColorContrastOnClick = 30;
-            this.btnDelete.ColorContrastOnHover = 30;
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.btnDelete.CustomizableEdges = borderEdges2;
-            this.btnDelete.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnDelete.Image = global::BankManagementt.Properties.Resources.trash;
-            this.btnDelete.ImageMargin = new System.Windows.Forms.Padding(0);
-            this.btnDelete.Location = new System.Drawing.Point(309, 317);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.RoundBorders = true;
-            this.btnDelete.ShowBorders = true;
-            this.btnDelete.Size = new System.Drawing.Size(40, 40);
-            this.btnDelete.Style = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ButtonStyles.Round;
-            this.btnDelete.TabIndex = 60;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
             // 
             // txtUsername
             // 
@@ -967,6 +938,51 @@
             this.txtUsername.UseSystemPasswordChar = false;
             this.txtUsername.WordWrap = true;
             // 
+            // bunifuIconButton1
+            // 
+            this.bunifuIconButton1.AllowAnimations = true;
+            this.bunifuIconButton1.AllowBorderColorChanges = true;
+            this.bunifuIconButton1.AllowMouseEffects = true;
+            this.bunifuIconButton1.AnimationSpeed = 200;
+            this.bunifuIconButton1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuIconButton1.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuIconButton1.BorderColor = System.Drawing.Color.Black;
+            this.bunifuIconButton1.BorderRadius = 1;
+            this.bunifuIconButton1.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderStyles.Solid;
+            this.bunifuIconButton1.BorderThickness = 1;
+            this.bunifuIconButton1.ColorContrastOnClick = 30;
+            this.bunifuIconButton1.ColorContrastOnHover = 30;
+            this.bunifuIconButton1.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges4.BottomLeft = true;
+            borderEdges4.BottomRight = true;
+            borderEdges4.TopLeft = true;
+            borderEdges4.TopRight = true;
+            this.bunifuIconButton1.CustomizableEdges = borderEdges4;
+            this.bunifuIconButton1.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.bunifuIconButton1.Image = global::BankManagementt.Properties.Resources.user;
+            this.bunifuIconButton1.ImageMargin = new System.Windows.Forms.Padding(0);
+            this.bunifuIconButton1.Location = new System.Drawing.Point(166, 51);
+            this.bunifuIconButton1.Name = "bunifuIconButton1";
+            this.bunifuIconButton1.RoundBorders = true;
+            this.bunifuIconButton1.ShowBorders = true;
+            this.bunifuIconButton1.Size = new System.Drawing.Size(163, 163);
+            this.bunifuIconButton1.Style = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ButtonStyles.Round;
+            this.bunifuIconButton1.TabIndex = 58;
+            // 
+            // bunifuPanel2
+            // 
+            this.bunifuPanel2.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel2.BackgroundImage")));
+            this.bunifuPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel2.BorderColor = System.Drawing.Color.Black;
+            this.bunifuPanel2.BorderRadius = 3;
+            this.bunifuPanel2.BorderThickness = 1;
+            this.bunifuPanel2.Location = new System.Drawing.Point(0, 0);
+            this.bunifuPanel2.Name = "bunifuPanel2";
+            this.bunifuPanel2.ShowBorders = true;
+            this.bunifuPanel2.Size = new System.Drawing.Size(501, 316);
+            this.bunifuPanel2.TabIndex = 59;
+            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1007,5 +1023,6 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuIconButton bunifuIconButton1;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
         private Bunifu.UI.WinForms.BunifuTextBox txtUsername;
+        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel2;
     }
 }

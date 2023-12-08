@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Transactions;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace BankManagementt.View
 {
@@ -41,6 +42,7 @@ namespace BankManagementt.View
             foreach (var bank in bankList)
             {
                 drpBank.Items.Add(bank.nama_bank);
+                MessageBox.Show(bank.nama_bank);
             }
         }
 

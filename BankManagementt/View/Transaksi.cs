@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 using System.Windows.Forms;
 using BankManagement.Model.Entity;
+using System.Transactions;
 
 namespace BankManagementt.View
 {
@@ -13,6 +14,8 @@ namespace BankManagementt.View
         private TransaksiController _transaksiController;
         public List<Rekening> rekeningList;
         public List<TransaksiEntity> transaksiList;
+        public static int balanceAftertDelete;
+        public static int outcome = 0;
 
         public Transaksi()
         {
@@ -24,10 +27,13 @@ namespace BankManagementt.View
             lblUsername.Text = Dashboard.username; 
             lblAlamat.Text = Dashboard.alamat;
             lblSaldo.Text = Dashboard.balance.ToString();
+            lblOutcome.Text = outcome.ToString();    
             dte.Value = DateTime.Now;
             InisialisasiOrder();
             LoadDataTransaksi();
         }
+
+        // membaca income
 
         private void InisialisasiOrder()
         {
@@ -72,14 +78,30 @@ namespace BankManagementt.View
         {
             LoadDataTransaksi();
 
-            // Assuming 'transaksi.jumlah' represents the transaction amount
-            // Reduce the balance label value by the transaction amount
-            int transactionAmount = InputTransaksi.amount;
-            int currentBalance = int.Parse(lblSaldo.Text);
-            int updatedBalance = currentBalance - transactionAmount;
+            rekeningList = _rekeningController.readRekeningComboBox(Dashboard.nomorBank);
+            transaksiList = _transaksiController.readAllforOutcome(Dashboard.nomorBank);
 
-            // Update the balance label with the new value
-            lblSaldo.Text = updatedBalance.ToString();
+            foreach (var trs in rekeningList)
+            {
+                lblSaldo.Text = trs.saldo.ToString();
+            }
+
+            foreach (var trs in transaksiList)
+            {
+                outcome += trs.jumlah;
+            }
+        }
+
+        private void OnUpdateEventHandler(TransaksiEntity transaksi)
+        {
+            LoadDataTransaksi();
+
+            rekeningList = _rekeningController.readRekeningComboBox(Dashboard.nomorBank);
+
+            foreach (var trs in rekeningList)
+            {
+                lblSaldo.Text = trs.saldo.ToString();
+            }
         }
         private void bunifuIconButton1_Click(object sender, EventArgs e)
         {
@@ -125,6 +147,14 @@ namespace BankManagementt.View
         {
             if (lvwTransaction.SelectedItems.Count > 0)
             {
+                transaksiList = _transaksiController.readAllforOutcome(Dashboard.nomorBank);
+
+                foreach (var trs in transaksiList)
+                {
+                    balanceAftertDelete = int.Parse(lblSaldo.Text) + trs.jumlah;
+                    _transaksiController.UpdateSaldo(balanceAftertDelete, Dashboard.nomorBank);
+                }
+
 
                 // ambil objek mhs yang mau dihapus dari collection
                 TransaksiEntity rek = transaksiList[lvwTransaction.SelectedIndices[0]];
@@ -132,7 +162,11 @@ namespace BankManagementt.View
                 int result = _transaksiController.Delete(rek);
 
 
-                if (result > 0) LoadDataTransaksi();
+                if (result > 0)
+                {
+                    LoadDataTransaksi();
+                    lblSaldo.Text = balanceAftertDelete.ToString();
+                }
             }
             else // data belum dipilih
             {
@@ -146,6 +180,36 @@ namespace BankManagementt.View
         }
 
         private void lblSaldo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (lvwTransaction.SelectedItems.Count > 0)
+            {
+                TransaksiEntity trs = transaksiList[lvwTransaction.SelectedIndices[0]];
+                InputTransaksi updateData = new InputTransaksi("Update Data Transaksi", trs, _transaksiController);
+                updateData.onUpdate += OnUpdateEventHandler;
+                updateData.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Data belum dipilih", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void bunifuLabel8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel10_Click(object sender, EventArgs e)
         {
 
         }

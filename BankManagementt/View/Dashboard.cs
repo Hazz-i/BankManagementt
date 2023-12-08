@@ -11,6 +11,8 @@ namespace BankManagementt.View
     { 
         private NasabahController _controller;
         private RekeningController _rekeningController;
+        private TransaksiController _transaksiController;
+        public List<TransaksiEntity> transaksiList;
         public List<Nasabah> userList;
         public List<Rekening> rekeningList;
 
@@ -19,8 +21,8 @@ namespace BankManagementt.View
         public static string name;
         public static string username;
         public static string alamat;
-        public static string nama;
         public static int balance;
+        public static string namaBank;
         public static int nomorBank;
         public int iDnasbah;
 
@@ -29,6 +31,8 @@ namespace BankManagementt.View
             InitializeComponent();
             userList = new List<Nasabah>();
             rekeningList = new List<Rekening>();
+            
+            _transaksiController = new TransaksiController();
             _controller = new NasabahController();
             _rekeningController = new RekeningController();
 
@@ -66,6 +70,7 @@ namespace BankManagementt.View
                 drpRekening.Items.Add(rekening.nomor_rekening.ToString());
             }
         }
+
 
         private void InisialisasiRekening()
         {
@@ -177,6 +182,7 @@ namespace BankManagementt.View
             {
                 txtNamaRekening.Text = item.nama_bank.ToString();
                 lblSaldo.Text = item.saldo.ToString();
+                namaBank = item.nama_bank;
             }
 
             balance = int.Parse(lblSaldo.Text);

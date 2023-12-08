@@ -76,34 +76,6 @@ namespace BankManagementt.Controller
                 MessageBox.Show("Data gagal ditambahkan !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             return result;
         }
-        // mengupdate Rekening
-        public int UpdateRekening(Rekening rekening, int id_nasabah)
-        {
-            int result = 0;
-
-            if (string.IsNullOrEmpty(rekening.saldo.ToString()))
-            {
-                MessageBox.Show("Saldo tidak boleh kosong!!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return 0;
-            }
-
-            // membuat objek context menggunakan blok using
-            using (DbContext context = new DbContext())
-            {
-                _repository = new RekeningRepository(context);
-                result = _repository.Update(rekening, id_nasabah);
-            }
-
-            if (result > 0)
-            {
-                MessageBox.Show("Data berhasil diupdate !", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-                MessageBox.Show("Data gagal diupdate !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-            return result;
-
-        }
 
         // menghapus Rekening
         public int Delete(Rekening rekening)
@@ -123,14 +95,14 @@ namespace BankManagementt.Controller
             return result;
         }
         //controller untuk tambah saldo
-        public int AddSaldo(int saldo_now, int nomor_rekening, int id_nasabah, int jumlah_saldo_add, int id_bank)
+        public int AddSaldo(int saldo_now, int nomor_rekening, int jumlah_saldo_add, string namaBank)
         {
             int result = 0;
             using (DbContext context = new DbContext())
             {
                 _repository = new RekeningRepository(context);
                 result = _repository.AddSaldo(saldo_now, nomor_rekening);
-               _repository.CreateTranksasiFromAddSaldo(nomor_rekening, id_nasabah, jumlah_saldo_add, id_bank);
+               _repository.CreateTranksasiFromAddSaldo(nomor_rekening, jumlah_saldo_add, namaBank);
             }
 
             if (result > 0)

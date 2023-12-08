@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using BankManagement.Model.Context;
 using BankManagement.Model.Entity;
@@ -17,38 +14,7 @@ namespace BankManagement.Model.Repository
         {
             _conn = context.Conn;
         }
-        //Query Read Semua Nasabah Yang Ada
-        public List<Nasabah> ReadAll()
-        {
-            List<Nasabah> list = new List<Nasabah>();
-            try
-            {
-                string sql = @"select * from nasabah";
-                using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
-                {
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Nasabah nasabah = new Nasabah();
-                            nasabah.id_nasabah = int.Parse(reader["id_nasabah"].ToString());
-                            nasabah.nama_nasabah = reader["nama_nasabah"].ToString();
-                            nasabah.username = reader["username"].ToString();
-                            nasabah.password = reader["password"].ToString();
-                            nasabah.email = reader["email"].ToString();
-                            nasabah.alamat = reader["alamat"].ToString();
-                            nasabah.no_telepon = int.Parse(reader["no_telepon"].ToString());
-                            list.Add(nasabah);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.Print("ReadAll Eror : {0}", ex.Message);
-            }
-            return list;
-        }
+
         //BAGIAN DAFTAR AKUN
         //Validasi akun sudah terbuat atau belum by username
         public bool DaftarValidasi(string email)

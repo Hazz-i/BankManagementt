@@ -54,16 +54,29 @@ namespace BankManagementt.View
                 }
                 nasabah.password = txtPassword.Text;
 
-                result = _controller.createNasbah(nasabah);
+                bool valid = _controller.DaftarValidasi(txtEmail.Text);
 
-                if(result > 0)
+                if(valid == false)
                 {
-                    Login login = new Login();
-                    login.ShowDialog();
-                    
-                    this.Visible = false;
-                    this.Dispose();
+                    result = _controller.createNasbah(nasabah);
+
+                    if (result > 0)
+                    {
+                        Login login = new Login();
+                        login.ShowDialog();
+
+                        this.Visible = false;
+                        this.Dispose();
+                    }
                 }
+                else
+                {
+
+                    MessageBox.Show("Email suda ada yang menggunakan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtEmail.Text = " ";
+                    txtEmail.Focus();
+                }
+
             }
             else
             {
