@@ -45,6 +45,10 @@
             this.bunifuGradientPanel1 = new Bunifu.UI.WinForms.BunifuGradientPanel();
             this.dte = new Bunifu.UI.WinForms.BunifuDatePicker();
             this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.lblIncome = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel7 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel8 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuPanel4 = new Bunifu.UI.WinForms.BunifuPanel();
             this.lblOutcome = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel10 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel5 = new Bunifu.UI.WinForms.BunifuLabel();
@@ -62,10 +66,6 @@
             this.lblBalance = new Bunifu.UI.WinForms.BunifuLabel();
             this.lblUsername = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel6 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuPanel4 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.lblIncome = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuLabel7 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuLabel8 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuPanel1.SuspendLayout();
             this.bunifuGradientPanel1.SuspendLayout();
             this.bunifuPanel3.SuspendLayout();
@@ -279,6 +279,66 @@
             this.bunifuPanel3.Size = new System.Drawing.Size(429, 148);
             this.bunifuPanel3.TabIndex = 22;
             this.bunifuPanel3.Click += new System.EventHandler(this.bunifuPanel3_Click);
+            // 
+            // lblIncome
+            // 
+            this.lblIncome.AllowParentOverrides = false;
+            this.lblIncome.AutoEllipsis = false;
+            this.lblIncome.CursorType = null;
+            this.lblIncome.Font = new System.Drawing.Font("Century Gothic", 15F);
+            this.lblIncome.Location = new System.Drawing.Point(97, 66);
+            this.lblIncome.Name = "lblIncome";
+            this.lblIncome.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblIncome.Size = new System.Drawing.Size(16, 23);
+            this.lblIncome.TabIndex = 31;
+            this.lblIncome.Text = "0;";
+            this.lblIncome.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lblIncome.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuLabel7
+            // 
+            this.bunifuLabel7.AllowParentOverrides = false;
+            this.bunifuLabel7.AutoEllipsis = false;
+            this.bunifuLabel7.CursorType = null;
+            this.bunifuLabel7.Font = new System.Drawing.Font("Century Gothic", 15F);
+            this.bunifuLabel7.Location = new System.Drawing.Point(64, 66);
+            this.bunifuLabel7.Name = "bunifuLabel7";
+            this.bunifuLabel7.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel7.Size = new System.Drawing.Size(29, 23);
+            this.bunifuLabel7.TabIndex = 30;
+            this.bunifuLabel7.Text = "RP.";
+            this.bunifuLabel7.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel7.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuLabel8
+            // 
+            this.bunifuLabel8.AllowParentOverrides = false;
+            this.bunifuLabel8.AutoEllipsis = false;
+            this.bunifuLabel8.CursorType = null;
+            this.bunifuLabel8.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel8.Location = new System.Drawing.Point(38, 25);
+            this.bunifuLabel8.Name = "bunifuLabel8";
+            this.bunifuLabel8.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel8.Size = new System.Drawing.Size(57, 18);
+            this.bunifuLabel8.TabIndex = 29;
+            this.bunifuLabel8.Text = "Income";
+            this.bunifuLabel8.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel8.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuPanel4
+            // 
+            this.bunifuPanel4.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.bunifuPanel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel4.BackgroundImage")));
+            this.bunifuPanel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel4.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel4.BorderRadius = 10;
+            this.bunifuPanel4.BorderThickness = 1;
+            this.bunifuPanel4.Location = new System.Drawing.Point(208, 24);
+            this.bunifuPanel4.Name = "bunifuPanel4";
+            this.bunifuPanel4.ShowBorders = true;
+            this.bunifuPanel4.Size = new System.Drawing.Size(10, 101);
+            this.bunifuPanel4.TabIndex = 28;
+            this.bunifuPanel4.Click += new System.EventHandler(this.bunifuPanel4_Click);
             // 
             // lblOutcome
             // 
@@ -677,66 +737,6 @@
             this.bunifuLabel6.Text = "Hi,";
             this.bunifuLabel6.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel6.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuPanel4
-            // 
-            this.bunifuPanel4.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.bunifuPanel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel4.BackgroundImage")));
-            this.bunifuPanel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel4.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel4.BorderRadius = 20;
-            this.bunifuPanel4.BorderThickness = 1;
-            this.bunifuPanel4.Location = new System.Drawing.Point(208, 10);
-            this.bunifuPanel4.Name = "bunifuPanel4";
-            this.bunifuPanel4.ShowBorders = true;
-            this.bunifuPanel4.Size = new System.Drawing.Size(10, 125);
-            this.bunifuPanel4.TabIndex = 28;
-            this.bunifuPanel4.Click += new System.EventHandler(this.bunifuPanel4_Click);
-            // 
-            // lblIncome
-            // 
-            this.lblIncome.AllowParentOverrides = false;
-            this.lblIncome.AutoEllipsis = false;
-            this.lblIncome.CursorType = null;
-            this.lblIncome.Font = new System.Drawing.Font("Century Gothic", 15F);
-            this.lblIncome.Location = new System.Drawing.Point(97, 66);
-            this.lblIncome.Name = "lblIncome";
-            this.lblIncome.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblIncome.Size = new System.Drawing.Size(16, 23);
-            this.lblIncome.TabIndex = 31;
-            this.lblIncome.Text = "0;";
-            this.lblIncome.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.lblIncome.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuLabel7
-            // 
-            this.bunifuLabel7.AllowParentOverrides = false;
-            this.bunifuLabel7.AutoEllipsis = false;
-            this.bunifuLabel7.CursorType = null;
-            this.bunifuLabel7.Font = new System.Drawing.Font("Century Gothic", 15F);
-            this.bunifuLabel7.Location = new System.Drawing.Point(64, 66);
-            this.bunifuLabel7.Name = "bunifuLabel7";
-            this.bunifuLabel7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel7.Size = new System.Drawing.Size(29, 23);
-            this.bunifuLabel7.TabIndex = 30;
-            this.bunifuLabel7.Text = "RP.";
-            this.bunifuLabel7.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel7.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuLabel8
-            // 
-            this.bunifuLabel8.AllowParentOverrides = false;
-            this.bunifuLabel8.AutoEllipsis = false;
-            this.bunifuLabel8.CursorType = null;
-            this.bunifuLabel8.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel8.Location = new System.Drawing.Point(38, 25);
-            this.bunifuLabel8.Name = "bunifuLabel8";
-            this.bunifuLabel8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel8.Size = new System.Drawing.Size(57, 18);
-            this.bunifuLabel8.TabIndex = 29;
-            this.bunifuLabel8.Text = "Income";
-            this.bunifuLabel8.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel8.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // Transaksi
             // 

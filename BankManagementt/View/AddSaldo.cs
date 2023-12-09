@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 using BankManagement.Model.Entity;
@@ -16,6 +17,7 @@ namespace BankManagementt.View
         public List<Rekening> listRekening;  
         
         private RekeningController _controller;
+        private RekeningController _controll;
         bool isNewData = true;
         private int idBank;
         private string status;
@@ -67,37 +69,34 @@ namespace BankManagementt.View
             rekening.id_bank = idBank;
             rekening.status = status;
             rekening.saldo = int.Parse(txtSaldo.Text);
-
             // Memperbarui saldo dalam listRekening
             foreach (var item in listRekening)
             {
                 if (item.nomor_rekening == int.Parse(txtRekening.Text))
                 {
-                    // Menambahkan saldo baru ke saldo yang ada pada rekening yang sesuai
                     item.saldo += int.Parse(txtSaldo.Text);
 
-                    // Memperbarui saldo di database dengan memanggil metode UpdateSaldo dari TransaksiController
                     TransaksiController transaksiController = new TransaksiController();
                     transaksiController.UpdateSaldo(item.saldo, item.nomor_rekening);
-
-                    // Memanggil event insertSaldo untuk memperbarui tampilan saldo di Dashboard
+                    _controller.CreateTranksasiFromAddSaldo(int.Parse(txtRekening.Text), int.Parse(txtSaldo.Text), Dashboard.namaBank);
+                    
                     insertSaldo(rekening);
                     this.Close();
-                    return; // Keluar dari method setelah proses selesai
+                    return; 
                 }
             }
 
-            int result = 0;
+/*            int result = 0;
             if (isNewData)
             {
-                result = _controller.AddSaldo(int.Parse(txtSaldo.Text), int.Parse(txtRekening.Text), Dashboard.balance, Dashboard.namaBank);
-
+                result = _controller.AddSaldo(int.Parse(txtSaldo.Text), int.Parse(txtRekening.Text));
+                _controller.CreateTranksasiFromAddSaldo(int.Parse(txtRekening.Text), Dashboard.balance, Dashboard.namaBank);
                 if (result > 0)
                 {
                     insertSaldo(rekening);
                     this.Close();
                 }
-            }
+            }*/
         }
     }
 }

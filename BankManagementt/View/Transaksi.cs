@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using BankManagement.Model.Entity;
 using System.Transactions;
+using System.Runtime.CompilerServices;
 
 namespace BankManagementt.View
 {
@@ -15,7 +16,9 @@ namespace BankManagementt.View
         public List<Rekening> rekeningList;
         public List<TransaksiEntity> transaksiList;
         public static int balanceAftertDelete;
-        int outcome;
+        public int saldo;
+        public int outcome;
+        public int income;
         public Transaksi()
         {
             _rekeningController = new RekeningController();
@@ -23,11 +26,20 @@ namespace BankManagementt.View
 
             InitializeComponent();
             outcomeRead();
+            incomeRead();
             lblUser.Text = Dashboard.name;
             lblUsername.Text = Dashboard.username; 
             lblAlamat.Text = Dashboard.alamat;
-            lblSaldo.Text = Dashboard.balance.ToString();
             dte.Value = DateTime.Now;
+
+            rekeningList = _rekeningController.readRekeningComboBox(Dashboard.nomorBank);
+
+            foreach (var item in rekeningList)
+            {
+                lblSaldo.Text = item.saldo.ToString();
+                saldo = item.saldo;
+            }
+
             InisialisasiOrder();
             LoadDataTransaksi();
         }
@@ -53,8 +65,6 @@ namespace BankManagementt.View
         {
             lvwTransaction.Items.Clear();
             transaksiList = _transaksiController.readByNasabahId(Dashboard.nomorBank);
-            int outcome = 0;
-
             foreach (var trs in transaksiList)
             {
                 var noUrut = lvwTransaction.Items.Count + 1;
@@ -68,17 +78,34 @@ namespace BankManagementt.View
                 item.SubItems.Add(trs.tujuan_bank);
                 item.SubItems.Add(trs.nama_nasabah);
                 lvwTransaction.Items.Add(item);
-
-                outcome += trs.jumlah;
-            }
+            }                                                                                                                        
         }
 
-        // membaca income
+        // membaca outocme
         void outcomeRead()
         {
-            LoadDataTransaksi();
+            transaksiList = _transaksiController.readAllforOutcome(Dashboard.nomorBank);
+            outcome = 0;
 
-            lblOutcome.Text = outcome.ToString(); ;
+            foreach (var trs in transaksiList)
+            {
+                outcome += trs.jumlah;
+            }
+
+            lblOutcome.Text = outcome.ToString(); 
+
+        }
+        void incomeRead()
+        {
+            transaksiList = _transaksiController.readAllforIncome(Dashboard.nomorBank);
+            income = 0;
+
+            foreach (var trs in transaksiList)
+            {
+                income += trs.jumlah;
+            }
+
+            lblIncome.Text = income.ToString(); 
 
         }
 
@@ -153,11 +180,18 @@ namespace BankManagementt.View
         {
             if (lvwTransaction.SelectedItems.Count > 0)
             {
+                saldo = 0;
                 transaksiList = _transaksiController.readAllforOutcome(Dashboard.nomorBank);
+                rekeningList = _rekeningController.readRekeningComboBox(Dashboard.nomorBank);
+
+                foreach(var bank in rekeningList)
+                {
+                    saldo = bank.saldo;
+                }
 
                 foreach (var trs in transaksiList)
                 {
-                    balanceAftertDelete = int.Parse(lblSaldo.Text) + trs.jumlah;
+                    balanceAftertDelete = saldo + trs.jumlah;
                     _transaksiController.UpdateSaldo(balanceAftertDelete, Dashboard.nomorBank);
                 }
 
@@ -171,10 +205,11 @@ namespace BankManagementt.View
                 if (result > 0)
                 {
                     LoadDataTransaksi();
+                    outcomeRead();
                     lblSaldo.Text = balanceAftertDelete.ToString();
                 }
             }
-            else // data belum dipilih
+            else 
             {
                 MessageBox.Show("Data belum dipilih !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }

@@ -26,6 +26,7 @@ namespace BankManagementt.View
 
         bool isNewData = true;
         public static int amount;
+        public int saldo;
         public int amount_obj;
         public int id_transaksi;
 
@@ -41,9 +42,9 @@ namespace BankManagementt.View
             InitializeComponent();
             comboBank();
 
-            txtCategory.ReadOnly = true;
-            txtFromBank.ReadOnly = true;
-            txtNumber.ReadOnly = true;
+            txtCategory.Enabled = false ;
+            txtFromBank.Enabled = false;
+            txtNumber.Enabled = false;
 
             txtCategory.Text = "Transfer";
             dte.Value = DateTime.Now;
@@ -84,8 +85,6 @@ namespace BankManagementt.View
             amount_obj = obj.jumlah;
             id_transaksi = obj.id_transaksi;
             lblTransaksi.Text = "Update Data";
-
-            txtCategory.Text = "Update";
         }
 
         private void bunifuPanel1_Click(object sender, EventArgs e)
@@ -101,7 +100,7 @@ namespace BankManagementt.View
             transaksi.nomor_rekening = int.Parse(txtNumber.Text);
             transaksi.asal_bank = txtFromBank.Text;
             transaksi.tgl_transaksi = datenow;
-            transaksi.tujuan_bank = drpJnisBank.SelectedItem.ToString();
+            transaksi.tujuan_bank = drpJnisBank.SelectedItem.ToString(); 
             transaksi.jenis_transaksi = txtCategory.Text;
 
             if (Dashboard.balance >= int.Parse(txtAmount.Text))
@@ -111,10 +110,17 @@ namespace BankManagementt.View
                 int result = 0;
                 if (isNewData)
                 {
-                    int updated_saldo = Dashboard.balance - transaksi.jumlah;
+                    saldo = 0;
+                    rekeningList = _rekeningController.readRekeningComboBox(Dashboard.nomorBank);
+
+                    foreach (var trs in rekeningList)
+                    {
+                        saldo = trs.saldo;
+                    }
+
+                    int updated_saldo = saldo - transaksi.jumlah;
                     result = _controller.createTransaksi(transaksi);
                     _controller.UpdateSaldo(updated_saldo, transaksi.nomor_rekening);
-
                     if (result > 0)
                     {
                         amount = int.Parse(txtAmount.Text);
@@ -133,10 +139,19 @@ namespace BankManagementt.View
 
             if (isNewData != true)
             {
-                int updated_saldo = Dashboard.balance + amount_obj - transaksi.jumlah;
+                saldo = 0;
+                rekeningList = _rekeningController.readRekeningComboBox(Dashboard.nomorBank);
+
+                foreach (var trs in rekeningList)
+                {
+                    saldo = trs.saldo;
+                }
+
+                int updated_saldo = saldo + amount_obj - transaksi.jumlah;
                 int result = _controller.updateTransaksi(transaksi, id_transaksi);
 
                 _controller.UpdateSaldo(updated_saldo, transaksi.nomor_rekening);
+
                 if (result > 0)
                 {
                     onUpdate(transaksi);

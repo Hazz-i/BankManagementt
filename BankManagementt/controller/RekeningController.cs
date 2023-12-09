@@ -95,14 +95,13 @@ namespace BankManagementt.Controller
             return result;
         }
         //controller untuk tambah saldo
-        public int AddSaldo(int saldo_now, int nomor_rekening, int jumlah_saldo_add, string namaBank)
+        public int AddSaldo(int saldo_now, int nomor_rekening)
         {
             int result = 0;
             using (DbContext context = new DbContext())
             {
                 _repository = new RekeningRepository(context);
                 result = _repository.AddSaldo(saldo_now, nomor_rekening);
-               _repository.CreateTranksasiFromAddSaldo(nomor_rekening, jumlah_saldo_add, namaBank);
             }
 
             if (result > 0)
@@ -111,6 +110,23 @@ namespace BankManagementt.Controller
             }
             else
                 MessageBox.Show("Saldo gagal diupdate !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            return result;
+        }
+        public int CreateTranksasiFromAddSaldo(int nomor_rekening, int jumlah_saldo_add, string namaBank)
+        {
+            int result = 0;
+            using (DbContext context = new DbContext())
+            {
+                _repository = new RekeningRepository(context);
+                result = _repository.CreateTranksasiFromAddSaldo(nomor_rekening, jumlah_saldo_add, namaBank); //atasan ngechat :v
+            }
+
+            if (result > 0)
+            {
+                MessageBox.Show("Transaksi Saldo Berhasil", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("Transaksi Saldo Gagal", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             return result;
         }
     }
